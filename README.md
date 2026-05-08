@@ -32,3 +32,6 @@ UI Framework: ImGui
 
 Donations:
 
+PayPal:
+
+vad.sofr@gmail.com
