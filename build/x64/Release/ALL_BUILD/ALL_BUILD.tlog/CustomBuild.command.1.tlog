@@ -1,0 +1,10 @@
+^S:\_VIBE_CODING\XPG_SUMMONER_MEDIAVOLUME\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SS:/_Vibe_Coding/XPG_Summoner_MediaVolume -BS:/_Vibe_Coding/XPG_Summoner_MediaVolume/build --check-stamp-file S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,10 @@
+^S:\_VIBE_CODING\XPG_SUMMONER_MEDIAVOLUME\BUILD\_DEPS\IMGUI-SUBBUILD\CMAKEFILES\89278FC5FA9C9FE17F091120A0812197\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SS:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild -BS:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild/imgui-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

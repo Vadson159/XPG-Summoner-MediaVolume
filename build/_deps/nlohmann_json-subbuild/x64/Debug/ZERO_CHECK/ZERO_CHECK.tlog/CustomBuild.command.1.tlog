@@ -1,0 +1,10 @@
+^S:\_VIBE_CODING\XPG_SUMMONER_MEDIAVOLUME\BUILD\_DEPS\NLOHMANN_JSON-SUBBUILD\CMAKEFILES\DF310CA5A73B51608884A85B32FAAD92\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SS:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/nlohmann_json-subbuild -BS:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/nlohmann_json-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

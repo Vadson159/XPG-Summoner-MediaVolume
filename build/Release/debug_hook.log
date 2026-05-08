@@ -1,0 +1,3704 @@
+[12:05:32.978] Hook installed OK
+[12:05:32.978] WorkerLoop started
+[12:05:38.041] ReinstallHook: OK
+[12:05:43.051] ReinstallHook: OK
+[12:05:48.048] ReinstallHook: OK
+[12:05:53.043] ReinstallHook: OK
+[12:05:58.051] ReinstallHook: OK
+[12:06:03.042] ReinstallHook: OK
+[12:06:08.045] ReinstallHook: OK
+[12:06:13.055] ReinstallHook: OK
+[12:06:18.049] ReinstallHook: OK
+[12:06:23.041] ReinstallHook: OK
+[12:06:28.055] ReinstallHook: OK
+[12:06:33.049] ReinstallHook: OK
+[12:06:38.060] ReinstallHook: OK
+[12:06:43.075] ReinstallHook: OK
+[12:06:48.078] ReinstallHook: OK
+[12:06:53.078] ReinstallHook: OK
+[12:06:58.082] ReinstallHook: OK
+[12:07:03.081] ReinstallHook: OK
+[12:07:08.079] ReinstallHook: OK
+[12:07:13.080] ReinstallHook: OK
+[12:07:18.079] ReinstallHook: OK
+[12:07:23.079] ReinstallHook: OK
+[12:07:28.078] ReinstallHook: OK
+[12:07:33.079] ReinstallHook: OK
+[12:07:38.083] ReinstallHook: OK
+[12:07:43.080] ReinstallHook: OK
+[12:07:48.072] ReinstallHook: OK
+[12:07:53.081] ReinstallHook: OK
+[12:07:58.077] ReinstallHook: OK
+[12:08:03.072] ReinstallHook: OK
+[12:08:08.078] ReinstallHook: OK
+[12:08:13.086] ReinstallHook: OK
+[12:08:18.084] ReinstallHook: OK
+[12:08:23.080] ReinstallHook: OK
+[12:08:28.081] ReinstallHook: OK
+[12:08:33.073] ReinstallHook: OK
+[12:08:38.083] ReinstallHook: OK
+[12:08:43.080] ReinstallHook: OK
+[12:08:48.078] ReinstallHook: OK
+[12:08:53.085] ReinstallHook: OK
+[12:08:58.083] ReinstallHook: OK
+[12:09:03.079] ReinstallHook: OK
+[12:09:08.083] ReinstallHook: OK
+[12:09:13.075] ReinstallHook: OK
+[12:09:18.086] ReinstallHook: OK
+[12:09:23.089] ReinstallHook: OK
+[12:09:28.089] ReinstallHook: OK
+[12:09:33.114] ReinstallHook: OK
+[12:09:38.126] ReinstallHook: OK
+[12:09:43.121] ReinstallHook: OK
+[12:09:48.128] ReinstallHook: OK
+[12:09:53.119] ReinstallHook: OK
+[12:09:58.128] ReinstallHook: OK
+[12:10:03.119] ReinstallHook: OK
+[12:10:08.122] ReinstallHook: OK
+[12:10:13.148] ReinstallHook: OK
+[12:10:18.134] ReinstallHook: OK
+[12:10:23.134] ReinstallHook: OK
+[12:10:28.149] ReinstallHook: OK
+[12:10:33.164] ReinstallHook: OK
+[12:10:38.177] ReinstallHook: OK
+[12:10:43.175] ReinstallHook: OK
+[12:10:48.173] ReinstallHook: OK
+[12:10:53.166] ReinstallHook: OK
+[12:10:58.192] ReinstallHook: OK
+[12:11:03.184] ReinstallHook: OK
+[12:11:08.196] ReinstallHook: OK
+[12:11:13.188] ReinstallHook: OK
+[12:11:18.196] ReinstallHook: OK
+[12:11:23.203] ReinstallHook: OK
+[12:11:28.211] ReinstallHook: OK
+[12:11:33.202] ReinstallHook: OK
+[12:11:38.205] ReinstallHook: OK
+[12:11:43.204] ReinstallHook: OK
+[12:11:48.208] ReinstallHook: OK
+[12:11:53.201] ReinstallHook: OK
+[12:11:58.208] ReinstallHook: OK
+[12:12:03.203] ReinstallHook: OK
+[12:12:08.201] ReinstallHook: OK
+[12:12:13.215] ReinstallHook: OK
+[12:12:18.236] ReinstallHook: OK
+[12:12:23.247] ReinstallHook: OK
+[12:12:28.255] ReinstallHook: OK
+[12:12:33.250] ReinstallHook: OK
+[12:12:38.256] ReinstallHook: OK
+[12:12:43.254] ReinstallHook: OK
+[12:12:48.257] ReinstallHook: OK
+[12:12:53.249] ReinstallHook: OK
+[12:12:58.246] ReinstallHook: OK
+[12:13:03.254] ReinstallHook: OK
+[12:13:08.247] ReinstallHook: OK
+[12:13:13.274] ReinstallHook: OK
+[12:13:18.268] ReinstallHook: OK
+[12:13:23.262] ReinstallHook: OK
+[12:13:28.272] ReinstallHook: OK
+[12:13:33.264] ReinstallHook: OK
+[12:13:38.259] ReinstallHook: OK
+[12:13:43.260] ReinstallHook: OK
+[12:13:48.268] ReinstallHook: OK
+[12:13:53.259] ReinstallHook: OK
+[12:13:58.261] ReinstallHook: OK
+[12:14:03.264] ReinstallHook: OK
+[12:14:08.270] ReinstallHook: OK
+[12:14:13.262] ReinstallHook: OK
+[12:14:18.264] ReinstallHook: OK
+[12:14:23.272] ReinstallHook: OK
+[12:14:28.265] ReinstallHook: OK
+[12:14:33.264] ReinstallHook: OK
+[12:14:38.268] ReinstallHook: OK
+[12:14:43.270] ReinstallHook: OK
+[12:14:48.264] ReinstallHook: OK
+[12:14:53.268] ReinstallHook: OK
+[12:14:58.274] ReinstallHook: OK
+[12:15:03.264] ReinstallHook: OK
+[12:15:08.270] ReinstallHook: OK
+[12:15:13.264] ReinstallHook: OK
+[12:15:18.259] ReinstallHook: OK
+[12:15:23.273] ReinstallHook: OK
+[12:15:28.262] ReinstallHook: OK
+[12:15:33.265] ReinstallHook: OK
+[12:15:38.260] ReinstallHook: OK
+[12:15:43.268] ReinstallHook: OK
+[12:15:48.267] ReinstallHook: OK
+[12:15:53.265] ReinstallHook: OK
+[12:15:58.263] ReinstallHook: OK
+[12:16:03.262] ReinstallHook: OK
+[12:16:08.270] ReinstallHook: OK
+[12:16:13.270] ReinstallHook: OK
+[12:16:18.289] ReinstallHook: OK
+[12:16:23.302] ReinstallHook: OK
+[12:16:28.293] ReinstallHook: OK
+[12:16:33.303] ReinstallHook: OK
+[12:16:38.299] ReinstallHook: OK
+[12:16:43.294] ReinstallHook: OK
+[12:16:48.293] ReinstallHook: OK
+[12:16:53.305] ReinstallHook: OK
+[12:16:58.303] ReinstallHook: OK
+[12:17:03.297] ReinstallHook: OK
+[12:17:08.294] ReinstallHook: OK
+[12:17:13.294] ReinstallHook: OK
+[12:17:18.313] ReinstallHook: OK
+[12:17:23.323] ReinstallHook: OK
+[12:17:28.324] ReinstallHook: OK
+[12:17:33.335] ReinstallHook: OK
+[12:17:38.327] ReinstallHook: OK
+[12:17:43.335] ReinstallHook: OK
+[12:17:48.323] ReinstallHook: OK
+[12:17:53.327] ReinstallHook: OK
+[12:17:58.331] ReinstallHook: OK
+[12:18:03.322] ReinstallHook: OK
+[12:18:08.324] ReinstallHook: OK
+[12:18:13.328] ReinstallHook: OK
+[12:18:18.335] ReinstallHook: OK
+[12:18:23.340] ReinstallHook: OK
+[12:18:28.345] ReinstallHook: OK
+[12:18:33.352] ReinstallHook: OK
+[12:18:38.348] ReinstallHook: OK
+[12:18:43.357] ReinstallHook: OK
+[12:18:48.378] ReinstallHook: OK
+[12:18:53.390] ReinstallHook: OK
+[12:18:58.414] ReinstallHook: OK
+[12:19:03.419] ReinstallHook: OK
+[12:19:08.424] ReinstallHook: OK
+[12:19:13.430] ReinstallHook: OK
+[12:19:18.417] ReinstallHook: OK
+[12:19:23.423] ReinstallHook: OK
+[12:19:28.429] ReinstallHook: OK
+[12:19:33.419] ReinstallHook: OK
+[12:19:38.430] ReinstallHook: OK
+[12:19:43.427] ReinstallHook: OK
+[12:19:48.418] ReinstallHook: OK
+[12:19:53.422] ReinstallHook: OK
+[12:19:58.429] ReinstallHook: OK
+[12:20:03.422] ReinstallHook: OK
+[12:20:08.427] ReinstallHook: OK
+[12:20:13.420] ReinstallHook: OK
+[12:20:18.417] ReinstallHook: OK
+[12:20:23.426] ReinstallHook: OK
+[12:20:28.422] ReinstallHook: OK
+[12:20:33.430] ReinstallHook: OK
+[12:20:38.441] ReinstallHook: OK
+[12:20:43.437] ReinstallHook: OK
+[12:20:48.461] ReinstallHook: OK
+[12:20:53.456] ReinstallHook: OK
+[12:20:58.453] ReinstallHook: OK
+[12:21:03.455] ReinstallHook: OK
+[12:21:08.450] ReinstallHook: OK
+[12:21:13.455] ReinstallHook: OK
+[12:21:18.459] ReinstallHook: OK
+[12:21:23.452] ReinstallHook: OK
+[12:21:28.450] ReinstallHook: OK
+[12:21:33.454] ReinstallHook: OK
+[12:21:38.460] ReinstallHook: OK
+[12:21:43.455] ReinstallHook: OK
+[12:21:48.447] ReinstallHook: OK
+[12:21:53.454] ReinstallHook: OK
+[12:21:58.461] ReinstallHook: OK
+[12:22:03.450] ReinstallHook: OK
+[12:22:08.456] ReinstallHook: OK
+[12:22:13.448] ReinstallHook: OK
+[12:22:18.453] ReinstallHook: OK
+[12:22:23.457] ReinstallHook: OK
+[12:22:28.452] ReinstallHook: OK
+[12:22:33.458] ReinstallHook: OK
+[12:22:38.448] ReinstallHook: OK
+[12:22:43.451] ReinstallHook: OK
+[12:22:48.456] ReinstallHook: OK
+[12:22:53.461] ReinstallHook: OK
+[12:22:58.453] ReinstallHook: OK
+[12:23:03.449] ReinstallHook: OK
+[12:23:08.455] ReinstallHook: OK
+[12:23:13.447] ReinstallHook: OK
+[12:23:18.453] ReinstallHook: OK
+[12:23:23.457] ReinstallHook: OK
+[12:23:28.456] ReinstallHook: OK
+[12:23:33.461] ReinstallHook: OK
+[12:23:38.450] ReinstallHook: OK
+[12:23:43.456] ReinstallHook: OK
+[12:23:48.448] ReinstallHook: OK
+[12:23:53.450] ReinstallHook: OK
+[12:23:58.447] ReinstallHook: OK
+[12:24:03.460] ReinstallHook: OK
+[12:24:08.447] ReinstallHook: OK
+[12:24:13.454] ReinstallHook: OK
+[12:24:18.457] ReinstallHook: OK
+[12:24:23.449] ReinstallHook: OK
+[12:24:28.453] ReinstallHook: OK
+[12:24:33.458] ReinstallHook: OK
+[12:24:38.459] ReinstallHook: OK
+[12:24:43.461] ReinstallHook: OK
+[12:24:48.454] ReinstallHook: OK
+[12:24:53.457] ReinstallHook: OK
+[12:24:58.461] ReinstallHook: OK
+[12:25:03.449] ReinstallHook: OK
+[12:25:08.453] ReinstallHook: OK
+[12:25:13.452] ReinstallHook: OK
+[12:25:18.450] ReinstallHook: OK
+[12:25:23.455] ReinstallHook: OK
+[12:25:28.455] ReinstallHook: OK
+[12:25:33.471] ReinstallHook: OK
+[12:25:38.475] ReinstallHook: OK
+[12:25:43.477] ReinstallHook: OK
+[12:25:48.469] ReinstallHook: OK
+[12:25:53.476] ReinstallHook: OK
+[12:25:58.463] ReinstallHook: OK
+[12:26:03.468] ReinstallHook: OK
+[12:26:08.467] ReinstallHook: OK
+[12:26:13.468] ReinstallHook: OK
+[12:26:18.468] ReinstallHook: OK
+[12:26:23.473] ReinstallHook: OK
+[12:26:28.476] ReinstallHook: OK
+[12:26:33.470] ReinstallHook: OK
+[12:26:38.465] ReinstallHook: OK
+[12:26:43.474] ReinstallHook: OK
+[12:26:48.466] ReinstallHook: OK
+[12:26:53.475] ReinstallHook: OK
+[12:26:58.466] ReinstallHook: OK
+[12:27:03.471] ReinstallHook: OK
+[12:27:08.473] ReinstallHook: OK
+[12:27:13.467] ReinstallHook: OK
+[12:27:18.471] ReinstallHook: OK
+[12:27:23.473] ReinstallHook: OK
+[12:27:28.468] ReinstallHook: OK
+[12:27:33.476] ReinstallHook: OK
+[12:27:38.464] ReinstallHook: OK
+[12:27:43.470] ReinstallHook: OK
+[12:27:48.476] ReinstallHook: OK
+[12:27:53.468] ReinstallHook: OK
+[12:27:58.472] ReinstallHook: OK
+[12:28:03.467] ReinstallHook: OK
+[12:28:08.465] ReinstallHook: OK
+[12:28:13.475] ReinstallHook: OK
+[12:28:18.467] ReinstallHook: OK
+[12:28:23.476] ReinstallHook: OK
+[12:28:28.474] ReinstallHook: OK
+[12:28:33.464] ReinstallHook: OK
+[12:28:38.469] ReinstallHook: OK
+[12:28:43.463] ReinstallHook: OK
+[12:28:48.470] ReinstallHook: OK
+[12:28:53.477] ReinstallHook: OK
+[12:28:58.464] ReinstallHook: OK
+[12:29:03.466] ReinstallHook: OK
+[12:29:08.472] ReinstallHook: OK
+[12:29:13.474] ReinstallHook: OK
+[12:29:18.477] ReinstallHook: OK
+[12:29:23.472] ReinstallHook: OK
+[12:29:28.477] ReinstallHook: OK
+[12:29:33.470] ReinstallHook: OK
+[12:29:38.470] ReinstallHook: OK
+[12:29:43.475] ReinstallHook: OK
+[12:29:48.477] ReinstallHook: OK
+[12:29:53.465] ReinstallHook: OK
+[12:29:58.470] ReinstallHook: OK
+[12:30:03.478] ReinstallHook: OK
+[12:30:08.483] ReinstallHook: OK
+[12:30:13.490] ReinstallHook: OK
+[12:30:18.492] ReinstallHook: OK
+[12:30:23.485] ReinstallHook: OK
+[12:30:28.487] ReinstallHook: OK
+[12:30:33.488] ReinstallHook: OK
+[12:30:38.487] ReinstallHook: OK
+[12:30:43.493] ReinstallHook: OK
+[12:30:48.482] ReinstallHook: OK
+[12:30:53.485] ReinstallHook: OK
+[12:30:58.487] ReinstallHook: OK
+[12:31:03.493] ReinstallHook: OK
+[12:31:08.486] ReinstallHook: OK
+[12:31:13.492] ReinstallHook: OK
+[12:31:18.489] ReinstallHook: OK
+[12:31:23.483] ReinstallHook: OK
+[12:31:28.485] ReinstallHook: OK
+[12:31:33.502] ReinstallHook: OK
+[12:31:38.503] ReinstallHook: OK
+[12:31:43.505] ReinstallHook: OK
+[12:31:48.508] ReinstallHook: OK
+[12:31:53.497] ReinstallHook: OK
+[12:31:58.499] ReinstallHook: OK
+[12:32:03.504] ReinstallHook: OK
+[12:32:08.495] ReinstallHook: OK
+[12:32:13.505] ReinstallHook: OK
+[12:32:18.495] ReinstallHook: OK
+[12:32:23.504] ReinstallHook: OK
+[12:32:28.498] ReinstallHook: OK
+[12:32:33.504] ReinstallHook: OK
+[12:32:38.496] ReinstallHook: OK
+[12:32:43.497] ReinstallHook: OK
+[12:32:48.503] ReinstallHook: OK
+[12:32:53.504] ReinstallHook: OK
+[12:32:58.506] ReinstallHook: OK
+[12:33:03.494] ReinstallHook: OK
+[12:33:08.500] ReinstallHook: OK
+[12:33:13.507] ReinstallHook: OK
+[12:33:18.493] ReinstallHook: OK
+[12:33:23.497] ReinstallHook: OK
+[12:33:28.502] ReinstallHook: OK
+[12:33:33.504] ReinstallHook: OK
+[12:33:38.504] ReinstallHook: OK
+[12:33:43.503] ReinstallHook: OK
+[12:33:48.502] ReinstallHook: OK
+[12:33:53.505] ReinstallHook: OK
+[12:33:58.507] ReinstallHook: OK
+[12:34:03.496] ReinstallHook: OK
+[12:34:08.498] ReinstallHook: OK
+[12:34:13.503] ReinstallHook: OK
+[12:34:18.504] ReinstallHook: OK
+[12:34:23.496] ReinstallHook: OK
+[12:34:28.500] ReinstallHook: OK
+[12:34:33.502] ReinstallHook: OK
+[12:34:38.505] ReinstallHook: OK
+[12:34:43.509] ReinstallHook: OK
+[12:34:48.498] ReinstallHook: OK
+[12:34:53.503] ReinstallHook: OK
+[12:34:58.495] ReinstallHook: OK
+[12:35:03.518] ReinstallHook: OK
+[12:35:08.511] ReinstallHook: OK
+[12:35:13.523] ReinstallHook: OK
+[12:35:18.518] ReinstallHook: OK
+[12:35:23.519] ReinstallHook: OK
+[12:35:28.524] ReinstallHook: OK
+[12:35:33.509] ReinstallHook: OK
+[12:35:38.519] ReinstallHook: OK
+[12:35:43.511] ReinstallHook: OK
+[12:35:48.518] ReinstallHook: OK
+[12:35:53.513] ReinstallHook: OK
+[12:35:58.519] ReinstallHook: OK
+[12:36:03.515] ReinstallHook: OK
+[12:36:08.512] ReinstallHook: OK
+[12:36:13.524] ReinstallHook: OK
+[12:36:18.520] ReinstallHook: OK
+[12:36:23.509] ReinstallHook: OK
+[12:36:28.517] ReinstallHook: OK
+[12:36:33.516] ReinstallHook: OK
+[12:36:38.521] ReinstallHook: OK
+[12:36:43.522] ReinstallHook: OK
+[12:36:48.540] ReinstallHook: OK
+[12:36:53.538] ReinstallHook: OK
+[12:36:58.525] ReinstallHook: OK
+[12:37:03.529] ReinstallHook: OK
+[12:37:08.527] ReinstallHook: OK
+[12:37:13.531] ReinstallHook: OK
+[12:37:18.540] ReinstallHook: OK
+[12:37:23.529] ReinstallHook: OK
+[12:37:28.534] ReinstallHook: OK
+[12:37:29.176] KEY vk=0xD (13), modKey=0, capturing=0
+[12:37:29.784] KEY vk=0x62 (98), modKey=0, capturing=0
+[12:37:30.045] KEY vk=0x64 (100), modKey=0, capturing=0
+[12:37:30.309] KEY vk=0x65 (101), modKey=0, capturing=0
+[12:37:30.573] KEY vk=0x66 (102), modKey=0, capturing=0
+[12:37:33.528] ReinstallHook: OK
+[12:37:38.548] ReinstallHook: OK
+[12:37:43.553] ReinstallHook: OK
+[12:37:48.555] ReinstallHook: OK
+[12:37:53.552] ReinstallHook: OK
+[12:37:58.545] ReinstallHook: OK
+[12:38:03.548] ReinstallHook: OK
+[12:38:08.551] ReinstallHook: OK
+[12:38:13.542] ReinstallHook: OK
+[12:38:18.551] ReinstallHook: OK
+[12:38:23.546] ReinstallHook: OK
+[12:38:28.542] ReinstallHook: OK
+[12:38:33.547] ReinstallHook: OK
+[12:38:38.569] ReinstallHook: OK
+[12:38:43.562] ReinstallHook: OK
+[12:38:48.568] ReinstallHook: OK
+[12:38:53.562] ReinstallHook: OK
+[12:38:58.557] ReinstallHook: OK
+[12:39:03.567] ReinstallHook: OK
+[12:39:08.586] ReinstallHook: OK
+[12:39:10.756] KEY vk=0xD (13), modKey=0, capturing=0
+[12:39:12.026] KEY vk=0xD (13), modKey=0, capturing=0
+[12:39:13.577] ReinstallHook: OK
+[12:39:18.585] ReinstallHook: OK
+[12:39:23.573] ReinstallHook: OK
+[12:39:28.598] ReinstallHook: OK
+[12:39:33.590] ReinstallHook: OK
+[12:39:38.587] ReinstallHook: OK
+[12:39:43.594] ReinstallHook: OK
+[12:39:48.604] ReinstallHook: OK
+[12:39:53.604] ReinstallHook: OK
+[12:39:58.613] ReinstallHook: OK
+[12:40:03.622] ReinstallHook: OK
+[12:40:08.627] ReinstallHook: OK
+[12:40:13.620] ReinstallHook: OK
+[12:40:18.623] ReinstallHook: OK
+[12:40:23.632] ReinstallHook: OK
+[12:40:28.625] ReinstallHook: OK
+[12:40:33.648] ReinstallHook: OK
+[12:40:38.637] ReinstallHook: OK
+[12:40:43.649] ReinstallHook: OK
+[12:40:48.639] ReinstallHook: OK
+[12:40:53.652] ReinstallHook: OK
+[12:40:58.657] ReinstallHook: OK
+[12:41:03.649] ReinstallHook: OK
+[12:41:08.677] ReinstallHook: OK
+[12:41:13.671] ReinstallHook: OK
+[12:41:18.677] ReinstallHook: OK
+[12:41:23.672] ReinstallHook: OK
+[12:41:28.674] ReinstallHook: OK
+[12:41:33.680] ReinstallHook: OK
+[12:41:38.670] ReinstallHook: OK
+[12:41:43.676] ReinstallHook: OK
+[12:41:48.666] ReinstallHook: OK
+[12:41:53.687] ReinstallHook: OK
+[12:41:58.698] ReinstallHook: OK
+[12:42:03.705] ReinstallHook: OK
+[12:42:08.698] ReinstallHook: OK
+[12:42:12.101] KEY vk=0xD (13), modKey=0, capturing=0
+[12:42:13.511] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:42:13.518] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:42:13.697] ReinstallHook: OK
+[12:42:14.389] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:42:14.496] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:14.613] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:42:14.830] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:42:14.992] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:42:15.108] KEY vk=0xBA (186), modKey=0, capturing=0
+[12:42:15.219] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:42:15.501] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:42:15.618] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:42:15.714] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:15.903] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:42:16.013] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:42:16.166] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:42:16.245] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:16.432] KEY vk=0x58 (88), modKey=0, capturing=0
+[12:42:16.475] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:42:16.592] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:42:16.794] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:17.026] KEY vk=0xDE (222), modKey=0, capturing=0
+[12:42:17.320] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:42:17.507] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:42:17.610] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:17.733] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:42:17.808] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:42:17.882] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:18.161] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:42:18.180] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:42:18.577] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:42:18.698] ReinstallHook: OK
+[12:42:19.062] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:42:19.324] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:42:19.521] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:42:19.612] KEY vk=0x5A (90), modKey=0, capturing=0
+[12:42:19.737] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:42:19.864] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:42:20.021] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:42:20.119] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:20.281] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:42:20.408] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:42:20.434] KEY vk=0xDB (219), modKey=0, capturing=0
+[12:42:20.511] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:42:20.951] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:42:21.091] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:42:21.243] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:42:21.411] KEY vk=0xDB (219), modKey=0, capturing=0
+[12:42:21.524] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:42:21.695] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:42:21.884] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:42:22.010] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:42:22.089] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:42:22.262] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:42:22.453] KEY vk=0xD (13), modKey=0, capturing=0
+[12:42:22.701] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:42:22.784] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:42:23.702] ReinstallHook: OK
+[12:42:28.704] ReinstallHook: OK
+[12:42:33.700] ReinstallHook: OK
+[12:42:38.700] ReinstallHook: OK
+[12:42:43.707] ReinstallHook: OK
+[12:42:48.702] ReinstallHook: OK
+[12:42:53.702] ReinstallHook: OK
+[12:42:58.710] ReinstallHook: OK
+[12:43:03.699] ReinstallHook: OK
+[12:43:08.706] ReinstallHook: OK
+[12:43:13.707] ReinstallHook: OK
+[12:43:18.697] ReinstallHook: OK
+[12:43:23.702] ReinstallHook: OK
+[12:43:28.707] ReinstallHook: OK
+[12:43:33.702] ReinstallHook: OK
+[12:43:38.709] ReinstallHook: OK
+[12:43:43.701] ReinstallHook: OK
+[12:43:48.465] KEY vk=0xA2 (162), modKey=0, capturing=0
+[12:43:48.466] KEY vk=0xA5 (165), modKey=0, capturing=0
+[12:43:48.706] ReinstallHook: OK
+[12:43:53.709] ReinstallHook: OK
+[12:43:58.698] ReinstallHook: OK
+[12:44:03.702] ReinstallHook: OK
+[12:44:08.698] ReinstallHook: OK
+[12:44:13.704] ReinstallHook: OK
+[12:44:18.697] ReinstallHook: OK
+[12:44:23.706] ReinstallHook: OK
+[12:44:28.707] ReinstallHook: OK
+[12:44:33.697] ReinstallHook: OK
+[12:44:38.707] ReinstallHook: OK
+[12:44:43.700] ReinstallHook: OK
+[12:44:48.709] ReinstallHook: OK
+[12:44:53.703] ReinstallHook: OK
+[12:44:58.710] ReinstallHook: OK
+[12:45:03.702] ReinstallHook: OK
+[12:45:08.705] ReinstallHook: OK
+[12:45:13.708] ReinstallHook: OK
+[12:45:18.712] ReinstallHook: OK
+[12:45:23.711] ReinstallHook: OK
+[12:45:28.705] ReinstallHook: OK
+[12:45:33.697] ReinstallHook: OK
+[12:45:38.705] ReinstallHook: OK
+[12:45:43.697] ReinstallHook: OK
+[12:45:48.704] ReinstallHook: OK
+[12:45:53.696] ReinstallHook: OK
+[12:45:58.705] ReinstallHook: OK
+[12:46:03.698] ReinstallHook: OK
+[12:46:08.701] ReinstallHook: OK
+[12:46:13.712] ReinstallHook: OK
+[12:46:18.711] ReinstallHook: OK
+[12:46:23.710] ReinstallHook: OK
+[12:46:28.700] ReinstallHook: OK
+[12:46:33.711] ReinstallHook: OK
+[12:46:38.700] ReinstallHook: OK
+[12:46:43.706] ReinstallHook: OK
+[12:46:48.704] ReinstallHook: OK
+[12:46:53.702] ReinstallHook: OK
+[12:46:55.309] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:46:55.432] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:46:58.698] ReinstallHook: OK
+[12:47:00.687] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:47:00.709] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:47:00.957] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:47:01.107] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:47:01.201] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:01.325] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:01.567] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:47:01.666] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:47:01.804] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:47:01.939] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:02.031] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:02.158] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:02.244] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:02.397] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:02.554] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:47:02.763] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:02.920] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:03.122] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:47:03.434] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:03.703] ReinstallHook: OK
+[12:47:03.729] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:47:03.897] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:47:04.007] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:04.240] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:47:04.480] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:04.732] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:05.384] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:05.497] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:47:05.644] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:47:05.721] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:06.098] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:47:06.141] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:47:06.778] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:08.697] ReinstallHook: OK
+[12:47:08.739] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:47:08.810] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:47:10.112] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:10.377] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:47:10.538] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:10.725] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:47:10.807] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:10.990] KEY vk=0x58 (88), modKey=0, capturing=0
+[12:47:11.045] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:11.279] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:47:11.388] KEY vk=0x47 (71), modKey=0, capturing=0
+[12:47:11.673] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:11.923] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:12.140] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:47:12.253] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:12.450] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:47:12.554] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:12.876] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:47:12.977] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:47:13.089] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:13.708] ReinstallHook: OK
+[12:47:14.683] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.188] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.220] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.251] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.283] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.330] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.360] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.391] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.422] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.454] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.485] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.720] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:15.896] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:16.071] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:16.254] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:16.443] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:17.454] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:17.569] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:17.701] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:17.869] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:47:17.920] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:18.108] KEY vk=0x58 (88), modKey=0, capturing=0
+[12:47:18.150] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:18.398] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:47:18.701] ReinstallHook: OK
+[12:47:18.858] KEY vk=0x47 (71), modKey=0, capturing=0
+[12:47:18.974] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:21.104] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:21.257] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:47:21.390] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:47:21.522] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:47:21.617] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:47:21.687] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:22.374] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:47:22.800] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:23.326] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:23.456] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:47:23.516] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:23.693] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:47:23.708] ReinstallHook: OK
+[12:47:23.792] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:47:23.856] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:24.232] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:47:24.440] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:24.524] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:47:24.750] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:47:24.845] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:47:25.055] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:28.697] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:47:28.697] ReinstallHook: OK
+[12:47:28.975] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:47:29.123] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:47:29.199] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:47:29.449] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:47:29.683] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:47:29.764] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:30.035] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:47:30.082] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:32.017] KEY vk=0xD (13), modKey=0, capturing=0
+[12:47:33.453] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:47:33.704] ReinstallHook: OK
+[12:47:33.724] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:33.906] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:47:34.157] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:34.372] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:47:34.474] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:34.604] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:47:35.076] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:35.264] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:47:35.395] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:47:35.859] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:36.046] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:47:36.494] KEY vk=0xA2 (162), modKey=0, capturing=0
+[12:47:36.906] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:47:37.168] KEY vk=0x58 (88), modKey=0, capturing=0
+[12:47:37.537] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:47:37.650] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:47:37.803] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:47:38.709] ReinstallHook: OK
+[12:47:38.974] KEY vk=0xA2 (162), modKey=0, capturing=0
+[12:47:39.377] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:47:40.490] KEY vk=0x58 (88), modKey=0, capturing=0
+[12:47:43.706] ReinstallHook: OK
+[12:47:48.703] ReinstallHook: OK
+[12:47:53.707] ReinstallHook: OK
+[12:47:58.710] ReinstallHook: OK
+[12:48:03.702] ReinstallHook: OK
+[12:48:08.698] ReinstallHook: OK
+[12:48:11.371] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:48:11.576] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:12.374] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:12.524] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:48:12.626] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:12.743] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:48:12.873] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:12.986] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:13.109] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:48:13.174] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:13.274] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:13.443] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:13.506] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:13.628] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:13.687] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:48:13.701] ReinstallHook: OK
+[12:48:13.814] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:14.076] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:48:14.234] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:14.410] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:14.545] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:48:14.782] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:14.832] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:15.390] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:48:15.778] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:48:16.031] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:48:16.207] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:48:16.295] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:16.455] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:48:16.512] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:16.740] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:16.817] KEY vk=0x47 (71), modKey=0, capturing=0
+[12:48:16.906] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:17.335] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:48:17.552] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:17.631] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:48:17.867] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:17.999] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:48:18.294] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:48:18.375] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:18.581] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:48:18.639] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:18.699] ReinstallHook: OK
+[12:48:18.801] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:48:18.967] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:48:18.999] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:48:19.244] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:48:19.340] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:20.733] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:20.837] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:48:20.895] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:21.284] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:21.308] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:21.458] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:48:21.635] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:21.917] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:48:22.267] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:48:22.549] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:48:22.647] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:22.884] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:48:22.936] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:23.666] KEY vk=0xD (13), modKey=0, capturing=0
+[12:48:23.702] ReinstallHook: OK
+[12:48:23.945] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:48:23.991] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:48:24.294] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:28.712] ReinstallHook: OK
+[12:48:33.717] ReinstallHook: OK
+[12:48:38.721] ReinstallHook: OK
+[12:48:43.713] ReinstallHook: OK
+[12:48:46.303] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:48:46.424] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:48:46.762] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:48:46.937] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:47.079] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:47.270] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:48:47.368] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:47.469] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:48:47.700] KEY vk=0xBC (188), modKey=0, capturing=0
+[12:48:47.824] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:48.015] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:48:48.169] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:48:48.294] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:48.727] ReinstallHook: OK
+[12:48:48.769] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:51.050] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:48:51.145] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:48:51.387] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:48:51.438] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:51.552] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:51.841] KEY vk=0xDE (222), modKey=0, capturing=0
+[12:48:51.913] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:52.020] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:52.251] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:48:52.359] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:48:52.620] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:48:52.763] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:48:52.828] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:48:52.921] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:53.716] ReinstallHook: OK
+[12:48:53.879] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:48:54.271] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:48:54.602] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:48:54.815] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:48:55.025] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:55.682] KEY vk=0xBC (188), modKey=0, capturing=0
+[12:48:55.791] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:56.007] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:48:56.079] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:56.182] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:56.398] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:48:56.466] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:56.612] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:48:56.751] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:48:56.883] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:48:56.982] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:48:57.321] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.824] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.855] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.902] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.933] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.964] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:57.995] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:58.026] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:58.057] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:58.726] ReinstallHook: OK
+[12:48:59.280] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:59.461] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:48:59.680] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:49:00.893] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:49:01.136] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:49:01.209] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:49:01.359] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:49:01.428] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:49:01.536] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:49:01.882] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:49:01.960] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:49:02.134] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:49:02.306] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:49:02.396] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:49:02.478] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:49:02.725] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:49:02.787] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:49:03.048] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:49:03.255] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:49:03.374] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:49:03.472] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:49:03.671] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:49:03.720] ReinstallHook: OK
+[12:49:03.722] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:49:03.792] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:49:06.836] KEY vk=0xD (13), modKey=0, capturing=0
+[12:49:08.712] ReinstallHook: OK
+[12:49:08.731] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:49:08.895] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:49:08.981] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:49:09.556] KEY vk=0xD (13), modKey=0, capturing=0
+[12:49:12.452] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:49:12.521] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:49:13.735] ReinstallHook: OK
+[12:49:18.757] ReinstallHook: OK
+[12:49:23.749] ReinstallHook: OK
+[12:49:28.743] ReinstallHook: OK
+[12:49:33.759] ReinstallHook: OK
+[12:49:38.785] ReinstallHook: OK
+[12:49:43.778] ReinstallHook: OK
+[12:49:48.786] ReinstallHook: OK
+[12:49:53.792] ReinstallHook: OK
+[12:49:58.798] ReinstallHook: OK
+[12:50:03.795] ReinstallHook: OK
+[12:50:08.792] ReinstallHook: OK
+[12:50:13.796] ReinstallHook: OK
+[12:50:18.493] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:50:18.564] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:50:18.805] ReinstallHook: OK
+[12:50:22.093] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:50:22.279] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:50:22.363] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:50:22.415] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:50:22.647] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:50:22.741] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:50:22.909] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:50:22.992] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:50:23.084] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:50:23.270] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:50:23.333] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:50:23.718] KEY vk=0xD (13), modKey=0, capturing=0
+[12:50:23.792] ReinstallHook: OK
+[12:50:23.988] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:50:24.066] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:50:28.792] ReinstallHook: OK
+[12:50:33.801] ReinstallHook: OK
+[12:50:38.796] ReinstallHook: OK
+[12:50:43.794] ReinstallHook: OK
+[12:50:48.797] ReinstallHook: OK
+[12:50:53.791] ReinstallHook: OK
+[12:50:58.794] ReinstallHook: OK
+[12:51:03.805] ReinstallHook: OK
+[12:51:08.800] ReinstallHook: OK
+[12:51:13.794] ReinstallHook: OK
+[12:51:18.800] ReinstallHook: OK
+[12:51:23.790] ReinstallHook: OK
+[12:51:28.803] ReinstallHook: OK
+[12:51:33.793] ReinstallHook: OK
+[12:51:34.684] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:51:34.816] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:34.987] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:35.252] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:51:35.354] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:35.770] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:51:35.930] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:51:36.002] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:51:36.195] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:36.253] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:36.369] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:36.440] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:51:36.583] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:51:36.733] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:36.801] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:36.924] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:37.069] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:37.321] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:51:37.409] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:37.609] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:51:37.743] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:51:37.948] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:38.097] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:51:38.794] ReinstallHook: OK
+[12:51:38.971] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:51:39.057] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:51:39.200] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:42.003] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:51:42.161] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:51:42.316] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:51:42.372] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:42.556] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:51:42.602] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:43.402] KEY vk=0xDE (222), modKey=0, capturing=0
+[12:51:43.555] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:51:43.803] ReinstallHook: OK
+[12:51:43.934] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:44.101] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:51:44.277] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:51:44.416] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:51:44.594] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:51:44.736] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:44.927] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:51:44.986] KEY vk=0x47 (71), modKey=0, capturing=0
+[12:51:45.079] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:45.260] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:51:45.376] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:51:45.541] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:51:45.674] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:46.044] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:51:46.114] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:51:46.189] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:46.368] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:51:46.455] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:51:46.522] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:51:46.658] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:46.975] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:51:47.089] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:51:47.315] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:51:47.458] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:51:47.664] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:51:47.846] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:51:47.891] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:48.386] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:48.543] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:51:48.625] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:51:48.703] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:51:48.794] ReinstallHook: OK
+[12:51:49.192] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:51:49.295] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:51:49.416] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:51:49.594] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:51:50.476] KEY vk=0xD (13), modKey=0, capturing=0
+[12:51:53.798] ReinstallHook: OK
+[12:51:58.806] ReinstallHook: OK
+[12:52:03.807] ReinstallHook: OK
+[12:52:08.819] ReinstallHook: OK
+[12:52:13.821] ReinstallHook: OK
+[12:52:18.828] ReinstallHook: OK
+[12:52:23.822] ReinstallHook: OK
+[12:52:28.825] ReinstallHook: OK
+[12:52:33.822] ReinstallHook: OK
+[12:52:38.835] ReinstallHook: OK
+[12:52:43.832] ReinstallHook: OK
+[12:52:48.315] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:52:48.422] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:52:48.577] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:52:48.829] ReinstallHook: OK
+[12:52:48.963] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:52:49.050] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:49.251] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:52:49.343] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:52:49.608] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:52:49.722] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:49.907] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:52:50.108] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:52:50.525] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:52:50.659] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:52:50.862] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:52:51.025] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:52:51.201] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:52:51.260] KEY vk=0xBF (191), modKey=0, capturing=0
+[12:52:51.291] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:51.658] KEY vk=0xD (13), modKey=0, capturing=0
+[12:52:52.047] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:52:52.135] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:52:52.630] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:52.769] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:53.823] ReinstallHook: OK
+[12:52:54.443] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:52:58.835] ReinstallHook: OK
+[12:53:03.826] ReinstallHook: OK
+[12:53:08.830] ReinstallHook: OK
+[12:53:13.826] ReinstallHook: OK
+[12:53:18.832] ReinstallHook: OK
+[12:53:23.827] ReinstallHook: OK
+[12:53:24.866] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:25.032] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:53:25.255] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:25.406] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:53:25.496] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:25.621] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:53:25.708] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:25.834] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:25.985] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:26.022] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:53:26.152] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:28.493] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:28.828] ReinstallHook: OK
+[12:53:29.898] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:30.764] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:30.899] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:31.027] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:31.193] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:31.299] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:31.482] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:31.736] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:53:31.790] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:31.945] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:53:32.044] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:32.154] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:32.317] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:53:32.373] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:32.716] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:33.031] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:33.173] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:33.298] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:33.553] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:33.823] ReinstallHook: OK
+[12:53:33.888] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:53:34.019] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:34.295] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:34.731] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:53:34.795] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:35.037] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:53:35.287] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:53:35.470] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:35.572] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:35.637] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:36.009] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:36.213] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:53:36.344] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:36.540] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:36.690] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:53:36.814] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:36.972] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:37.262] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:37.410] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:37.677] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:53:37.730] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:37.982] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:38.085] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:38.247] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:38.454] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:38.701] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:38.832] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:38.832] ReinstallHook: OK
+[12:53:38.968] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:39.613] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:39.851] KEY vk=0xBC (188), modKey=0, capturing=0
+[12:53:39.934] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:40.105] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:40.303] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:40.595] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:40.732] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:40.866] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:41.221] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:42.086] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:53:42.167] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:42.341] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:42.576] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:42.640] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:53:43.138] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:43.293] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:43.392] KEY vk=0x39 (57), modKey=0, capturing=0
+[12:53:43.832] ReinstallHook: OK
+[12:53:44.008] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:44.344] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:44.645] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:44.736] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:44.869] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:53:45.198] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:45.354] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:45.798] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:46.020] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:53:46.109] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:53:46.328] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:46.779] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:46.928] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:53:47.135] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:47.372] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:47.504] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:53:47.775] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:53:47.828] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:48.090] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:53:48.155] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:48.314] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:48.630] KEY vk=0xBE (190), modKey=0, capturing=0
+[12:53:48.803] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:53:48.828] ReinstallHook: OK
+[12:53:48.931] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:49.327] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:53:49.840] KEY vk=0xBE (190), modKey=0, capturing=0
+[12:53:49.930] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:50.662] KEY vk=0xBE (190), modKey=0, capturing=0
+[12:53:52.789] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:53:52.922] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:53:53.161] KEY vk=0xBC (188), modKey=0, capturing=0
+[12:53:53.243] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:53.825] ReinstallHook: OK
+[12:53:54.047] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:53:54.250] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:53:54.369] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:54.520] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:53:54.654] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:53:54.742] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:54.874] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:53:54.964] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:55.144] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:53:55.195] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:53:55.351] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:53:55.476] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:55.546] KEY vk=0x30 (48), modKey=0, capturing=0
+[12:53:55.909] KEY vk=0xD (13), modKey=0, capturing=0
+[12:53:56.138] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:56.815] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:56.916] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:53:57.050] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:53:57.222] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:53:57.696] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:57.927] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:53:58.006] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:58.284] KEY vk=0xDE (222), modKey=0, capturing=0
+[12:53:58.345] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:53:58.471] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:58.750] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:53:58.831] ReinstallHook: OK
+[12:53:58.957] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:53:59.122] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:53:59.358] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:59.511] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:53:59.588] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:53:59.876] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:54:00.102] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:00.246] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:00.474] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:54:00.645] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:54:00.982] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:01.125] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:01.247] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:01.380] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:01.883] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:02.254] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:02.422] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:02.568] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:02.812] KEY vk=0x4B (75), modKey=0, capturing=0
+[12:54:02.988] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:54:03.194] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:03.282] KEY vk=0x47 (71), modKey=0, capturing=0
+[12:54:03.370] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:03.827] ReinstallHook: OK
+[12:54:03.981] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:54:04.110] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:04.267] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:54:04.356] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:04.584] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:04.661] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:04.829] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:04.873] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:05.135] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:54:05.436] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:05.442] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:05.799] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:06.040] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:06.215] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:06.371] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:06.564] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:06.652] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:06.743] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:07.020] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:07.031] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:54:07.046] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:07.189] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:07.282] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:07.649] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:07.795] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:07.919] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:08.248] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:08.462] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:08.568] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:08.698] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:08.822] ReinstallHook: OK
+[12:54:09.002] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:09.161] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:09.311] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:54:09.359] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:09.563] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:09.661] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:09.759] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:09.820] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:10.028] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:10.278] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:10.367] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:10.537] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:10.603] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:10.763] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:10.869] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:10.987] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:11.148] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:11.206] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:11.443] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:11.877] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:11.973] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:12.185] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:12.263] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:54:12.345] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:12.424] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:12.620] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:54:12.789] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:54:12.977] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:13.172] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:13.263] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:13.504] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:13.520] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:13.785] KEY vk=0xD (13), modKey=0, capturing=0
+[12:54:13.842] ReinstallHook: OK
+[12:54:14.813] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:54:15.078] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:15.276] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:54:15.335] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:15.471] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:15.566] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:15.654] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:15.720] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:15.917] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:16.158] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:16.213] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:16.346] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:16.402] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:16.564] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:16.647] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:16.760] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:16.921] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:16.975] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:17.089] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:54:17.135] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:54:17.218] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:17.421] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:54:17.477] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:54:17.742] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:54:17.899] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:54:17.960] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:18.160] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:54:18.221] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:18.368] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:18.424] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:18.662] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:18.794] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:54:18.842] ReinstallHook: OK
+[12:54:18.994] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:54:19.050] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:19.139] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:19.292] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:54:19.377] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:54:19.516] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:54:19.743] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:54:19.897] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:54:19.971] KEY vk=0x42 (66), modKey=0, capturing=0
+[12:54:20.285] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:20.437] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:54:20.847] KEY vk=0x4C (76), modKey=0, capturing=0
+[12:54:20.956] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:54:21.154] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:54:21.323] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:54:21.399] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:21.647] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:54:21.777] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:54:21.935] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:54:22.058] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:54:22.398] KEY vk=0xD (13), modKey=0, capturing=0
+[12:54:22.531] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:54:22.579] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:54:22.997] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:54:23.846] ReinstallHook: OK
+[12:54:28.838] ReinstallHook: OK
+[12:54:33.845] ReinstallHook: OK
+[12:54:38.843] ReinstallHook: OK
+[12:54:43.848] ReinstallHook: OK
+[12:54:48.848] ReinstallHook: OK
+[12:54:53.852] ReinstallHook: OK
+[12:54:58.846] ReinstallHook: OK
+[12:55:03.841] ReinstallHook: OK
+[12:55:08.851] ReinstallHook: OK
+[12:55:13.847] ReinstallHook: OK
+[12:55:18.837] ReinstallHook: OK
+[12:55:23.840] ReinstallHook: OK
+[12:55:28.848] ReinstallHook: OK
+[12:55:33.849] ReinstallHook: OK
+[12:55:38.845] ReinstallHook: OK
+[12:55:43.838] ReinstallHook: OK
+[12:55:48.848] ReinstallHook: OK
+[12:55:53.845] ReinstallHook: OK
+[12:55:58.852] ReinstallHook: OK
+[12:56:03.841] ReinstallHook: OK
+[12:56:08.848] ReinstallHook: OK
+[12:56:13.841] ReinstallHook: OK
+[12:56:18.852] ReinstallHook: OK
+[12:56:23.850] ReinstallHook: OK
+[12:56:28.842] ReinstallHook: OK
+[12:56:33.840] ReinstallHook: OK
+[12:56:38.847] ReinstallHook: OK
+[12:56:43.840] ReinstallHook: OK
+[12:56:48.852] ReinstallHook: OK
+[12:56:53.842] ReinstallHook: OK
+[12:56:58.839] ReinstallHook: OK
+[12:57:03.849] ReinstallHook: OK
+[12:57:08.845] ReinstallHook: OK
+[12:57:13.853] ReinstallHook: OK
+[12:57:18.861] ReinstallHook: OK
+[12:57:22.174] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:57:22.256] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:57:23.854] ReinstallHook: OK
+[12:57:28.860] ReinstallHook: OK
+[12:57:33.856] ReinstallHook: OK
+[12:57:38.865] ReinstallHook: OK
+[12:57:43.867] ReinstallHook: OK
+[12:57:48.854] ReinstallHook: OK
+[12:57:53.864] ReinstallHook: OK
+[12:57:58.859] ReinstallHook: OK
+[12:58:03.857] ReinstallHook: OK
+[12:58:08.857] ReinstallHook: OK
+[12:58:10.426] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.426] -> VOL key, modKey=0, modPressed=1
+[12:58:10.426] -> queuing volume change
+[12:58:10.426] Worker: volume change
+[12:58:10.434] Worker: vol changed to 97% (msedge.exe)
+[12:58:10.477] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.477] -> VOL key, modKey=0, modPressed=1
+[12:58:10.477] -> queuing volume change
+[12:58:10.478] Worker: volume change
+[12:58:10.483] Worker: vol changed to 94% (msedge.exe)
+[12:58:10.504] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.504] -> VOL key, modKey=0, modPressed=1
+[12:58:10.504] -> queuing volume change
+[12:58:10.504] Worker: volume change
+[12:58:10.510] Worker: vol changed to 91% (msedge.exe)
+[12:58:10.722] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.722] -> VOL key, modKey=0, modPressed=1
+[12:58:10.722] -> queuing volume change
+[12:58:10.722] Worker: volume change
+[12:58:10.728] Worker: vol changed to 88% (msedge.exe)
+[12:58:10.761] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.761] -> VOL key, modKey=0, modPressed=1
+[12:58:10.761] -> queuing volume change
+[12:58:10.761] Worker: volume change
+[12:58:10.767] Worker: vol changed to 85% (msedge.exe)
+[12:58:10.802] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:10.802] -> VOL key, modKey=0, modPressed=1
+[12:58:10.802] -> queuing volume change
+[12:58:10.802] Worker: volume change
+[12:58:10.808] Worker: vol changed to 82% (msedge.exe)
+[12:58:10.965] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:10.965] -> VOL key, modKey=0, modPressed=1
+[12:58:10.965] -> queuing volume change
+[12:58:10.965] Worker: volume change
+[12:58:10.971] Worker: vol changed to 85% (msedge.exe)
+[12:58:10.991] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:10.991] -> VOL key, modKey=0, modPressed=1
+[12:58:10.991] -> queuing volume change
+[12:58:10.991] Worker: volume change
+[12:58:10.997] Worker: vol changed to 88% (msedge.exe)
+[12:58:11.017] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.018] -> VOL key, modKey=0, modPressed=1
+[12:58:11.018] -> queuing volume change
+[12:58:11.018] Worker: volume change
+[12:58:11.023] Worker: vol changed to 91% (msedge.exe)
+[12:58:11.037] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.037] -> VOL key, modKey=0, modPressed=1
+[12:58:11.037] -> queuing volume change
+[12:58:11.037] Worker: volume change
+[12:58:11.043] Worker: vol changed to 94% (msedge.exe)
+[12:58:11.058] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.058] -> VOL key, modKey=0, modPressed=1
+[12:58:11.058] -> queuing volume change
+[12:58:11.058] Worker: volume change
+[12:58:11.064] Worker: vol changed to 97% (msedge.exe)
+[12:58:11.079] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.079] -> VOL key, modKey=0, modPressed=1
+[12:58:11.079] -> queuing volume change
+[12:58:11.079] Worker: volume change
+[12:58:11.084] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.103] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.103] -> VOL key, modKey=0, modPressed=1
+[12:58:11.103] -> queuing volume change
+[12:58:11.103] Worker: volume change
+[12:58:11.109] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.130] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.130] -> VOL key, modKey=0, modPressed=1
+[12:58:11.130] -> queuing volume change
+[12:58:11.130] Worker: volume change
+[12:58:11.135] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.167] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.167] -> VOL key, modKey=0, modPressed=1
+[12:58:11.167] -> queuing volume change
+[12:58:11.167] Worker: volume change
+[12:58:11.174] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.275] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.275] -> VOL key, modKey=0, modPressed=1
+[12:58:11.275] -> queuing volume change
+[12:58:11.275] Worker: volume change
+[12:58:11.281] Worker: vol changed to 97% (msedge.exe)
+[12:58:11.298] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.298] -> VOL key, modKey=0, modPressed=1
+[12:58:11.298] -> queuing volume change
+[12:58:11.298] Worker: volume change
+[12:58:11.304] Worker: vol changed to 94% (msedge.exe)
+[12:58:11.323] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.323] -> VOL key, modKey=0, modPressed=1
+[12:58:11.323] -> queuing volume change
+[12:58:11.323] Worker: volume change
+[12:58:11.329] Worker: vol changed to 91% (msedge.exe)
+[12:58:11.344] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.344] -> VOL key, modKey=0, modPressed=1
+[12:58:11.344] -> queuing volume change
+[12:58:11.344] Worker: volume change
+[12:58:11.349] Worker: vol changed to 88% (msedge.exe)
+[12:58:11.366] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.366] -> VOL key, modKey=0, modPressed=1
+[12:58:11.366] -> queuing volume change
+[12:58:11.367] Worker: volume change
+[12:58:11.372] Worker: vol changed to 85% (msedge.exe)
+[12:58:11.387] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.387] -> VOL key, modKey=0, modPressed=1
+[12:58:11.387] -> queuing volume change
+[12:58:11.387] Worker: volume change
+[12:58:11.393] Worker: vol changed to 82% (msedge.exe)
+[12:58:11.415] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.415] -> VOL key, modKey=0, modPressed=1
+[12:58:11.415] -> queuing volume change
+[12:58:11.415] Worker: volume change
+[12:58:11.421] Worker: vol changed to 79% (msedge.exe)
+[12:58:11.444] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.444] -> VOL key, modKey=0, modPressed=1
+[12:58:11.444] -> queuing volume change
+[12:58:11.444] Worker: volume change
+[12:58:11.449] Worker: vol changed to 76% (msedge.exe)
+[12:58:11.484] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.484] -> VOL key, modKey=0, modPressed=1
+[12:58:11.484] -> queuing volume change
+[12:58:11.484] Worker: volume change
+[12:58:11.489] Worker: vol changed to 73% (msedge.exe)
+[12:58:11.519] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:11.519] -> VOL key, modKey=0, modPressed=1
+[12:58:11.519] -> queuing volume change
+[12:58:11.519] Worker: volume change
+[12:58:11.525] Worker: vol changed to 70% (msedge.exe)
+[12:58:11.673] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.673] -> VOL key, modKey=0, modPressed=1
+[12:58:11.673] -> queuing volume change
+[12:58:11.674] Worker: volume change
+[12:58:11.680] Worker: vol changed to 73% (msedge.exe)
+[12:58:11.698] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.698] -> VOL key, modKey=0, modPressed=1
+[12:58:11.698] -> queuing volume change
+[12:58:11.698] Worker: volume change
+[12:58:11.704] Worker: vol changed to 76% (msedge.exe)
+[12:58:11.718] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.718] -> VOL key, modKey=0, modPressed=1
+[12:58:11.718] -> queuing volume change
+[12:58:11.718] Worker: volume change
+[12:58:11.724] Worker: vol changed to 79% (msedge.exe)
+[12:58:11.736] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.736] -> VOL key, modKey=0, modPressed=1
+[12:58:11.736] -> queuing volume change
+[12:58:11.736] Worker: volume change
+[12:58:11.742] Worker: vol changed to 82% (msedge.exe)
+[12:58:11.752] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.752] -> VOL key, modKey=0, modPressed=1
+[12:58:11.752] -> queuing volume change
+[12:58:11.752] Worker: volume change
+[12:58:11.757] Worker: vol changed to 85% (msedge.exe)
+[12:58:11.766] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.766] -> VOL key, modKey=0, modPressed=1
+[12:58:11.766] -> queuing volume change
+[12:58:11.766] Worker: volume change
+[12:58:11.771] Worker: vol changed to 88% (msedge.exe)
+[12:58:11.781] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.781] -> VOL key, modKey=0, modPressed=1
+[12:58:11.781] -> queuing volume change
+[12:58:11.781] Worker: volume change
+[12:58:11.787] Worker: vol changed to 91% (msedge.exe)
+[12:58:11.799] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.799] -> VOL key, modKey=0, modPressed=1
+[12:58:11.799] -> queuing volume change
+[12:58:11.799] Worker: volume change
+[12:58:11.804] Worker: vol changed to 94% (msedge.exe)
+[12:58:11.817] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.817] -> VOL key, modKey=0, modPressed=1
+[12:58:11.817] -> queuing volume change
+[12:58:11.817] Worker: volume change
+[12:58:11.822] Worker: vol changed to 97% (msedge.exe)
+[12:58:11.836] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.836] -> VOL key, modKey=0, modPressed=1
+[12:58:11.836] -> queuing volume change
+[12:58:11.836] Worker: volume change
+[12:58:11.841] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.861] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.861] -> VOL key, modKey=0, modPressed=1
+[12:58:11.861] -> queuing volume change
+[12:58:11.861] Worker: volume change
+[12:58:11.866] Worker: vol changed to 100% (msedge.exe)
+[12:58:11.903] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:11.903] -> VOL key, modKey=0, modPressed=1
+[12:58:11.903] -> queuing volume change
+[12:58:11.903] Worker: volume change
+[12:58:11.909] Worker: vol changed to 100% (msedge.exe)
+[12:58:12.745] KEY vk=0xAD (173), modKey=0, capturing=0
+[12:58:12.745] -> VK_VOLUME_MUTE -> queuing play/pause
+[12:58:12.745] Worker: sending play/pause
+[12:58:12.746] KEY vk=0xB3 (179), modKey=0, capturing=0
+[12:58:13.344] KEY vk=0xAD (173), modKey=0, capturing=0
+[12:58:13.344] -> VK_VOLUME_MUTE -> queuing play/pause
+[12:58:13.344] Worker: sending play/pause
+[12:58:13.346] KEY vk=0xB3 (179), modKey=0, capturing=0
+[12:58:13.861] ReinstallHook: OK
+[12:58:14.499] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.500] -> VOL key, modKey=0, modPressed=1
+[12:58:14.500] -> queuing volume change
+[12:58:14.500] Worker: volume change
+[12:58:14.506] Worker: vol changed to 97% (msedge.exe)
+[12:58:14.508] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.508] -> VOL key, modKey=0, modPressed=1
+[12:58:14.508] -> queuing volume change
+[12:58:14.509] Worker: volume change
+[12:58:14.514] Worker: vol changed to 94% (msedge.exe)
+[12:58:14.523] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.523] -> VOL key, modKey=0, modPressed=1
+[12:58:14.523] -> queuing volume change
+[12:58:14.523] Worker: volume change
+[12:58:14.529] Worker: vol changed to 91% (msedge.exe)
+[12:58:14.533] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.533] -> VOL key, modKey=0, modPressed=1
+[12:58:14.533] -> queuing volume change
+[12:58:14.533] Worker: volume change
+[12:58:14.538] Worker: vol changed to 88% (msedge.exe)
+[12:58:14.545] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.545] -> VOL key, modKey=0, modPressed=1
+[12:58:14.545] -> queuing volume change
+[12:58:14.545] Worker: volume change
+[12:58:14.550] Worker: vol changed to 85% (msedge.exe)
+[12:58:14.558] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.558] -> VOL key, modKey=0, modPressed=1
+[12:58:14.558] -> queuing volume change
+[12:58:14.559] Worker: volume change
+[12:58:14.564] Worker: vol changed to 82% (msedge.exe)
+[12:58:14.572] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.572] -> VOL key, modKey=0, modPressed=1
+[12:58:14.572] -> queuing volume change
+[12:58:14.572] Worker: volume change
+[12:58:14.578] Worker: vol changed to 79% (msedge.exe)
+[12:58:14.744] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.744] -> VOL key, modKey=0, modPressed=1
+[12:58:14.744] -> queuing volume change
+[12:58:14.745] Worker: volume change
+[12:58:14.750] Worker: vol changed to 82% (msedge.exe)
+[12:58:14.779] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.779] -> VOL key, modKey=0, modPressed=1
+[12:58:14.779] -> queuing volume change
+[12:58:14.779] Worker: volume change
+[12:58:14.785] Worker: vol changed to 85% (msedge.exe)
+[12:58:14.803] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.803] -> VOL key, modKey=0, modPressed=1
+[12:58:14.803] -> queuing volume change
+[12:58:14.803] Worker: volume change
+[12:58:14.808] Worker: vol changed to 88% (msedge.exe)
+[12:58:14.824] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.824] -> VOL key, modKey=0, modPressed=1
+[12:58:14.824] -> queuing volume change
+[12:58:14.824] Worker: volume change
+[12:58:14.830] Worker: vol changed to 91% (msedge.exe)
+[12:58:14.839] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.839] -> VOL key, modKey=0, modPressed=1
+[12:58:14.839] -> queuing volume change
+[12:58:14.839] Worker: volume change
+[12:58:14.844] Worker: vol changed to 94% (msedge.exe)
+[12:58:14.862] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:14.862] -> VOL key, modKey=0, modPressed=1
+[12:58:14.862] -> queuing volume change
+[12:58:14.862] Worker: volume change
+[12:58:14.868] Worker: vol changed to 97% (msedge.exe)
+[12:58:14.945] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.946] -> VOL key, modKey=0, modPressed=1
+[12:58:14.946] -> queuing volume change
+[12:58:14.946] Worker: volume change
+[12:58:14.952] Worker: vol changed to 94% (msedge.exe)
+[12:58:14.976] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.976] -> VOL key, modKey=0, modPressed=1
+[12:58:14.976] -> queuing volume change
+[12:58:14.976] Worker: volume change
+[12:58:14.982] Worker: vol changed to 91% (msedge.exe)
+[12:58:14.998] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:14.998] -> VOL key, modKey=0, modPressed=1
+[12:58:14.999] -> queuing volume change
+[12:58:14.999] Worker: volume change
+[12:58:15.004] Worker: vol changed to 88% (msedge.exe)
+[12:58:15.032] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.032] -> VOL key, modKey=0, modPressed=1
+[12:58:15.032] -> queuing volume change
+[12:58:15.032] Worker: volume change
+[12:58:15.038] Worker: vol changed to 85% (msedge.exe)
+[12:58:15.063] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.063] -> VOL key, modKey=0, modPressed=1
+[12:58:15.063] -> queuing volume change
+[12:58:15.063] Worker: volume change
+[12:58:15.069] Worker: vol changed to 82% (msedge.exe)
+[12:58:15.089] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.089] -> VOL key, modKey=0, modPressed=1
+[12:58:15.089] -> queuing volume change
+[12:58:15.089] Worker: volume change
+[12:58:15.095] Worker: vol changed to 79% (msedge.exe)
+[12:58:15.105] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.105] -> VOL key, modKey=0, modPressed=1
+[12:58:15.105] -> queuing volume change
+[12:58:15.105] Worker: volume change
+[12:58:15.110] Worker: vol changed to 76% (msedge.exe)
+[12:58:15.124] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.124] -> VOL key, modKey=0, modPressed=1
+[12:58:15.124] -> queuing volume change
+[12:58:15.124] Worker: volume change
+[12:58:15.130] Worker: vol changed to 73% (msedge.exe)
+[12:58:15.144] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.144] -> VOL key, modKey=0, modPressed=1
+[12:58:15.144] -> queuing volume change
+[12:58:15.144] Worker: volume change
+[12:58:15.149] Worker: vol changed to 70% (msedge.exe)
+[12:58:15.150] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.150] -> VOL key, modKey=0, modPressed=1
+[12:58:15.150] -> queuing volume change
+[12:58:15.150] Worker: volume change
+[12:58:15.155] Worker: vol changed to 67% (msedge.exe)
+[12:58:15.157] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.157] -> VOL key, modKey=0, modPressed=1
+[12:58:15.157] -> queuing volume change
+[12:58:15.157] Worker: volume change
+[12:58:15.163] Worker: vol changed to 64% (msedge.exe)
+[12:58:15.166] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.166] -> VOL key, modKey=0, modPressed=1
+[12:58:15.166] -> queuing volume change
+[12:58:15.166] Worker: volume change
+[12:58:15.171] Worker: vol changed to 61% (msedge.exe)
+[12:58:15.418] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.418] -> VOL key, modKey=0, modPressed=1
+[12:58:15.418] -> queuing volume change
+[12:58:15.418] Worker: volume change
+[12:58:15.425] Worker: vol changed to 58% (msedge.exe)
+[12:58:15.431] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.431] -> VOL key, modKey=0, modPressed=1
+[12:58:15.431] -> queuing volume change
+[12:58:15.432] Worker: volume change
+[12:58:15.437] Worker: vol changed to 55% (msedge.exe)
+[12:58:15.444] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.444] -> VOL key, modKey=0, modPressed=1
+[12:58:15.444] -> queuing volume change
+[12:58:15.445] Worker: volume change
+[12:58:15.450] Worker: vol changed to 52% (msedge.exe)
+[12:58:15.456] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.457] -> VOL key, modKey=0, modPressed=1
+[12:58:15.457] -> queuing volume change
+[12:58:15.457] Worker: volume change
+[12:58:15.462] Worker: vol changed to 49% (msedge.exe)
+[12:58:15.466] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.466] -> VOL key, modKey=0, modPressed=1
+[12:58:15.466] -> queuing volume change
+[12:58:15.466] Worker: volume change
+[12:58:15.471] Worker: vol changed to 46% (msedge.exe)
+[12:58:15.477] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.477] -> VOL key, modKey=0, modPressed=1
+[12:58:15.477] -> queuing volume change
+[12:58:15.478] Worker: volume change
+[12:58:15.483] Worker: vol changed to 43% (msedge.exe)
+[12:58:15.487] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.487] -> VOL key, modKey=0, modPressed=1
+[12:58:15.487] -> queuing volume change
+[12:58:15.487] Worker: volume change
+[12:58:15.493] Worker: vol changed to 40% (msedge.exe)
+[12:58:15.498] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.498] -> VOL key, modKey=0, modPressed=1
+[12:58:15.498] -> queuing volume change
+[12:58:15.498] Worker: volume change
+[12:58:15.503] Worker: vol changed to 37% (msedge.exe)
+[12:58:15.508] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.508] -> VOL key, modKey=0, modPressed=1
+[12:58:15.508] -> queuing volume change
+[12:58:15.508] Worker: volume change
+[12:58:15.514] Worker: vol changed to 34% (msedge.exe)
+[12:58:15.516] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.516] -> VOL key, modKey=0, modPressed=1
+[12:58:15.516] -> queuing volume change
+[12:58:15.516] Worker: volume change
+[12:58:15.522] Worker: vol changed to 31% (msedge.exe)
+[12:58:15.527] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.527] -> VOL key, modKey=0, modPressed=1
+[12:58:15.527] -> queuing volume change
+[12:58:15.527] Worker: volume change
+[12:58:15.532] Worker: vol changed to 28% (msedge.exe)
+[12:58:15.537] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.537] -> VOL key, modKey=0, modPressed=1
+[12:58:15.537] -> queuing volume change
+[12:58:15.537] Worker: volume change
+[12:58:15.543] Worker: vol changed to 25% (msedge.exe)
+[12:58:15.547] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.547] -> VOL key, modKey=0, modPressed=1
+[12:58:15.547] -> queuing volume change
+[12:58:15.547] Worker: volume change
+[12:58:15.552] Worker: vol changed to 22% (msedge.exe)
+[12:58:15.557] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.557] -> VOL key, modKey=0, modPressed=1
+[12:58:15.557] -> queuing volume change
+[12:58:15.557] Worker: volume change
+[12:58:15.563] Worker: vol changed to 19% (msedge.exe)
+[12:58:15.568] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.568] -> VOL key, modKey=0, modPressed=1
+[12:58:15.568] -> queuing volume change
+[12:58:15.568] Worker: volume change
+[12:58:15.573] Worker: vol changed to 16% (msedge.exe)
+[12:58:15.883] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.883] -> VOL key, modKey=0, modPressed=1
+[12:58:15.883] -> queuing volume change
+[12:58:15.883] Worker: volume change
+[12:58:15.889] Worker: vol changed to 13% (msedge.exe)
+[12:58:15.898] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.898] -> VOL key, modKey=0, modPressed=1
+[12:58:15.898] -> queuing volume change
+[12:58:15.899] Worker: volume change
+[12:58:15.904] Worker: vol changed to 10% (msedge.exe)
+[12:58:15.909] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.909] -> VOL key, modKey=0, modPressed=1
+[12:58:15.909] -> queuing volume change
+[12:58:15.909] Worker: volume change
+[12:58:15.915] Worker: vol changed to 7% (msedge.exe)
+[12:58:15.923] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.923] -> VOL key, modKey=0, modPressed=1
+[12:58:15.923] -> queuing volume change
+[12:58:15.923] Worker: volume change
+[12:58:15.929] Worker: vol changed to 4% (msedge.exe)
+[12:58:15.935] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.935] -> VOL key, modKey=0, modPressed=1
+[12:58:15.935] -> queuing volume change
+[12:58:15.935] Worker: volume change
+[12:58:15.940] Worker: vol changed to 1% (msedge.exe)
+[12:58:15.948] KEY vk=0xAE (174), modKey=0, capturing=0
+[12:58:15.948] -> VOL key, modKey=0, modPressed=1
+[12:58:15.948] -> queuing volume change
+[12:58:15.948] Worker: volume change
+[12:58:15.953] Worker: vol changed to 0% (msedge.exe)
+[12:58:16.120] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.120] -> VOL key, modKey=0, modPressed=1
+[12:58:16.120] -> queuing volume change
+[12:58:16.120] Worker: volume change
+[12:58:16.127] Worker: vol changed to 3% (msedge.exe)
+[12:58:16.129] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.129] -> VOL key, modKey=0, modPressed=1
+[12:58:16.129] -> queuing volume change
+[12:58:16.129] Worker: volume change
+[12:58:16.134] Worker: vol changed to 6% (msedge.exe)
+[12:58:16.141] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.141] -> VOL key, modKey=0, modPressed=1
+[12:58:16.141] -> queuing volume change
+[12:58:16.141] Worker: volume change
+[12:58:16.147] Worker: vol changed to 9% (msedge.exe)
+[12:58:16.149] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.149] -> VOL key, modKey=0, modPressed=1
+[12:58:16.149] -> queuing volume change
+[12:58:16.149] Worker: volume change
+[12:58:16.154] Worker: vol changed to 12% (msedge.exe)
+[12:58:16.159] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.159] -> VOL key, modKey=0, modPressed=1
+[12:58:16.159] -> queuing volume change
+[12:58:16.159] Worker: volume change
+[12:58:16.164] Worker: vol changed to 15% (msedge.exe)
+[12:58:16.166] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.166] -> VOL key, modKey=0, modPressed=1
+[12:58:16.166] -> queuing volume change
+[12:58:16.166] Worker: volume change
+[12:58:16.172] Worker: vol changed to 18% (msedge.exe)
+[12:58:16.175] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.175] -> VOL key, modKey=0, modPressed=1
+[12:58:16.175] -> queuing volume change
+[12:58:16.176] Worker: volume change
+[12:58:16.180] Worker: vol changed to 21% (msedge.exe)
+[12:58:16.181] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.181] -> VOL key, modKey=0, modPressed=1
+[12:58:16.181] -> queuing volume change
+[12:58:16.181] Worker: volume change
+[12:58:16.187] Worker: vol changed to 24% (msedge.exe)
+[12:58:16.191] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.191] -> VOL key, modKey=0, modPressed=1
+[12:58:16.191] -> queuing volume change
+[12:58:16.191] Worker: volume change
+[12:58:16.196] Worker: vol changed to 27% (msedge.exe)
+[12:58:16.200] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.200] -> VOL key, modKey=0, modPressed=1
+[12:58:16.200] -> queuing volume change
+[12:58:16.200] Worker: volume change
+[12:58:16.206] Worker: vol changed to 30% (msedge.exe)
+[12:58:16.216] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.216] -> VOL key, modKey=0, modPressed=1
+[12:58:16.216] -> queuing volume change
+[12:58:16.216] Worker: volume change
+[12:58:16.221] Worker: vol changed to 33% (msedge.exe)
+[12:58:16.387] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.388] -> VOL key, modKey=0, modPressed=1
+[12:58:16.388] -> queuing volume change
+[12:58:16.388] Worker: volume change
+[12:58:16.394] Worker: vol changed to 36% (msedge.exe)
+[12:58:16.395] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.395] -> VOL key, modKey=0, modPressed=1
+[12:58:16.395] -> queuing volume change
+[12:58:16.396] Worker: volume change
+[12:58:16.401] Worker: vol changed to 39% (msedge.exe)
+[12:58:16.404] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.404] -> VOL key, modKey=0, modPressed=1
+[12:58:16.404] -> queuing volume change
+[12:58:16.404] Worker: volume change
+[12:58:16.410] Worker: vol changed to 42% (msedge.exe)
+[12:58:16.417] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.418] -> VOL key, modKey=0, modPressed=1
+[12:58:16.418] -> queuing volume change
+[12:58:16.418] Worker: volume change
+[12:58:16.423] Worker: vol changed to 45% (msedge.exe)
+[12:58:16.425] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.425] -> VOL key, modKey=0, modPressed=1
+[12:58:16.425] -> queuing volume change
+[12:58:16.425] Worker: volume change
+[12:58:16.430] Worker: vol changed to 48% (msedge.exe)
+[12:58:16.444] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.444] -> VOL key, modKey=0, modPressed=1
+[12:58:16.444] -> queuing volume change
+[12:58:16.444] Worker: volume change
+[12:58:16.449] Worker: vol changed to 51% (msedge.exe)
+[12:58:16.623] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.623] -> VOL key, modKey=0, modPressed=1
+[12:58:16.623] -> queuing volume change
+[12:58:16.623] Worker: volume change
+[12:58:16.630] Worker: vol changed to 54% (msedge.exe)
+[12:58:16.633] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.633] -> VOL key, modKey=0, modPressed=1
+[12:58:16.633] -> queuing volume change
+[12:58:16.634] Worker: volume change
+[12:58:16.639] Worker: vol changed to 57% (msedge.exe)
+[12:58:16.640] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.640] -> VOL key, modKey=0, modPressed=1
+[12:58:16.640] -> queuing volume change
+[12:58:16.640] Worker: volume change
+[12:58:16.646] Worker: vol changed to 60% (msedge.exe)
+[12:58:16.649] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.649] -> VOL key, modKey=0, modPressed=1
+[12:58:16.649] -> queuing volume change
+[12:58:16.650] Worker: volume change
+[12:58:16.655] Worker: vol changed to 63% (msedge.exe)
+[12:58:16.659] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.659] -> VOL key, modKey=0, modPressed=1
+[12:58:16.659] -> queuing volume change
+[12:58:16.660] Worker: volume change
+[12:58:16.665] Worker: vol changed to 66% (msedge.exe)
+[12:58:16.676] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.676] -> VOL key, modKey=0, modPressed=1
+[12:58:16.676] -> queuing volume change
+[12:58:16.676] Worker: volume change
+[12:58:16.682] Worker: vol changed to 69% (msedge.exe)
+[12:58:16.812] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.812] -> VOL key, modKey=0, modPressed=1
+[12:58:16.813] -> queuing volume change
+[12:58:16.813] Worker: volume change
+[12:58:16.818] Worker: vol changed to 72% (msedge.exe)
+[12:58:16.822] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.822] -> VOL key, modKey=0, modPressed=1
+[12:58:16.822] -> queuing volume change
+[12:58:16.822] Worker: volume change
+[12:58:16.827] Worker: vol changed to 75% (msedge.exe)
+[12:58:16.829] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.829] -> VOL key, modKey=0, modPressed=1
+[12:58:16.829] -> queuing volume change
+[12:58:16.829] Worker: volume change
+[12:58:16.835] Worker: vol changed to 78% (msedge.exe)
+[12:58:16.837] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.837] -> VOL key, modKey=0, modPressed=1
+[12:58:16.837] -> queuing volume change
+[12:58:16.837] Worker: volume change
+[12:58:16.842] Worker: vol changed to 81% (msedge.exe)
+[12:58:16.846] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.846] -> VOL key, modKey=0, modPressed=1
+[12:58:16.846] -> queuing volume change
+[12:58:16.846] Worker: volume change
+[12:58:16.851] Worker: vol changed to 84% (msedge.exe)
+[12:58:16.857] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:16.858] -> VOL key, modKey=0, modPressed=1
+[12:58:16.858] -> queuing volume change
+[12:58:16.858] Worker: volume change
+[12:58:16.863] Worker: vol changed to 87% (msedge.exe)
+[12:58:17.010] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.010] -> VOL key, modKey=0, modPressed=1
+[12:58:17.010] -> queuing volume change
+[12:58:17.011] Worker: volume change
+[12:58:17.017] Worker: vol changed to 90% (msedge.exe)
+[12:58:17.020] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.020] -> VOL key, modKey=0, modPressed=1
+[12:58:17.020] -> queuing volume change
+[12:58:17.020] Worker: volume change
+[12:58:17.025] Worker: vol changed to 93% (msedge.exe)
+[12:58:17.027] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.027] -> VOL key, modKey=0, modPressed=1
+[12:58:17.027] -> queuing volume change
+[12:58:17.027] Worker: volume change
+[12:58:17.033] Worker: vol changed to 96% (msedge.exe)
+[12:58:17.039] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.039] -> VOL key, modKey=0, modPressed=1
+[12:58:17.039] -> queuing volume change
+[12:58:17.039] Worker: volume change
+[12:58:17.044] Worker: vol changed to 99% (msedge.exe)
+[12:58:17.048] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.048] -> VOL key, modKey=0, modPressed=1
+[12:58:17.048] -> queuing volume change
+[12:58:17.048] Worker: volume change
+[12:58:17.053] Worker: vol changed to 100% (msedge.exe)
+[12:58:17.199] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.199] -> VOL key, modKey=0, modPressed=1
+[12:58:17.199] -> queuing volume change
+[12:58:17.199] Worker: volume change
+[12:58:17.205] Worker: vol changed to 100% (msedge.exe)
+[12:58:17.207] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.207] -> VOL key, modKey=0, modPressed=1
+[12:58:17.207] -> queuing volume change
+[12:58:17.207] Worker: volume change
+[12:58:17.213] Worker: vol changed to 100% (msedge.exe)
+[12:58:17.218] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.218] -> VOL key, modKey=0, modPressed=1
+[12:58:17.218] -> queuing volume change
+[12:58:17.218] Worker: volume change
+[12:58:17.224] Worker: vol changed to 100% (msedge.exe)
+[12:58:17.229] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.229] -> VOL key, modKey=0, modPressed=1
+[12:58:17.229] -> queuing volume change
+[12:58:17.229] Worker: volume change
+[12:58:17.235] Worker: vol changed to 100% (msedge.exe)
+[12:58:17.245] KEY vk=0xAF (175), modKey=0, capturing=0
+[12:58:17.245] -> VOL key, modKey=0, modPressed=1
+[12:58:17.245] -> queuing volume change
+[12:58:17.245] Worker: volume change
+[12:58:17.250] Worker: vol changed to 100% (msedge.exe)
+[12:58:18.866] ReinstallHook: OK
+[12:58:21.011] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:58:21.635] KEY vk=0x4A (74), modKey=0, capturing=0
+[12:58:21.882] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:58:22.407] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:58:22.476] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:58:22.836] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:58:23.093] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:58:23.152] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:58:23.433] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:58:23.439] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:58:23.858] ReinstallHook: OK
+[12:58:28.855] ReinstallHook: OK
+[12:58:33.859] ReinstallHook: OK
+[12:58:36.832] KEY vk=0x35 (53), modKey=0, capturing=0
+[12:58:37.367] KEY vk=0x30 (48), modKey=0, capturing=0
+[12:58:38.853] ReinstallHook: OK
+[12:58:43.858] ReinstallHook: OK
+[12:58:48.864] ReinstallHook: OK
+[12:58:53.868] ReinstallHook: OK
+[12:58:58.857] ReinstallHook: OK
+[12:59:03.861] ReinstallHook: OK
+[12:59:06.820] KEY vk=0xBC (188), modKey=0, capturing=0
+[12:59:06.991] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:07.216] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:59:07.439] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:59:07.655] KEY vk=0x55 (85), modKey=0, capturing=0
+[12:59:08.137] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:08.333] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:59:08.470] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:59:08.827] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:08.854] ReinstallHook: OK
+[12:59:08.944] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:09.090] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:09.229] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:09.361] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:09.470] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:59:09.726] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:09.867] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:10.011] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:59:10.083] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:10.234] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:59:10.322] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:10.507] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:59:10.723] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:59:10.804] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:59:10.977] KEY vk=0x43 (67), modKey=0, capturing=0
+[12:59:11.083] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:59:11.265] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:11.683] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:59:11.763] KEY vk=0x49 (73), modKey=0, capturing=0
+[12:59:11.921] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:12.036] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:59:12.143] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:12.280] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:12.483] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:59:12.565] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:12.723] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:59:12.782] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:12.925] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:13.103] KEY vk=0x50 (80), modKey=0, capturing=0
+[12:59:13.221] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:59:13.420] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:59:13.486] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:13.658] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:13.859] ReinstallHook: OK
+[12:59:13.861] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:59:13.936] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:14.115] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:59:14.308] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:59:14.370] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:14.627] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:59:14.708] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:14.803] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:59:14.943] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:59:15.036] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:15.285] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:59:15.345] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:15.469] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:15.621] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:59:15.668] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:15.932] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:59:16.108] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:16.278] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:16.407] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:16.541] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:16.762] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:17.038] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:17.176] KEY vk=0x8 (8), modKey=0, capturing=0
+[12:59:17.245] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:17.448] KEY vk=0x57 (87), modKey=0, capturing=0
+[12:59:17.586] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:59:17.759] KEY vk=0x20 (32), modKey=0, capturing=0
+[12:59:17.964] KEY vk=0x54 (84), modKey=0, capturing=0
+[12:59:18.068] KEY vk=0x48 (72), modKey=0, capturing=0
+[12:59:18.183] KEY vk=0x45 (69), modKey=0, capturing=0
+[12:59:18.334] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:59:18.836] KEY vk=0xD (13), modKey=0, capturing=0
+[12:59:18.863] ReinstallHook: OK
+[12:59:19.580] KEY vk=0xA4 (164), modKey=0, capturing=0
+[12:59:19.675] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:59:23.854] ReinstallHook: OK
+[12:59:28.855] ReinstallHook: OK
+[12:59:33.862] ReinstallHook: OK
+[12:59:38.859] ReinstallHook: OK
+[12:59:43.859] ReinstallHook: OK
+[12:59:48.860] ReinstallHook: OK
+[12:59:49.247] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:59:49.371] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:59:49.572] KEY vk=0x41 (65), modKey=0, capturing=0
+[12:59:49.672] KEY vk=0x44 (68), modKey=0, capturing=0
+[12:59:49.898] KEY vk=0x59 (89), modKey=0, capturing=0
+[12:59:50.006] KEY vk=0x4D (77), modKey=0, capturing=0
+[12:59:50.293] KEY vk=0x9 (9), modKey=0, capturing=0
+[12:59:50.562] KEY vk=0xA0 (160), modKey=0, capturing=0
+[12:59:50.683] KEY vk=0x53 (83), modKey=0, capturing=0
+[12:59:50.852] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:50.961] KEY vk=0x46 (70), modKey=0, capturing=0
+[12:59:51.134] KEY vk=0x52 (82), modKey=0, capturing=0
+[12:59:51.231] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:51.411] KEY vk=0x4E (78), modKey=0, capturing=0
+[12:59:51.506] KEY vk=0x4F (79), modKey=0, capturing=0
+[12:59:51.702] KEY vk=0x56 (86), modKey=0, capturing=0
+[12:59:53.853] ReinstallHook: OK
+[12:59:58.855] ReinstallHook: OK
+[13:00:03.858] ReinstallHook: OK
+[13:00:08.858] ReinstallHook: OK
+[13:00:09.546] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:00:09.810] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:00:13.861] ReinstallHook: OK
+[13:00:18.853] ReinstallHook: OK
+[13:00:23.867] ReinstallHook: OK
+[13:00:28.853] ReinstallHook: OK
+[13:00:33.858] ReinstallHook: OK
+[13:00:38.860] ReinstallHook: OK
+[13:00:43.867] ReinstallHook: OK
+[13:00:48.869] ReinstallHook: OK
+[13:00:53.870] ReinstallHook: OK
+[13:00:58.878] ReinstallHook: OK
+[13:00:58.898] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:00:59.099] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:01:02.727] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:01:02.805] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:03.871] ReinstallHook: OK
+[13:01:06.134] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:01:06.211] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:01:08.880] ReinstallHook: OK
+[13:01:12.990] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:01:13.098] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:01:13.186] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:01:13.515] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:01:13.550] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:01:13.870] ReinstallHook: OK
+[13:01:18.874] ReinstallHook: OK
+[13:01:20.292] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:01:20.400] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:20.661] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:01:20.771] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:23.880] ReinstallHook: OK
+[13:01:28.870] ReinstallHook: OK
+[13:01:29.109] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:01:29.115] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:01:29.306] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:01:29.786] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:01:30.771] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:01:30.988] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:31.062] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:31.137] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:31.332] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:01:31.413] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:31.668] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:01:31.994] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:32.092] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:32.182] KEY vk=0x5A (90), modKey=0, capturing=0
+[13:01:32.339] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:01:32.467] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:32.644] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:01:32.745] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:32.866] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:32.952] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:33.126] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:33.197] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:33.287] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:33.445] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:01:33.619] KEY vk=0x47 (71), modKey=0, capturing=0
+[13:01:33.794] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:33.870] ReinstallHook: OK
+[13:01:33.982] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:01:34.092] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:34.287] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:34.401] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:34.608] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:34.674] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:01:34.863] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:34.940] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:35.171] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:35.210] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:35.419] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:01:35.567] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:35.797] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:01:35.927] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:01:36.143] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:36.297] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:36.474] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:01:36.551] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:01:36.663] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:36.770] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:01:36.857] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:01:36.942] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:01:37.066] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:37.186] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:01:37.219] KEY vk=0xBF (191), modKey=0, capturing=0
+[13:01:37.304] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:37.461] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:01:37.560] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:37.815] KEY vk=0xBC (188), modKey=0, capturing=0
+[13:01:37.911] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:38.084] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:01:38.163] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:01:38.401] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:01:38.457] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:38.631] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:38.808] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:38.854] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:01:38.871] ReinstallHook: OK
+[13:01:38.961] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:01:39.180] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:01:39.281] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:39.490] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:01:39.567] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:01:39.651] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:01:39.817] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:40.052] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:01:40.096] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:40.421] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:01:40.468] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:01:40.533] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:42.930] KEY vk=0x26 (38), modKey=0, capturing=0
+[13:01:43.587] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:43.871] ReinstallHook: OK
+[13:01:44.093] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.124] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.155] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.186] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.232] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.263] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.294] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.325] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.355] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.386] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.417] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.450] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:01:44.797] KEY vk=0x27 (39), modKey=0, capturing=0
+[13:01:45.038] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:01:45.429] KEY vk=0x24 (36), modKey=0, capturing=0
+[13:01:46.280] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:46.568] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:46.731] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:01:47.081] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:47.454] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:48.086] KEY vk=0x27 (39), modKey=0, capturing=0
+[13:01:48.215] KEY vk=0x27 (39), modKey=0, capturing=0
+[13:01:48.407] KEY vk=0x27 (39), modKey=0, capturing=0
+[13:01:48.869] ReinstallHook: OK
+[13:01:49.048] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:49.122] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:01:49.254] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:49.382] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:49.399] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:49.441] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:01:49.609] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:49.805] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:49.839] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:49.903] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:50.821] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:50.996] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:51.128] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:51.743] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:52.377] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:53.000] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:01:53.276] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:01:53.450] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:01:53.540] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:01:53.666] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:53.710] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:53.873] ReinstallHook: OK
+[13:01:56.826] KEY vk=0x28 (40), modKey=0, capturing=0
+[13:01:56.953] KEY vk=0x28 (40), modKey=0, capturing=0
+[13:01:57.410] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:01:57.554] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:57.661] KEY vk=0xBC (188), modKey=0, capturing=0
+[13:01:57.745] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:01:57.855] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:01:57.904] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:01:58.045] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:01:58.105] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:01:58.357] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:01:58.438] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:01:58.619] KEY vk=0xD (13), modKey=0, capturing=0
+[13:01:58.875] ReinstallHook: OK
+[13:02:03.870] ReinstallHook: OK
+[13:02:08.871] ReinstallHook: OK
+[13:02:13.881] ReinstallHook: OK
+[13:02:18.878] ReinstallHook: OK
+[13:02:23.873] ReinstallHook: OK
+[13:02:28.873] ReinstallHook: OK
+[13:02:33.871] ReinstallHook: OK
+[13:02:38.876] ReinstallHook: OK
+[13:02:43.871] ReinstallHook: OK
+[13:02:48.872] ReinstallHook: OK
+[13:02:53.873] ReinstallHook: OK
+[13:02:58.869] ReinstallHook: OK
+[13:03:03.873] ReinstallHook: OK
+[13:03:08.870] ReinstallHook: OK
+[13:03:13.869] ReinstallHook: OK
+[13:03:18.872] ReinstallHook: OK
+[13:03:23.883] ReinstallHook: OK
+[13:03:28.883] ReinstallHook: OK
+[13:03:33.881] ReinstallHook: OK
+[13:03:38.869] ReinstallHook: OK
+[13:03:43.871] ReinstallHook: OK
+[13:03:48.874] ReinstallHook: OK
+[13:03:53.883] ReinstallHook: OK
+[13:03:58.871] ReinstallHook: OK
+[13:04:03.874] ReinstallHook: OK
+[13:04:08.880] ReinstallHook: OK
+[13:04:13.871] ReinstallHook: OK
+[13:04:18.874] ReinstallHook: OK
+[13:04:23.879] ReinstallHook: OK
+[13:04:28.869] ReinstallHook: OK
+[13:04:33.878] ReinstallHook: OK
+[13:04:38.883] ReinstallHook: OK
+[13:04:43.881] ReinstallHook: OK
+[13:04:48.872] ReinstallHook: OK
+[13:04:53.876] ReinstallHook: OK
+[13:04:58.868] ReinstallHook: OK
+[13:05:03.708] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:05:03.873] ReinstallHook: OK
+[13:05:03.886] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:05:05.498] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:05:07.111] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:05:07.159] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:05:07.870] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:05:08.134] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:05:08.187] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:05:08.851] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:05:08.883] ReinstallHook: OK
+[13:05:09.474] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:05:10.484] KEY vk=0x37 (55), modKey=0, capturing=0
+[13:05:11.359] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:05:11.477] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:05:11.659] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:05:13.871] ReinstallHook: OK
+[13:05:16.812] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:05:17.325] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:05:18.881] ReinstallHook: OK
+[13:05:19.062] KEY vk=0x37 (55), modKey=0, capturing=0
+[13:05:19.537] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:05:19.645] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:05:23.870] ReinstallHook: OK
+[13:05:28.877] ReinstallHook: OK
+[13:05:33.882] ReinstallHook: OK
+[13:05:34.172] KEY vk=0x6D (109), modKey=0, capturing=0
+[13:05:38.876] ReinstallHook: OK
+[13:05:43.871] ReinstallHook: OK
+[13:05:48.878] ReinstallHook: OK
+[13:05:49.417] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:05:50.214] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:05:50.456] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:05:50.520] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:05:50.777] KEY vk=0xD (13), modKey=0, capturing=0
+[13:05:53.872] ReinstallHook: OK
+[13:05:58.874] ReinstallHook: OK
+[13:06:03.869] ReinstallHook: OK
+[13:06:08.134] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:06:08.297] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:06:08.497] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:06:08.632] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:08.659] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:06:08.725] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:08.877] ReinstallHook: OK
+[13:06:09.574] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:09.701] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:09.963] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:10.183] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:10.416] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:06:10.590] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:06:10.662] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:10.997] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:11.171] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:06:11.252] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:11.328] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:06:11.437] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:11.736] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:12.249] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:12.472] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:12.671] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:06:12.799] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:12.906] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:06:13.006] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:13.088] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:13.224] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:06:13.377] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:13.448] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:13.884] ReinstallHook: OK
+[13:06:13.923] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:06:14.081] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:06:14.197] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:14.354] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:06:14.442] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:14.683] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:06:14.961] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:06:15.121] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:06:15.208] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:15.647] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:06:15.976] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:16.198] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:06:16.277] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:06:16.405] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:06:16.480] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:16.536] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:16.646] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:06:16.717] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:16.807] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:06:16.978] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:17.081] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:17.251] KEY vk=0xBC (188), modKey=0, capturing=0
+[13:06:17.317] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:17.598] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:06:17.771] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:06:17.882] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:06:17.952] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:18.247] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:06:18.309] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:18.528] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:06:18.765] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:06:18.862] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:06:18.870] ReinstallHook: OK
+[13:06:19.224] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:06:19.535] KEY vk=0xDE (222), modKey=0, capturing=0
+[13:06:19.621] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:19.672] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:20.024] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:06:20.119] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:20.246] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:20.426] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:06:20.521] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:06:20.783] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:06:20.837] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:20.910] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:21.909] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:06:22.108] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:22.326] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:06:22.426] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:22.494] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:22.576] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:06:22.772] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:22.960] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:06:23.074] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:06:23.288] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:06:23.379] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:23.605] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:06:23.742] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:23.875] ReinstallHook: OK
+[13:06:24.052] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:24.342] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:24.661] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:06:24.798] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:24.877] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:24.957] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:25.007] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:25.171] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:06:25.383] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:25.517] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:25.650] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:25.777] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:25.898] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:26.038] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:26.166] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:06:26.251] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:06:26.306] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:26.683] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:06:26.908] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:06:26.996] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:06:27.160] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:06:27.266] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:06:27.357] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:06:27.520] KEY vk=0xD (13), modKey=0, capturing=0
+[13:06:27.816] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:06:27.861] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:06:28.870] ReinstallHook: OK
+[13:06:29.657] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:06:29.851] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:06:33.884] ReinstallHook: OK
+[13:06:38.913] ReinstallHook: OK
+[13:06:43.903] ReinstallHook: OK
+[13:06:48.906] ReinstallHook: OK
+[13:06:53.906] ReinstallHook: OK
+[13:06:58.903] ReinstallHook: OK
+[13:07:03.928] ReinstallHook: OK
+[13:07:08.918] ReinstallHook: OK
+[13:07:13.915] ReinstallHook: OK
+[13:07:18.924] ReinstallHook: OK
+[13:07:23.923] ReinstallHook: OK
+[13:07:28.930] ReinstallHook: OK
+[13:07:33.449] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:07:33.456] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:07:33.467] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:07:33.916] ReinstallHook: OK
+[13:07:38.920] ReinstallHook: OK
+[13:07:43.925] ReinstallHook: OK
+[13:07:48.925] ReinstallHook: OK
+[13:07:53.936] ReinstallHook: OK
+[13:07:58.960] ReinstallHook: OK
+[13:08:03.951] ReinstallHook: OK
+[13:08:05.059] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:08:05.391] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:08:06.677] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:08:06.842] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:08:07.129] KEY vk=0x9 (9), modKey=0, capturing=0
+[13:08:08.947] ReinstallHook: OK
+[13:08:09.911] KEY vk=0x5B (91), modKey=0, capturing=0
+[13:08:13.947] ReinstallHook: OK
+[13:08:18.951] ReinstallHook: OK
+[13:08:23.953] ReinstallHook: OK
+[13:08:28.959] ReinstallHook: OK
+[13:08:33.950] ReinstallHook: OK
+[13:08:38.957] ReinstallHook: OK
+[13:08:43.947] ReinstallHook: OK
+[13:08:48.951] ReinstallHook: OK
+[13:08:53.961] ReinstallHook: OK
+[13:08:58.954] ReinstallHook: OK
+[13:09:03.952] ReinstallHook: OK
+[13:09:08.965] ReinstallHook: OK
+[13:09:13.966] ReinstallHook: OK
+[13:09:18.963] ReinstallHook: OK
+[13:09:23.963] ReinstallHook: OK
+[13:09:28.972] ReinstallHook: OK
+[13:09:33.962] ReinstallHook: OK
+[13:09:38.969] ReinstallHook: OK
+[13:09:43.976] ReinstallHook: OK
+[13:09:48.965] ReinstallHook: OK
+[13:09:49.729] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:09:49.976] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:09:50.140] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:09:50.283] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:09:50.353] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:09:50.479] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:09:50.651] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:09:50.832] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:09:51.143] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:51.351] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:51.470] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:51.606] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:52.415] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:09:52.663] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:52.812] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:53.073] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:09:53.205] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:09:53.352] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:09:53.551] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:53.724] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:09:53.970] ReinstallHook: OK
+[13:09:54.167] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:54.506] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:09:54.704] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:09:54.933] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:09:55.402] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:09:55.497] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:56.024] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:56.488] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:56.700] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:09:56.997] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:09:57.028] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:09:57.438] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:57.582] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:57.723] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:57.974] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:09:58.156] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:58.296] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:09:58.320] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:09:58.485] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:09:58.561] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:58.638] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:09:58.976] ReinstallHook: OK
+[13:09:59.764] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:09:59.841] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:09:59.923] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:10:00.112] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:10:00.211] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:10:00.300] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:10:03.962] ReinstallHook: OK
+[13:10:08.975] ReinstallHook: OK
+[13:10:13.977] ReinstallHook: OK
+[13:10:18.963] ReinstallHook: OK
+[13:10:23.968] ReinstallHook: OK
+[13:10:28.966] ReinstallHook: OK
+[13:10:33.962] ReinstallHook: OK
+[13:10:38.985] ReinstallHook: OK
+[13:10:43.992] ReinstallHook: OK
+[13:10:48.981] ReinstallHook: OK
+[13:10:53.980] ReinstallHook: OK
+[13:10:58.992] ReinstallHook: OK
+[13:11:03.982] ReinstallHook: OK
+[13:11:08.982] ReinstallHook: OK
+[13:11:13.981] ReinstallHook: OK
+[13:11:18.978] ReinstallHook: OK
+[13:11:23.979] ReinstallHook: OK
+[13:11:28.978] ReinstallHook: OK
+[13:11:33.988] ReinstallHook: OK
+[13:11:38.982] ReinstallHook: OK
+[13:11:43.978] ReinstallHook: OK
+[13:11:48.979] ReinstallHook: OK
+[13:11:53.981] ReinstallHook: OK
+[13:11:58.980] ReinstallHook: OK
+[13:12:03.980] ReinstallHook: OK
+[13:12:08.978] ReinstallHook: OK
+[13:12:13.979] ReinstallHook: OK
+[13:12:18.989] ReinstallHook: OK
+[13:12:23.986] ReinstallHook: OK
+[13:12:28.983] ReinstallHook: OK
+[13:12:33.979] ReinstallHook: OK
+[13:12:38.988] ReinstallHook: OK
+[13:12:43.983] ReinstallHook: OK
+[13:12:48.992] ReinstallHook: OK
+[13:12:53.993] ReinstallHook: OK
+[13:12:58.995] ReinstallHook: OK
+[13:13:04.001] ReinstallHook: OK
+[13:13:09.006] ReinstallHook: OK
+[13:13:13.994] ReinstallHook: OK
+[13:13:19.007] ReinstallHook: OK
+[13:13:24.003] ReinstallHook: OK
+[13:13:29.005] ReinstallHook: OK
+[13:13:33.994] ReinstallHook: OK
+[13:13:39.003] ReinstallHook: OK
+[13:13:43.996] ReinstallHook: OK
+[13:13:49.002] ReinstallHook: OK
+[13:13:53.996] ReinstallHook: OK
+[13:13:58.994] ReinstallHook: OK
+[13:14:04.000] ReinstallHook: OK
+[13:14:09.007] ReinstallHook: OK
+[13:14:14.012] ReinstallHook: OK
+[13:14:19.019] ReinstallHook: OK
+[13:14:24.020] ReinstallHook: OK
+[13:14:29.022] ReinstallHook: OK
+[13:14:34.009] ReinstallHook: OK
+[13:14:39.013] ReinstallHook: OK
+[13:14:44.009] ReinstallHook: OK
+[13:14:49.021] ReinstallHook: OK
+[13:14:54.019] ReinstallHook: OK
+[13:14:59.009] ReinstallHook: OK
+[13:15:04.013] ReinstallHook: OK
+[13:15:09.015] ReinstallHook: OK
+[13:15:14.012] ReinstallHook: OK
+[13:15:19.023] ReinstallHook: OK
+[13:15:24.014] ReinstallHook: OK
+[13:15:29.020] ReinstallHook: OK
+[13:15:34.013] ReinstallHook: OK
+[13:15:39.021] ReinstallHook: OK
+[13:15:44.017] ReinstallHook: OK
+[13:15:48.858] KEY vk=0x25 (37), modKey=0, capturing=0
+[13:15:49.009] ReinstallHook: OK
+[13:15:54.017] ReinstallHook: OK
+[13:15:59.011] ReinstallHook: OK
+[13:16:04.019] ReinstallHook: OK
+[13:16:09.014] ReinstallHook: OK
+[13:16:14.021] ReinstallHook: OK
+[13:16:19.023] ReinstallHook: OK
+[13:16:24.010] ReinstallHook: OK
+[13:16:29.018] ReinstallHook: OK
+[13:16:34.012] ReinstallHook: OK
+[13:16:39.017] ReinstallHook: OK
+[13:16:44.009] ReinstallHook: OK
+[13:16:49.017] ReinstallHook: OK
+[13:16:54.019] ReinstallHook: OK
+[13:16:59.009] ReinstallHook: OK
+[13:17:04.013] ReinstallHook: OK
+[13:17:09.022] ReinstallHook: OK
+[13:17:14.022] ReinstallHook: OK
+[13:17:19.012] ReinstallHook: OK
+[13:17:24.019] ReinstallHook: OK
+[13:17:29.013] ReinstallHook: OK
+[13:17:34.016] ReinstallHook: OK
+[13:17:39.021] ReinstallHook: OK
+[13:17:44.010] ReinstallHook: OK
+[13:17:49.019] ReinstallHook: OK
+[13:17:54.022] ReinstallHook: OK
+[13:17:59.012] ReinstallHook: OK
+[13:18:04.010] ReinstallHook: OK
+[13:18:09.015] ReinstallHook: OK
+[13:18:14.011] ReinstallHook: OK
+[13:18:19.026] ReinstallHook: OK
+[13:18:24.046] ReinstallHook: OK
+[13:18:29.046] ReinstallHook: OK
+[13:18:34.051] ReinstallHook: OK
+[13:18:39.041] ReinstallHook: OK
+[13:18:44.044] ReinstallHook: OK
+[13:18:49.048] ReinstallHook: OK
+[13:18:54.044] ReinstallHook: OK
+[13:18:59.055] ReinstallHook: OK
+[13:19:04.044] ReinstallHook: OK
+[13:19:09.052] ReinstallHook: OK
+[13:19:14.055] ReinstallHook: OK
+[13:19:19.045] ReinstallHook: OK
+[13:19:24.055] ReinstallHook: OK
+[13:19:29.065] ReinstallHook: OK
+[13:19:34.062] ReinstallHook: OK
+[13:19:39.067] ReinstallHook: OK
+[13:19:44.056] ReinstallHook: OK
+[13:19:49.056] ReinstallHook: OK
+[13:19:54.061] ReinstallHook: OK
+[13:19:59.067] ReinstallHook: OK
+[13:20:04.069] ReinstallHook: OK
+[13:20:09.063] ReinstallHook: OK
+[13:20:14.063] ReinstallHook: OK
+[13:20:19.056] ReinstallHook: OK
+[13:20:24.070] ReinstallHook: OK
+[13:20:29.071] ReinstallHook: OK
+[13:20:34.062] ReinstallHook: OK
+[13:20:39.066] ReinstallHook: OK
+[13:20:44.062] ReinstallHook: OK
+[13:20:49.068] ReinstallHook: OK
+[13:20:54.071] ReinstallHook: OK
+[13:20:59.062] ReinstallHook: OK
+[13:21:04.068] ReinstallHook: OK
+[13:21:09.068] ReinstallHook: OK
+[13:21:14.065] ReinstallHook: OK
+[13:21:19.064] ReinstallHook: OK
+[13:21:24.057] ReinstallHook: OK
+[13:21:29.058] ReinstallHook: OK
+[13:21:34.056] ReinstallHook: OK
+[13:21:39.056] ReinstallHook: OK
+[13:21:44.067] ReinstallHook: OK
+[13:21:49.061] ReinstallHook: OK
+[13:21:54.070] ReinstallHook: OK
+[13:21:59.061] ReinstallHook: OK
+[13:22:04.056] ReinstallHook: OK
+[13:22:09.069] ReinstallHook: OK
+[13:22:14.059] ReinstallHook: OK
+[13:22:19.063] ReinstallHook: OK
+[13:22:24.067] ReinstallHook: OK
+[13:22:29.069] ReinstallHook: OK
+[13:22:34.060] ReinstallHook: OK
+[13:22:39.068] ReinstallHook: OK
+[13:22:44.065] ReinstallHook: OK
+[13:22:49.056] ReinstallHook: OK
+[13:22:54.056] ReinstallHook: OK
+[13:22:59.086] ReinstallHook: OK
+[13:23:04.086] ReinstallHook: OK
+[13:23:09.079] ReinstallHook: OK
+[13:23:14.081] ReinstallHook: OK
+[13:23:19.081] ReinstallHook: OK
+[13:23:24.083] ReinstallHook: OK
+[13:23:29.079] ReinstallHook: OK
+[13:23:31.410] KEY vk=0xAD (173), modKey=0, capturing=0
+[13:23:31.411] -> VK_VOLUME_MUTE -> queuing play/pause
+[13:23:31.411] Worker: sending play/pause
+[13:23:31.411] KEY vk=0xB3 (179), modKey=0, capturing=0
+[13:23:34.085] ReinstallHook: OK
+[13:23:35.483] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.483] -> VOL key, modKey=0, modPressed=1
+[13:23:35.483] -> queuing volume change
+[13:23:35.483] Worker: volume change
+[13:23:35.490] Worker: vol changed to 97% (spotify.exe)
+[13:23:35.504] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.504] -> VOL key, modKey=0, modPressed=1
+[13:23:35.504] -> queuing volume change
+[13:23:35.504] Worker: volume change
+[13:23:35.510] Worker: vol changed to 94% (spotify.exe)
+[13:23:35.521] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.521] -> VOL key, modKey=0, modPressed=1
+[13:23:35.521] -> queuing volume change
+[13:23:35.521] Worker: volume change
+[13:23:35.527] Worker: vol changed to 91% (spotify.exe)
+[13:23:35.539] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.539] -> VOL key, modKey=0, modPressed=1
+[13:23:35.539] -> queuing volume change
+[13:23:35.539] Worker: volume change
+[13:23:35.545] Worker: vol changed to 88% (spotify.exe)
+[13:23:35.555] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.555] -> VOL key, modKey=0, modPressed=1
+[13:23:35.555] -> queuing volume change
+[13:23:35.555] Worker: volume change
+[13:23:35.561] Worker: vol changed to 85% (spotify.exe)
+[13:23:35.574] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.574] -> VOL key, modKey=0, modPressed=1
+[13:23:35.574] -> queuing volume change
+[13:23:35.574] Worker: volume change
+[13:23:35.580] Worker: vol changed to 82% (spotify.exe)
+[13:23:35.588] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.588] -> VOL key, modKey=0, modPressed=1
+[13:23:35.588] -> queuing volume change
+[13:23:35.588] Worker: volume change
+[13:23:35.594] Worker: vol changed to 79% (spotify.exe)
+[13:23:35.608] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.608] -> VOL key, modKey=0, modPressed=1
+[13:23:35.608] -> queuing volume change
+[13:23:35.608] Worker: volume change
+[13:23:35.614] Worker: vol changed to 76% (spotify.exe)
+[13:23:35.624] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.624] -> VOL key, modKey=0, modPressed=1
+[13:23:35.625] -> queuing volume change
+[13:23:35.625] Worker: volume change
+[13:23:35.630] Worker: vol changed to 73% (spotify.exe)
+[13:23:35.648] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:23:35.648] -> VOL key, modKey=0, modPressed=1
+[13:23:35.648] -> queuing volume change
+[13:23:35.649] Worker: volume change
+[13:23:35.655] Worker: vol changed to 70% (spotify.exe)
+[13:23:35.976] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:35.976] -> VOL key, modKey=0, modPressed=1
+[13:23:35.976] -> queuing volume change
+[13:23:35.976] Worker: volume change
+[13:23:35.982] Worker: vol changed to 73% (spotify.exe)
+[13:23:36.002] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.002] -> VOL key, modKey=0, modPressed=1
+[13:23:36.002] -> queuing volume change
+[13:23:36.003] Worker: volume change
+[13:23:36.009] Worker: vol changed to 76% (spotify.exe)
+[13:23:36.025] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.025] -> VOL key, modKey=0, modPressed=1
+[13:23:36.025] -> queuing volume change
+[13:23:36.025] Worker: volume change
+[13:23:36.031] Worker: vol changed to 79% (spotify.exe)
+[13:23:36.046] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.046] -> VOL key, modKey=0, modPressed=1
+[13:23:36.046] -> queuing volume change
+[13:23:36.046] Worker: volume change
+[13:23:36.052] Worker: vol changed to 82% (spotify.exe)
+[13:23:36.066] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.066] -> VOL key, modKey=0, modPressed=1
+[13:23:36.066] -> queuing volume change
+[13:23:36.066] Worker: volume change
+[13:23:36.072] Worker: vol changed to 85% (spotify.exe)
+[13:23:36.088] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.088] -> VOL key, modKey=0, modPressed=1
+[13:23:36.088] -> queuing volume change
+[13:23:36.088] Worker: volume change
+[13:23:36.094] Worker: vol changed to 88% (spotify.exe)
+[13:23:36.104] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.104] -> VOL key, modKey=0, modPressed=1
+[13:23:36.104] -> queuing volume change
+[13:23:36.104] Worker: volume change
+[13:23:36.110] Worker: vol changed to 91% (spotify.exe)
+[13:23:36.130] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.130] -> VOL key, modKey=0, modPressed=1
+[13:23:36.130] -> queuing volume change
+[13:23:36.130] Worker: volume change
+[13:23:36.136] Worker: vol changed to 94% (spotify.exe)
+[13:23:36.164] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.164] -> VOL key, modKey=0, modPressed=1
+[13:23:36.164] -> queuing volume change
+[13:23:36.165] Worker: volume change
+[13:23:36.171] Worker: vol changed to 97% (spotify.exe)
+[13:23:36.766] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.767] -> VOL key, modKey=0, modPressed=1
+[13:23:36.767] -> queuing volume change
+[13:23:36.767] Worker: volume change
+[13:23:36.773] Worker: vol changed to 100% (spotify.exe)
+[13:23:36.775] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.775] -> VOL key, modKey=0, modPressed=1
+[13:23:36.775] -> queuing volume change
+[13:23:36.776] Worker: volume change
+[13:23:36.781] Worker: vol changed to 100% (spotify.exe)
+[13:23:36.786] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.786] -> VOL key, modKey=0, modPressed=1
+[13:23:36.786] -> queuing volume change
+[13:23:36.786] Worker: volume change
+[13:23:36.792] Worker: vol changed to 100% (spotify.exe)
+[13:23:36.807] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.807] -> VOL key, modKey=0, modPressed=1
+[13:23:36.807] -> queuing volume change
+[13:23:36.807] Worker: volume change
+[13:23:36.813] Worker: vol changed to 100% (spotify.exe)
+[13:23:36.834] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:23:36.834] -> VOL key, modKey=0, modPressed=1
+[13:23:36.834] -> queuing volume change
+[13:23:36.834] Worker: volume change
+[13:23:36.840] Worker: vol changed to 100% (spotify.exe)
+[13:23:38.651] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:23:38.719] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:23:39.076] ReinstallHook: OK
+[13:23:39.172] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:23:39.528] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:23:39.743] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:39.932] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:23:40.014] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:40.141] KEY vk=0x51 (81), modKey=0, capturing=0
+[13:23:40.259] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:40.380] KEY vk=0xBA (186), modKey=0, capturing=0
+[13:23:40.518] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:40.656] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:23:40.849] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:23:40.945] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:23:41.226] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:23:41.367] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:23:41.479] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:23:41.627] KEY vk=0x51 (81), modKey=0, capturing=0
+[13:23:41.719] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:42.093] KEY vk=0x57 (87), modKey=0, capturing=0
+[13:23:42.210] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:42.419] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:23:42.552] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:43.082] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:43.164] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:23:43.389] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:44.073] ReinstallHook: OK
+[13:23:44.165] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:23:44.343] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:44.535] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:23:44.761] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:44.857] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:44.946] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:23:45.084] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:45.165] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:23:45.356] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:45.402] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:23:45.596] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:23:45.697] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:45.962] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:23:46.085] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:23:46.298] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:23:46.549] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:46.599] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:46.692] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:47.216] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:47.321] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:47.734] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:47.842] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:47.991] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:23:48.071] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:23:48.476] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:48.590] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:48.836] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:23:49.083] ReinstallHook: OK
+[13:23:49.298] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:23:49.413] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:49.723] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:49.879] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:23:49.963] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:50.236] KEY vk=0x47 (71), modKey=0, capturing=0
+[13:23:50.336] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:23:50.427] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:50.605] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:23:50.702] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:23:50.807] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:51.002] KEY vk=0x47 (71), modKey=0, capturing=0
+[13:23:51.078] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:51.223] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:51.655] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:51.801] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:23:52.066] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:23:52.295] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:52.454] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:52.577] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:52.774] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:53.006] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:23:53.376] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:23:53.531] KEY vk=0xBA (186), modKey=0, capturing=0
+[13:23:53.642] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:23:53.807] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:53.894] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:54.079] ReinstallHook: OK
+[13:23:54.310] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:23:54.564] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:54.814] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:23:54.926] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:55.094] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:23:55.195] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:56.885] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:23:57.006] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:23:57.185] KEY vk=0xDB (219), modKey=0, capturing=0
+[13:23:57.416] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:23:57.678] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:23:57.957] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:58.089] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:23:58.473] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:23:58.790] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:58.896] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:58.994] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:23:59.072] ReinstallHook: OK
+[13:23:59.104] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:23:59.354] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:23:59.438] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:23:59.733] KEY vk=0x51 (81), modKey=0, capturing=0
+[13:23:59.883] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:24:00.102] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:24:00.190] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:24:00.369] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:24:00.450] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:24:00.539] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:24:00.592] KEY vk=0x37 (55), modKey=0, capturing=0
+[13:24:00.696] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:24:01.150] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:24:01.340] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:24:01.446] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:24:01.569] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:24:01.611] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:24:01.771] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:24:01.934] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:24:02.064] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:24:02.222] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:24:02.408] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:24:02.600] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:24:02.888] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:24:03.142] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:24:03.245] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:24:03.411] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:24:03.500] KEY vk=0x37 (55), modKey=0, capturing=0
+[13:24:03.827] KEY vk=0xD (13), modKey=0, capturing=0
+[13:24:04.072] ReinstallHook: OK
+[13:24:07.556] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:24:07.556] -> VOL key, modKey=0, modPressed=1
+[13:24:07.556] -> queuing volume change
+[13:24:07.556] Worker: volume change
+[13:24:07.563] Worker: vol changed to 97% (spotify.exe)
+[13:24:07.933] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:24:07.933] -> VOL key, modKey=0, modPressed=1
+[13:24:07.933] -> queuing volume change
+[13:24:07.933] Worker: volume change
+[13:24:07.940] Worker: vol changed to 94% (spotify.exe)
+[13:24:08.367] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:24:08.368] -> VOL key, modKey=0, modPressed=1
+[13:24:08.368] -> queuing volume change
+[13:24:08.368] Worker: volume change
+[13:24:08.375] Worker: vol changed to 97% (spotify.exe)
+[13:24:09.072] ReinstallHook: OK
+[13:24:14.081] ReinstallHook: OK
+[13:24:19.072] ReinstallHook: OK
+[13:24:24.084] ReinstallHook: OK
+[13:24:29.076] ReinstallHook: OK
+[13:24:34.073] ReinstallHook: OK
+[13:24:39.083] ReinstallHook: OK
+[13:24:44.082] ReinstallHook: OK
+[13:24:49.074] ReinstallHook: OK
+[13:24:54.082] ReinstallHook: OK
+[13:24:59.079] ReinstallHook: OK
+[13:25:04.074] ReinstallHook: OK
+[13:25:09.079] ReinstallHook: OK
+[13:25:14.076] ReinstallHook: OK
+[13:25:19.074] ReinstallHook: OK
+[13:25:24.072] ReinstallHook: OK
+[13:25:29.072] ReinstallHook: OK
+[13:25:34.073] ReinstallHook: OK
+[13:25:39.083] ReinstallHook: OK
+[13:25:44.083] ReinstallHook: OK
+[13:25:49.081] ReinstallHook: OK
+[13:25:54.082] ReinstallHook: OK
+[13:25:59.079] ReinstallHook: OK
+[13:26:04.076] ReinstallHook: OK
+[13:26:09.072] ReinstallHook: OK
+[13:26:14.083] ReinstallHook: OK
+[13:26:19.080] ReinstallHook: OK
+[13:26:24.079] ReinstallHook: OK
+[13:26:29.081] ReinstallHook: OK
+[13:26:34.073] ReinstallHook: OK
+[13:26:39.074] ReinstallHook: OK
+[13:26:44.072] ReinstallHook: OK
+[13:26:49.075] ReinstallHook: OK
+[13:26:53.983] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:26:53.987] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:26:54.085] ReinstallHook: OK
+[13:26:54.128] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:26:54.187] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:26:54.516] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:26:54.705] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:26:54.771] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:26:54.836] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:26:55.036] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:26:55.058] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:26:55.465] KEY vk=0xD (13), modKey=0, capturing=0
+[13:26:59.074] ReinstallHook: OK
+[13:27:04.072] ReinstallHook: OK
+[13:27:09.082] ReinstallHook: OK
+[13:27:14.079] ReinstallHook: OK
+[13:27:19.075] ReinstallHook: OK
+[13:27:24.076] ReinstallHook: OK
+[13:27:29.080] ReinstallHook: OK
+[13:27:34.074] ReinstallHook: OK
+[13:27:39.073] ReinstallHook: OK
+[13:27:44.076] ReinstallHook: OK
+[13:27:49.078] ReinstallHook: OK
+[13:27:49.474] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:27:50.378] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:27:50.970] KEY vk=0x77 (119), modKey=0, capturing=0
+[13:27:50.970] -> menuKey matched, toggling menu
+[13:27:50.970] Worker: menu toggle
+[13:27:54.074] ReinstallHook: OK
+[13:27:54.520] KEY vk=0x78 (120), modKey=0, capturing=1
+[13:27:55.909] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:27:55.909] -> menuKey matched, toggling menu
+[13:27:55.909] Worker: menu toggle
+[13:27:56.227] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:27:56.227] -> menuKey matched, toggling menu
+[13:27:56.227] Worker: menu toggle
+[13:27:59.094] ReinstallHook: OK
+[13:28:04.097] ReinstallHook: OK
+[13:28:08.001] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:28:08.001] -> menuKey matched, toggling menu
+[13:28:08.001] Worker: menu toggle
+[13:28:08.659] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:28:08.659] -> menuKey matched, toggling menu
+[13:28:08.659] Worker: menu toggle
+[13:28:09.094] ReinstallHook: OK
+[13:28:13.547] KEY vk=0x77 (119), modKey=0, capturing=1
+[13:28:14.093] ReinstallHook: OK
+[13:28:15.648] KEY vk=0x78 (120), modKey=0, capturing=1
+[13:28:17.327] KEY vk=0x77 (119), modKey=120, capturing=0
+[13:28:17.327] -> menuKey matched, toggling menu
+[13:28:17.327] Worker: menu toggle
+[13:28:17.842] KEY vk=0x78 (120), modKey=120, capturing=0
+[13:28:19.088] ReinstallHook: OK
+[13:28:19.202] KEY vk=0x78 (120), modKey=120, capturing=0
+[13:28:19.378] KEY vk=0x78 (120), modKey=120, capturing=0
+[13:28:19.504] KEY vk=0x78 (120), modKey=120, capturing=0
+[13:28:24.102] ReinstallHook: OK
+[13:28:29.100] ReinstallHook: OK
+[13:28:34.098] ReinstallHook: OK
+[13:28:36.628] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:28:37.886] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:28:37.887] KEY vk=0xA5 (165), modKey=0, capturing=0
+[13:28:38.290] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:28:38.290] KEY vk=0xA5 (165), modKey=0, capturing=0
+[13:28:39.099] ReinstallHook: OK
+[13:28:44.110] ReinstallHook: OK
+[13:28:49.109] ReinstallHook: OK
+[13:28:54.112] ReinstallHook: OK
+[13:28:59.108] ReinstallHook: OK
+[13:29:04.129] ReinstallHook: OK
+[13:29:09.120] ReinstallHook: OK
+[13:29:14.119] ReinstallHook: OK
+[13:29:19.128] ReinstallHook: OK
+[13:29:24.125] ReinstallHook: OK
+[13:29:29.128] ReinstallHook: OK
+[13:29:34.130] ReinstallHook: OK
+[13:29:39.124] ReinstallHook: OK
+[13:29:44.122] ReinstallHook: OK
+[13:29:49.145] ReinstallHook: OK
+[13:29:51.203] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:29:51.324] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:29:51.638] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:29:51.713] KEY vk=0x52 (82), modKey=0, capturing=0
+[13:29:52.686] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:29:52.819] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:29:53.016] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:29:53.088] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:29:53.261] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:29:53.721] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:29:53.932] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:29:54.098] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:29:54.141] ReinstallHook: OK
+[13:29:54.185] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:29:54.353] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:29:54.450] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:29:54.563] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:29:54.828] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:29:55.093] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:29:55.784] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:29:55.793] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:29:55.941] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:29:55.995] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:29:56.192] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:29:56.307] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:29:56.389] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:29:56.938] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:29:57.343] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:29:57.454] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:29:57.707] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:29:57.845] KEY vk=0xBC (188), modKey=0, capturing=0
+[13:29:57.985] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:29:58.156] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:29:58.426] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:29:58.524] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:29:58.926] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:29:59.077] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:29:59.142] ReinstallHook: OK
+[13:29:59.321] KEY vk=0x5A (90), modKey=0, capturing=0
+[13:29:59.440] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:29:59.557] KEY vk=0xBF (191), modKey=0, capturing=0
+[13:29:59.672] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:29:59.858] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:29:59.950] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:30:00.109] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:30:00.228] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:30:00.334] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:30:00.420] KEY vk=0x51 (81), modKey=0, capturing=0
+[13:30:00.520] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:00.789] KEY vk=0x47 (71), modKey=0, capturing=0
+[13:30:01.141] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:01.340] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:01.570] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:30:01.910] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:02.563] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:30:02.660] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:30:02.728] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:02.986] KEY vk=0x4B (75), modKey=0, capturing=0
+[13:30:03.052] KEY vk=0x58 (88), modKey=0, capturing=0
+[13:30:03.253] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:30:03.500] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:30:03.706] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:30:03.884] KEY vk=0xBE (190), modKey=0, capturing=0
+[13:30:04.072] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:04.138] ReinstallHook: OK
+[13:30:04.308] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:30:04.443] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:30:04.540] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:05.037] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:30:05.040] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:30:05.221] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:30:05.300] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:30:05.520] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:30:05.652] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:30:06.651] KEY vk=0x39 (57), modKey=0, capturing=0
+[13:30:06.702] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:07.009] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:30:07.033] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:30:07.169] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:30:07.217] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:30:07.440] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:30:07.525] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:08.077] KEY vk=0x46 (70), modKey=0, capturing=0
+[13:30:08.124] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:08.541] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:30:08.665] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:30:08.734] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:30:08.842] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:09.021] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:30:09.118] KEY vk=0x50 (80), modKey=0, capturing=0
+[13:30:09.144] ReinstallHook: OK
+[13:30:09.375] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:09.768] KEY vk=0xBA (186), modKey=0, capturing=0
+[13:30:10.005] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:30:10.077] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:10.439] KEY vk=0x4A (74), modKey=0, capturing=0
+[13:30:10.850] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:30:11.014] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:30:11.121] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:30:11.363] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:30:12.108] KEY vk=0x8 (8), modKey=0, capturing=0
+[13:30:12.440] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:30:12.719] KEY vk=0xBE (190), modKey=0, capturing=0
+[13:30:12.861] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:13.040] KEY vk=0x47 (71), modKey=0, capturing=0
+[13:30:13.224] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:30:13.268] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:30:13.379] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:30:13.585] KEY vk=0xBC (188), modKey=0, capturing=0
+[13:30:13.682] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:30:13.836] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:30:14.116] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:30:14.139] ReinstallHook: OK
+[13:30:14.234] KEY vk=0x42 (66), modKey=0, capturing=0
+[13:30:14.342] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:30:14.574] KEY vk=0x4D (77), modKey=0, capturing=0
+[13:30:14.677] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:30:15.130] KEY vk=0xD (13), modKey=0, capturing=0
+[13:30:19.137] ReinstallHook: OK
+[13:30:24.134] ReinstallHook: OK
+[13:30:29.140] ReinstallHook: OK
+[13:30:30.506] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:33.343] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:34.005] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:34.136] ReinstallHook: OK
+[13:30:34.975] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:35.331] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:35.692] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:36.020] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:36.373] KEY vk=0x78 (120), modKey=0, capturing=0
+[13:30:36.845] KEY vk=0x77 (119), modKey=0, capturing=0
+[13:30:36.845] -> menuKey matched, toggling menu
+[13:30:36.845] Worker: menu toggle
+[13:30:39.138] ReinstallHook: OK
+[13:30:44.148] ReinstallHook: OK
+[13:30:49.144] ReinstallHook: OK
+[13:30:54.135] ReinstallHook: OK
+[13:30:59.137] ReinstallHook: OK
+[13:31:04.134] ReinstallHook: OK
+[13:31:09.136] ReinstallHook: OK
+[13:31:14.141] ReinstallHook: OK
+[13:31:19.136] ReinstallHook: OK
+[13:31:24.145] ReinstallHook: OK
+[13:31:29.149] ReinstallHook: OK
+[13:31:29.890] KEY vk=0x37 (55), modKey=0, capturing=0
+[13:31:34.137] ReinstallHook: OK
+[13:31:39.135] ReinstallHook: OK
+[13:31:44.146] ReinstallHook: OK
+[13:31:49.142] ReinstallHook: OK
+[13:31:54.144] ReinstallHook: OK
+[13:31:59.147] ReinstallHook: OK
+[13:32:04.139] ReinstallHook: OK
+[13:32:09.139] ReinstallHook: OK
+[13:32:14.148] ReinstallHook: OK
+[13:32:19.145] ReinstallHook: OK
+[13:32:24.143] ReinstallHook: OK
+[13:32:29.144] ReinstallHook: OK
+[13:32:32.666] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:32.667] -> VOL key, modKey=0, modPressed=1
+[13:32:32.667] -> queuing volume change
+[13:32:32.667] Worker: volume change
+[13:32:32.675] Worker: vol changed to 94% (spotify.exe)
+[13:32:33.902] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:33.902] -> VOL key, modKey=0, modPressed=1
+[13:32:33.902] -> queuing volume change
+[13:32:33.903] Worker: volume change
+[13:32:33.910] Worker: vol changed to 97% (spotify.exe)
+[13:32:33.971] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:33.971] -> VOL key, modKey=0, modPressed=1
+[13:32:33.971] -> queuing volume change
+[13:32:33.971] Worker: volume change
+[13:32:33.978] Worker: vol changed to 100% (spotify.exe)
+[13:32:34.137] ReinstallHook: OK
+[13:32:39.146] ReinstallHook: OK
+[13:32:44.145] ReinstallHook: OK
+[13:32:47.634] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.634] -> VOL key, modKey=0, modPressed=1
+[13:32:47.634] -> queuing volume change
+[13:32:47.634] Worker: volume change
+[13:32:47.642] Worker: vol changed to 97% (spotify.exe)
+[13:32:47.666] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.666] -> VOL key, modKey=0, modPressed=1
+[13:32:47.667] -> queuing volume change
+[13:32:47.667] Worker: volume change
+[13:32:47.674] Worker: vol changed to 94% (spotify.exe)
+[13:32:47.684] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.684] -> VOL key, modKey=0, modPressed=1
+[13:32:47.684] -> queuing volume change
+[13:32:47.684] Worker: volume change
+[13:32:47.691] Worker: vol changed to 91% (spotify.exe)
+[13:32:47.704] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.704] -> VOL key, modKey=0, modPressed=1
+[13:32:47.704] -> queuing volume change
+[13:32:47.704] Worker: volume change
+[13:32:47.710] Worker: vol changed to 88% (spotify.exe)
+[13:32:47.714] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.715] -> VOL key, modKey=0, modPressed=1
+[13:32:47.715] -> queuing volume change
+[13:32:47.715] Worker: volume change
+[13:32:47.722] Worker: vol changed to 85% (spotify.exe)
+[13:32:47.729] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.729] -> VOL key, modKey=0, modPressed=1
+[13:32:47.729] -> queuing volume change
+[13:32:47.729] Worker: volume change
+[13:32:47.736] Worker: vol changed to 82% (spotify.exe)
+[13:32:47.740] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.740] -> VOL key, modKey=0, modPressed=1
+[13:32:47.740] -> queuing volume change
+[13:32:47.740] Worker: volume change
+[13:32:47.747] Worker: vol changed to 79% (spotify.exe)
+[13:32:47.787] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:47.787] -> VOL key, modKey=0, modPressed=1
+[13:32:47.787] -> queuing volume change
+[13:32:47.787] Worker: volume change
+[13:32:47.794] Worker: vol changed to 76% (spotify.exe)
+[13:32:48.162] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.162] -> VOL key, modKey=0, modPressed=1
+[13:32:48.162] -> queuing volume change
+[13:32:48.162] Worker: volume change
+[13:32:48.169] Worker: vol changed to 73% (spotify.exe)
+[13:32:48.193] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.193] -> VOL key, modKey=0, modPressed=1
+[13:32:48.193] -> queuing volume change
+[13:32:48.193] Worker: volume change
+[13:32:48.200] Worker: vol changed to 70% (spotify.exe)
+[13:32:48.213] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.213] -> VOL key, modKey=0, modPressed=1
+[13:32:48.213] -> queuing volume change
+[13:32:48.213] Worker: volume change
+[13:32:48.221] Worker: vol changed to 67% (spotify.exe)
+[13:32:48.230] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.230] -> VOL key, modKey=0, modPressed=1
+[13:32:48.231] -> queuing volume change
+[13:32:48.231] Worker: volume change
+[13:32:48.239] Worker: vol changed to 64% (spotify.exe)
+[13:32:48.239] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.240] -> VOL key, modKey=0, modPressed=1
+[13:32:48.240] -> queuing volume change
+[13:32:48.240] Worker: volume change
+[13:32:48.246] Worker: vol changed to 61% (spotify.exe)
+[13:32:48.249] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.249] -> VOL key, modKey=0, modPressed=1
+[13:32:48.250] -> queuing volume change
+[13:32:48.250] Worker: volume change
+[13:32:48.256] Worker: vol changed to 58% (spotify.exe)
+[13:32:48.269] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.269] -> VOL key, modKey=0, modPressed=1
+[13:32:48.270] -> queuing volume change
+[13:32:48.270] Worker: volume change
+[13:32:48.276] Worker: vol changed to 55% (spotify.exe)
+[13:32:48.748] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.749] -> VOL key, modKey=0, modPressed=1
+[13:32:48.749] -> queuing volume change
+[13:32:48.749] Worker: volume change
+[13:32:48.756] Worker: vol changed to 52% (spotify.exe)
+[13:32:48.790] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.790] -> VOL key, modKey=0, modPressed=1
+[13:32:48.790] -> queuing volume change
+[13:32:48.790] Worker: volume change
+[13:32:48.797] Worker: vol changed to 49% (spotify.exe)
+[13:32:48.833] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.833] -> VOL key, modKey=0, modPressed=1
+[13:32:48.833] -> queuing volume change
+[13:32:48.833] Worker: volume change
+[13:32:48.839] Worker: vol changed to 46% (spotify.exe)
+[13:32:48.857] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.857] -> VOL key, modKey=0, modPressed=1
+[13:32:48.857] -> queuing volume change
+[13:32:48.857] Worker: volume change
+[13:32:48.864] Worker: vol changed to 43% (spotify.exe)
+[13:32:48.877] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.877] -> VOL key, modKey=0, modPressed=1
+[13:32:48.878] -> queuing volume change
+[13:32:48.878] Worker: volume change
+[13:32:48.883] Worker: vol changed to 40% (spotify.exe)
+[13:32:48.886] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.886] -> VOL key, modKey=0, modPressed=1
+[13:32:48.886] -> queuing volume change
+[13:32:48.886] Worker: volume change
+[13:32:48.892] Worker: vol changed to 37% (spotify.exe)
+[13:32:48.897] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.898] -> VOL key, modKey=0, modPressed=1
+[13:32:48.898] -> queuing volume change
+[13:32:48.898] Worker: volume change
+[13:32:48.904] Worker: vol changed to 34% (spotify.exe)
+[13:32:48.926] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:48.926] -> VOL key, modKey=0, modPressed=1
+[13:32:48.926] -> queuing volume change
+[13:32:48.926] Worker: volume change
+[13:32:48.932] Worker: vol changed to 31% (spotify.exe)
+[13:32:49.143] ReinstallHook: OK
+[13:32:49.366] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:49.366] -> VOL key, modKey=0, modPressed=1
+[13:32:49.366] -> queuing volume change
+[13:32:49.366] Worker: volume change
+[13:32:49.373] Worker: vol changed to 28% (spotify.exe)
+[13:32:49.433] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:49.433] -> VOL key, modKey=0, modPressed=1
+[13:32:49.433] -> queuing volume change
+[13:32:49.433] Worker: volume change
+[13:32:49.440] Worker: vol changed to 25% (spotify.exe)
+[13:32:49.632] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:49.632] -> VOL key, modKey=0, modPressed=1
+[13:32:49.632] -> queuing volume change
+[13:32:49.632] Worker: volume change
+[13:32:49.639] Worker: vol changed to 22% (spotify.exe)
+[13:32:49.712] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:49.712] -> VOL key, modKey=0, modPressed=1
+[13:32:49.712] -> queuing volume change
+[13:32:49.712] Worker: volume change
+[13:32:49.718] Worker: vol changed to 19% (spotify.exe)
+[13:32:49.937] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:49.937] -> VOL key, modKey=0, modPressed=1
+[13:32:49.937] -> queuing volume change
+[13:32:49.937] Worker: volume change
+[13:32:49.944] Worker: vol changed to 16% (spotify.exe)
+[13:32:50.130] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:50.130] -> VOL key, modKey=0, modPressed=1
+[13:32:50.130] -> queuing volume change
+[13:32:50.131] Worker: volume change
+[13:32:50.138] Worker: vol changed to 13% (spotify.exe)
+[13:32:50.622] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:50.622] -> VOL key, modKey=0, modPressed=1
+[13:32:50.622] -> queuing volume change
+[13:32:50.622] Worker: volume change
+[13:32:50.628] Worker: vol changed to 10% (spotify.exe)
+[13:32:53.138] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:32:53.138] -> VOL key, modKey=0, modPressed=1
+[13:32:53.138] -> queuing volume change
+[13:32:53.138] Worker: volume change
+[13:32:53.145] Worker: vol changed to 7% (spotify.exe)
+[13:32:54.138] ReinstallHook: OK
+[13:32:55.227] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.227] -> VOL key, modKey=0, modPressed=1
+[13:32:55.227] -> queuing volume change
+[13:32:55.227] Worker: volume change
+[13:32:55.235] Worker: vol changed to 10% (spotify.exe)
+[13:32:55.288] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.288] -> VOL key, modKey=0, modPressed=1
+[13:32:55.288] -> queuing volume change
+[13:32:55.288] Worker: volume change
+[13:32:55.296] Worker: vol changed to 13% (spotify.exe)
+[13:32:55.403] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.403] -> VOL key, modKey=0, modPressed=1
+[13:32:55.403] -> queuing volume change
+[13:32:55.404] Worker: volume change
+[13:32:55.411] Worker: vol changed to 16% (spotify.exe)
+[13:32:55.456] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.456] -> VOL key, modKey=0, modPressed=1
+[13:32:55.456] -> queuing volume change
+[13:32:55.456] Worker: volume change
+[13:32:55.464] Worker: vol changed to 19% (spotify.exe)
+[13:32:55.540] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.540] -> VOL key, modKey=0, modPressed=1
+[13:32:55.540] -> queuing volume change
+[13:32:55.540] Worker: volume change
+[13:32:55.548] Worker: vol changed to 22% (spotify.exe)
+[13:32:55.885] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.885] -> VOL key, modKey=0, modPressed=1
+[13:32:55.885] -> queuing volume change
+[13:32:55.885] Worker: volume change
+[13:32:55.893] Worker: vol changed to 25% (spotify.exe)
+[13:32:55.902] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.902] -> VOL key, modKey=0, modPressed=1
+[13:32:55.902] -> queuing volume change
+[13:32:55.902] Worker: volume change
+[13:32:55.909] Worker: vol changed to 28% (spotify.exe)
+[13:32:55.918] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.918] -> VOL key, modKey=0, modPressed=1
+[13:32:55.918] -> queuing volume change
+[13:32:55.919] Worker: volume change
+[13:32:55.925] Worker: vol changed to 31% (spotify.exe)
+[13:32:55.949] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:55.949] -> VOL key, modKey=0, modPressed=1
+[13:32:55.949] -> queuing volume change
+[13:32:55.949] Worker: volume change
+[13:32:55.957] Worker: vol changed to 34% (spotify.exe)
+[13:32:56.847] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:56.847] -> VOL key, modKey=0, modPressed=1
+[13:32:56.847] -> queuing volume change
+[13:32:56.847] Worker: volume change
+[13:32:56.855] Worker: vol changed to 37% (spotify.exe)
+[13:32:56.896] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:56.896] -> VOL key, modKey=0, modPressed=1
+[13:32:56.896] -> queuing volume change
+[13:32:56.896] Worker: volume change
+[13:32:56.902] Worker: vol changed to 40% (spotify.exe)
+[13:32:56.956] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:56.956] -> VOL key, modKey=0, modPressed=1
+[13:32:56.956] -> queuing volume change
+[13:32:56.956] Worker: volume change
+[13:32:56.963] Worker: vol changed to 43% (spotify.exe)
+[13:32:57.342] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.342] -> VOL key, modKey=0, modPressed=1
+[13:32:57.342] -> queuing volume change
+[13:32:57.343] Worker: volume change
+[13:32:57.349] Worker: vol changed to 46% (spotify.exe)
+[13:32:57.361] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.361] -> VOL key, modKey=0, modPressed=1
+[13:32:57.361] -> queuing volume change
+[13:32:57.361] Worker: volume change
+[13:32:57.368] Worker: vol changed to 49% (spotify.exe)
+[13:32:57.413] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.413] -> VOL key, modKey=0, modPressed=1
+[13:32:57.413] -> queuing volume change
+[13:32:57.414] Worker: volume change
+[13:32:57.420] Worker: vol changed to 52% (spotify.exe)
+[13:32:57.718] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.718] -> VOL key, modKey=0, modPressed=1
+[13:32:57.719] -> queuing volume change
+[13:32:57.719] Worker: volume change
+[13:32:57.726] Worker: vol changed to 55% (spotify.exe)
+[13:32:57.735] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.735] -> VOL key, modKey=0, modPressed=1
+[13:32:57.735] -> queuing volume change
+[13:32:57.735] Worker: volume change
+[13:32:57.741] Worker: vol changed to 58% (spotify.exe)
+[13:32:57.751] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.751] -> VOL key, modKey=0, modPressed=1
+[13:32:57.751] -> queuing volume change
+[13:32:57.751] Worker: volume change
+[13:32:57.757] Worker: vol changed to 61% (spotify.exe)
+[13:32:57.768] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.768] -> VOL key, modKey=0, modPressed=1
+[13:32:57.768] -> queuing volume change
+[13:32:57.768] Worker: volume change
+[13:32:57.774] Worker: vol changed to 64% (spotify.exe)
+[13:32:57.781] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.781] -> VOL key, modKey=0, modPressed=1
+[13:32:57.781] -> queuing volume change
+[13:32:57.781] Worker: volume change
+[13:32:57.787] Worker: vol changed to 67% (spotify.exe)
+[13:32:57.803] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.803] -> VOL key, modKey=0, modPressed=1
+[13:32:57.803] -> queuing volume change
+[13:32:57.803] Worker: volume change
+[13:32:57.810] Worker: vol changed to 70% (spotify.exe)
+[13:32:57.820] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.820] -> VOL key, modKey=0, modPressed=1
+[13:32:57.820] -> queuing volume change
+[13:32:57.820] Worker: volume change
+[13:32:57.827] Worker: vol changed to 73% (spotify.exe)
+[13:32:57.850] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:57.850] -> VOL key, modKey=0, modPressed=1
+[13:32:57.850] -> queuing volume change
+[13:32:57.851] Worker: volume change
+[13:32:57.857] Worker: vol changed to 76% (spotify.exe)
+[13:32:58.126] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.127] -> VOL key, modKey=0, modPressed=1
+[13:32:58.127] -> queuing volume change
+[13:32:58.127] Worker: volume change
+[13:32:58.135] Worker: vol changed to 79% (spotify.exe)
+[13:32:58.139] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.139] -> VOL key, modKey=0, modPressed=1
+[13:32:58.139] -> queuing volume change
+[13:32:58.140] Worker: volume change
+[13:32:58.146] Worker: vol changed to 82% (spotify.exe)
+[13:32:58.157] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.157] -> VOL key, modKey=0, modPressed=1
+[13:32:58.157] -> queuing volume change
+[13:32:58.157] Worker: volume change
+[13:32:58.163] Worker: vol changed to 85% (spotify.exe)
+[13:32:58.183] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.184] -> VOL key, modKey=0, modPressed=1
+[13:32:58.184] -> queuing volume change
+[13:32:58.184] Worker: volume change
+[13:32:58.190] Worker: vol changed to 88% (spotify.exe)
+[13:32:58.208] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.208] -> VOL key, modKey=0, modPressed=1
+[13:32:58.208] -> queuing volume change
+[13:32:58.208] Worker: volume change
+[13:32:58.215] Worker: vol changed to 91% (spotify.exe)
+[13:32:58.499] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.499] -> VOL key, modKey=0, modPressed=1
+[13:32:58.499] -> queuing volume change
+[13:32:58.500] Worker: volume change
+[13:32:58.507] Worker: vol changed to 94% (spotify.exe)
+[13:32:58.511] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.511] -> VOL key, modKey=0, modPressed=1
+[13:32:58.511] -> queuing volume change
+[13:32:58.511] Worker: volume change
+[13:32:58.518] Worker: vol changed to 97% (spotify.exe)
+[13:32:58.533] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.533] -> VOL key, modKey=0, modPressed=1
+[13:32:58.533] -> queuing volume change
+[13:32:58.533] Worker: volume change
+[13:32:58.539] Worker: vol changed to 100% (spotify.exe)
+[13:32:58.556] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.556] -> VOL key, modKey=0, modPressed=1
+[13:32:58.556] -> queuing volume change
+[13:32:58.556] Worker: volume change
+[13:32:58.562] Worker: vol changed to 100% (spotify.exe)
+[13:32:58.603] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:32:58.603] -> VOL key, modKey=0, modPressed=1
+[13:32:58.603] -> queuing volume change
+[13:32:58.603] Worker: volume change
+[13:32:58.609] Worker: vol changed to 100% (spotify.exe)
+[13:32:59.143] ReinstallHook: OK
+[13:33:04.135] ReinstallHook: OK
+[13:33:09.140] ReinstallHook: OK
+[13:33:14.136] ReinstallHook: OK
+[13:33:19.145] ReinstallHook: OK
+[13:33:24.145] ReinstallHook: OK
+[13:33:29.148] ReinstallHook: OK
+[13:33:34.142] ReinstallHook: OK
+[13:33:35.768] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:33:35.797] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:33:36.024] KEY vk=0xA4 (164), modKey=0, capturing=0
+[13:33:36.262] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:33:36.303] KEY vk=0x49 (73), modKey=0, capturing=0
+[13:33:36.428] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:33:36.557] KEY vk=0x4C (76), modKey=0, capturing=0
+[13:33:36.719] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:33:36.778] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:33:36.866] KEY vk=0x45 (69), modKey=0, capturing=0
+[13:33:36.926] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:33:37.125] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:33:37.246] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:33:37.354] KEY vk=0x55 (85), modKey=0, capturing=0
+[13:33:37.400] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:33:37.604] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:33:37.680] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:33:37.820] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:33:38.035] KEY vk=0xD (13), modKey=0, capturing=0
+[13:33:39.134] ReinstallHook: OK
+[13:33:44.134] ReinstallHook: OK
+[13:33:49.145] ReinstallHook: OK
+[13:33:54.146] ReinstallHook: OK
+[13:33:59.136] ReinstallHook: OK
+[13:34:04.136] ReinstallHook: OK
+[13:34:09.136] ReinstallHook: OK
+[13:34:10.814] KEY vk=0xAE (174), modKey=0, capturing=0
+[13:34:10.814] -> VOL key, modKey=0, modPressed=1
+[13:34:10.814] -> queuing volume change
+[13:34:10.814] Worker: volume change
+[13:34:10.821] Worker: vol changed to 97% (spotify.exe)
+[13:34:12.018] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:34:12.018] -> VOL key, modKey=0, modPressed=1
+[13:34:12.018] -> queuing volume change
+[13:34:12.018] Worker: volume change
+[13:34:12.025] Worker: vol changed to 100% (spotify.exe)
+[13:34:12.059] KEY vk=0xAF (175), modKey=0, capturing=0
+[13:34:12.059] -> VOL key, modKey=0, modPressed=1
+[13:34:12.059] -> queuing volume change
+[13:34:12.060] Worker: volume change
+[13:34:12.066] Worker: vol changed to 100% (spotify.exe)
+[13:34:14.135] ReinstallHook: OK
+[13:34:19.135] ReinstallHook: OK
+[13:34:24.135] ReinstallHook: OK
+[13:34:29.140] ReinstallHook: OK
+[13:34:31.724] KEY vk=0xA0 (160), modKey=0, capturing=0
+[13:34:31.812] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:34:31.954] KEY vk=0x4F (79), modKey=0, capturing=0
+[13:34:32.193] KEY vk=0x4E (78), modKey=0, capturing=0
+[13:34:32.524] KEY vk=0xDE (222), modKey=0, capturing=0
+[13:34:32.648] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:34:32.754] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:34:33.101] KEY vk=0x53 (83), modKey=0, capturing=0
+[13:34:33.244] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:34:33.697] KEY vk=0x59 (89), modKey=0, capturing=0
+[13:34:33.929] KEY vk=0x20 (32), modKey=0, capturing=0
+[13:34:34.141] ReinstallHook: OK
+[13:34:34.684] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:34:34.919] KEY vk=0x48 (72), modKey=0, capturing=0
+[13:34:35.149] KEY vk=0x41 (65), modKey=0, capturing=0
+[13:34:35.364] KEY vk=0x54 (84), modKey=0, capturing=0
+[13:34:35.834] KEY vk=0xD (13), modKey=0, capturing=0
+[13:34:39.144] ReinstallHook: OK
+[13:34:44.144] ReinstallHook: OK
+[13:34:49.148] ReinstallHook: OK
+[13:34:49.397] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:34:49.557] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:34:49.963] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:34:50.039] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:34:50.830] KEY vk=0xD (13), modKey=0, capturing=0
+[13:34:54.139] ReinstallHook: OK
+[13:34:57.868] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:34:58.028] KEY vk=0x44 (68), modKey=0, capturing=0
+[13:34:58.347] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:34:58.497] KEY vk=0x43 (67), modKey=0, capturing=0
+[13:34:58.926] KEY vk=0xA2 (162), modKey=0, capturing=0
+[13:34:59.010] KEY vk=0x56 (86), modKey=0, capturing=0
+[13:34:59.142] ReinstallHook: OK
