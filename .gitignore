@@ -1,0 +1,25 @@
+# CMake build directories
+build/
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+
+# Executables & object files
+*.exe
+*.obj
+*.o
+*.log
+*.ini
+*.pdb
+*.ilk
+*.suo
+*.user
+
+# IDEs and Editors
+.vs/
+.vscode/
+x64/
+Debug/
+Release/
+*.bak
+

@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/cmake_install.cmake",
-		"S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/nlohmann_json-build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

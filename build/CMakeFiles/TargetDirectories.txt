@@ -1,5 +1,0 @@
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/CMakeFiles/imgui.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/CMakeFiles/SmartVolumeMixer.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/CMakeFiles/ALL_BUILD.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/CMakeFiles/ZERO_CHECK.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/nlohmann_json-build/CMakeFiles/ALL_BUILD.dir

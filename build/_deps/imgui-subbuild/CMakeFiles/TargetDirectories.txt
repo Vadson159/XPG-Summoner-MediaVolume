@@ -1,3 +1,0 @@
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild/CMakeFiles/imgui-populate.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild/CMakeFiles/ALL_BUILD.dir
-S:/_Vibe_Coding/XPG_Summoner_MediaVolume/build/_deps/imgui-subbuild/CMakeFiles/ZERO_CHECK.dir

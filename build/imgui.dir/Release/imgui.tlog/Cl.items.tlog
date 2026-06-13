@@ -1,6 +1,0 @@
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\imgui.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui.obj
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\imgui_draw.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui_draw.obj
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\imgui_tables.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui_tables.obj
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\imgui_widgets.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui_widgets.obj
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\backends\imgui_impl_win32.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui_impl_win32.obj
-S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\_deps\imgui-src\backends\imgui_impl_dx11.cpp;S:\_Vibe_Coding\XPG_Summoner_MediaVolume\build\imgui.dir\Release\imgui_impl_dx11.obj
