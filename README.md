@@ -8,11 +8,14 @@ Built with C++20, DirectX 11, and Dear ImGui.
 
 ## Screenshots
 
+### On-Screen Display (OSD) Overlay
+![OSD Overlay](assets/screenshot1.png)
+
 ### Main Configuration Menu
 ![Configuration Menu](assets/screenshot2.png)
 
-### On-Screen Display (OSD) Overlay
-![OSD Overlay](assets/screenshot1.png)
+### Track Info Display
+![Track Info](assets/screenshot3.png)
 
 ---
 
