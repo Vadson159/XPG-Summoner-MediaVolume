@@ -83,3 +83,9 @@ Settings are saved in `config.json` inside the application folder. The default s
 ## License
 
 This project is licensed under the MIT License.
+
+---
+## Support
+If you find this project helpful, consider supporting its development:
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/vadson)
