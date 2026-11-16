@@ -1,0 +1,156 @@
+[
+  {
+    "severity": "minor",
+    "doc": "CLAUDE.md §7 'Stray repo files' and ARCHITECTURE.md §8 item 7",
+    "location": "CLAUDE §7 last bullet; ARCHITECTURE §8.7",
+    "problem": "Both docs claim there are TWO debug_hook.log files: CLAUDE says 'debug_hook.log (×2, contain old keystroke traces)'; ARCHITECTURE says 'the two debug_hook.log keystroke traces'. The repository contains exactly ONE debug_hook.log (303224 bytes at repo root). There is no second copy.",
+    "correction": "There is a single debug_hook.log at the repo root. Drop the '×2' / 'two' wording."
+  },
+  {
+    "severity": "minor",
+    "doc": "ARCHITECTURE.md §2.3 / CLAUDE.md §5",
+    "location": "ARCHITECTURE §2.3 'ChangeVolume (:91)'; CLAUDE §5 / RenderOSD discussion",
+    "problem": "Docs say ChangeVolume's outAppName 'reflects the last matched session' and describe the OSD stripping the extension from a mixed-case name like 'My.App.exe'→'My.App'. In reality ChangeVolume lowercases procName via std::transform BEFORE assigning outAppName (AudioManager.cpp:112, then outAppName = procName at :138), so the OSD always receives a fully lowercased basename (e.g. 'spotify', never 'Spotify'). RenderOSD only strips the trailing extension; it never restores case.",
+    "correction": "Note outAppName is lowercased at AudioManager.cpp:112; the OSD displays lowercase app names (e.g. 'spotify: 73%'), and RenderOSD's '.'-strip does not affect case."
+  },
+  {
+    "severity": "minor",
+    "doc": "ARCHITECTURE.md §2.3",
+    "location": "§2.3 ChangeVolume / GetActiveSessions interface QI description",
+    "problem": "Doc phrases session walking as 'Enumerate sessions → QI IAudioSessionControl2 → GetProcessId'. The code actually calls IAudioSessionEnumerator::GetSession into a ComPtr<IAudioSessionControl> (the BASE interface) first, then .As(&pControl2) to IAudioSessionControl2 (AudioManager.cpp:102-106; same in GetActiveSessions at :154-157). The intermediate IAudioSessionControl GetSession step is omitted.",
+    "correction": "GetSession yields IAudioSessionControl (AudioManager.cpp:102/:154); the code then QIs to IAudioSessionControl2 (:106/:157) before GetProcessId."
+  },
+  {
+    "severity": "minor",
+    "doc": "CLAUDE.md §1 / §3 / ARCHITECTURE.md §1",
+    "location": "CLAUDE §1 ('an F9 \"Track Info\" popup', 'Mute key into a media play/pause'); ARCHITECTURE §1 data flow ('F8 (menu)', 'F9 (info)')",
+    "problem": "Prose presents F8 (menu) and F9 (info) as the keys, but the hook does NOT match literal VK_F8/VK_F9 — it gates on the configurable g_Config.menuKey (InputHook.cpp:119) and g_Config.infoKey (InputHook.cpp:132). F8/F9 are only the loaded defaults (Config.h:8,13). The data-flow bullets in ARCHITECTURE §1 stating 'F8 (menu) → type=2' and 'F9 (info) → type=3' are only true at default config.",
+    "correction": "Qualify F8/F9 as default values of the configurable menuKey/infoKey; the hook matches g_Config.menuKey / g_Config.infoKey, not hardcoded VK_F8/VK_F9."
+  },
+  {
+    "severity": "minor",
+    "doc": "ARCHITECTURE.md §7 / CLAUDE.md §2",
+    "location": "ARCHITECTURE §7 'windowsapp.lib ... ensure it is linked'; CMake link-list descriptions",
+    "problem": "The docs attribute all linking to CMakeLists.txt and add a separate note that windowsapp.lib 'must be linked in your build environment'. In fact ole32/oleaut32/windowsapp are force-linked via #pragma comment(lib, ...) in AudioManager.cpp:11-13 (windowsapp.lib is NOT in CMakeLists.txt at all). The docs never mention this pragma mechanism, which is the actual source of the windowsapp/ole32/oleaut32 link inputs. Not a false claim, but an omission that misleads about where windowsapp.lib comes from.",
+    "correction": "Add that ole32/oleaut32/windowsapp.lib are pulled in by #pragma comment(lib,...) in AudioManager.cpp:11-13; only ole32/oleaut32/psapi/d3d11/d3dcompiler/dwmapi appear in CMakeLists.txt, and windowsapp is not listed there."
+  },
+  {
+    "severity": "high",
+    "doc": "both (CLAUDE.md §4 / §7; ARCHITECTURE.md §2.5)",
+    "location": "Add to CLAUDE.md §4 threading table + §7 footguns, and ARCHITECTURE.md §2.5 UIManager and §1 data flow.",
+    "problem": "UIManager::IsMenuOpen() (UIManager.h:29) reads m_menuOpen WITHOUT taking m_uiMutex, and it is called every frame from the render thread (OverlayWindow.cpp:202 UpdateClickability) while ToggleMenu() (UIManager.cpp:88) writes m_menuOpen on the WORKER (MTA) thread under the lock. RenderMenu also writes m_menuOpen via the ImGui::Begin(&m_menuOpen) close-button (UIManager.cpp:184) on the render thread. The docs assert invariant #6 'm_uiMutex must be held for all UI-state reads/writes' but IsMenuOpen() violates it and is never called out, unlike the documented HasActiveUI() race. A dev who 'fixes' the documented HasActiveUI race by adding a lock could deadlock or miss this unlocked sibling.",
+    "correction": "Document that IsMenuOpen() is an unlocked cross-thread read of m_menuOpen (worker writes via ToggleMenu, render thread writes via the menu close button and SetMenuOpen, render thread reads via IsMenuOpen) — a second torn-read race alongside HasActiveUI. Note invariant #6 is already not literally true."
+  },
+  {
+    "severity": "high",
+    "doc": "both (CLAUDE.md §3/§4; ARCHITECTURE.md §1, §2.5)",
+    "location": "Add to CLAUDE.md §3 table note / §4, and ARCHITECTURE.md §2.5 + the data-flow list in §1.",
+    "problem": "The menu can be opened THREE ways but the docs only describe F8. The tray-icon right-click 'Settings' and the tray double-click both call UIManager::SetMenuOpen(true) (OverlayWindow.cpp:325,330) on the UI/render thread. SetMenuOpen (UIManager.h:30) is an entirely undocumented public setter that takes m_uiMutex. So m_menuOpen is written from the worker (ToggleMenu via F8), the render thread (SetMenuOpen via tray, and the ImGui close button), making it the most cross-thread-written UI field. A dev refactoring menu state who only knows about F8/ToggleMenu will miss the tray paths.",
+    "correction": "Document SetMenuOpen and the two tray entry points (right-click Settings, left double-click) as additional menu-open triggers, and that m_menuOpen is written from BOTH the worker thread (ToggleMenu) and the UI/render thread (SetMenuOpen, ImGui close button)."
+  },
+  {
+    "severity": "high",
+    "doc": "both (CLAUDE.md §4/§7; ARCHITECTURE.md §2.2)",
+    "location": "Add to CLAUDE.md §7 footguns + §4 table for OnKeyCaptured, and ARCHITECTURE.md §2.2.",
+    "problem": "Key-capture mode writes shared state from the UI thread with no synchronization, and the capture handshake spans threads racily. RenderMenu (render thread) sets InputHook::Get().isCapturingKey = true and captureType = N (UIManager.cpp:201-203,217-218,243-244) — plain bool/int (InputHook.h:41-42), read concurrently by LowLevelKeyboardProc on the hook thread (InputHook.cpp:100,107). The docs (CLAUDE.md §4 note on OnKeyCaptured; ARCH §2.2 'isCapturingKey/captureType ... a data race') mention the race exists but never state that the WRITER is RenderMenu on the render thread, nor that captureType uses a DIFFERENT numbering (UIManager OnKeyCaptured lambda: 0=modifier,1=menu,2=info, UIManager.cpp:56-64) than HookEvent.type (0=volume,1=play/pause,2=menu,3=info, InputHook.h:13). These two integer-type spaces collide conceptually and a dev could wire the wrong constant.",
+    "correction": "Document: (1) RenderMenu (render thread) is the writer of isCapturingKey/captureType; (2) captureType is a SEPARATE enum from HookEvent.type (capture: 0=volume modifier,1=menu,2=info) — call out the overlap so they are not confused; (3) the full capture round-trip is render-thread write -> hook-thread read -> OnKeyCaptured on hook thread."
+  },
+  {
+    "severity": "high",
+    "doc": "both (CLAUDE.md §2; ARCHITECTURE.md §7)",
+    "location": "Fix CLAUDE.md §2 build section and ARCHITECTURE.md §7 'windowsapp.lib' bullet.",
+    "problem": "ARCHITECTURE.md §7 says 'windowsapp.lib (C++/WinRT) is required for SMTC; ensure it is linked in your build environment' — implying a dev must add it. In reality AudioManager.cpp links it (and ole32/oleaut32) via #pragma comment(lib, \"windowsapp.lib\") (AudioManager.cpp:11-13), and OverlayWindow.cpp pragma-links d3d11/d3dcompiler (OverlayWindow.cpp:11-12). CMakeLists ALSO redundantly lists ole32/oleaut32/d3d11/d3dcompiler/dwmapi but NOT windowsapp. So SMTC linkage depends entirely on the MSVC-only #pragma, which is invisible to anyone reading only CMakeLists. A dev who drops the pragma or ports to a non-MSVC compiler/build will get unresolved SMTC externals with no CMake-level clue.",
+    "correction": "State that windowsapp.lib is linked ONLY via #pragma comment(lib) in AudioManager.cpp (not in CMakeLists), that ole32/oleaut32/d3d11/d3dcompiler are double-linked (pragma + CMake), and that the WinRT linkage is MSVC-pragma-dependent. Recommend moving windowsapp to CMakeLists for non-MSVC portability."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §3/§4; ARCHITECTURE.md §1, §2.2)",
+    "location": "Add to CLAUDE.md §4 (OnMenuToggled row already says Worker/MTA — add a hazard note) and ARCHITECTURE.md §1 data flow + §2.2 WorkerLoop.",
+    "problem": "The F8 menu toggle path crosses threads in a way that compounds the m_menuOpen race above and is not flagged as a hazard. HookEvent type==2 is dispatched by calling OnMenuToggled() directly from WorkerLoop (InputHook.cpp:219-220) on the MTA worker thread, which runs UIManager::ToggleMenu mutating m_menuOpen — a piece of UI/window state — off the UI thread. Unlike OnVolumeChanged (which only stamps timestamps), ToggleMenu's effect (menu open) is immediately read unlocked by the render thread for clickability. The docs note the callback fires on the worker but never connect it to the clickability/window-style consequence.",
+    "correction": "Note that the F8->type==2->OnMenuToggled->ToggleMenu path mutates menu/window state from the worker thread, and that this state is consumed unlocked on the render thread to toggle WS_EX_TRANSPARENT — so any future ImGui/HWND work added to ToggleMenu would be on the wrong thread."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §5 invariant #4; ARCHITECTURE.md §2.1)",
+    "location": "Correct CLAUDE.md §5 #4 teardown ordering and ARCHITECTURE.md §2.1 AppMain description.",
+    "problem": "Teardown ordering is stated as a hard 3-step invariant but UIManager is silently never torn down and the teardown set is asymmetric with startup. AppMain (main.cpp:53-55) does OverlayWindow.Destroy -> InputHook.Uninstall -> AudioManager.Shutdown. There is NO UIManager teardown anywhere (UIManager has no Shutdown), even though startup includes UIManager.Initialize. ARCHITECTURE §2.1 mentions this once ('UIManager::Initialize ... is never torn down') but CLAUDE.md §5 #4 presents teardown as complete/mandatory without noting UIManager is intentionally absent. A dev adding RAII or a Shutdown to UIManager needs to know it currently leaks by design and that InputHook callbacks (registered in UIManager::Initialize) outlive nothing because the worker is joined first in Uninstall.",
+    "correction": "In CLAUDE.md §5 #4 add that UIManager is intentionally never shut down, and that the order matters because InputHook::Uninstall joins the worker (stopping callbacks) BEFORE AudioManager::Shutdown calls CoUninitialize — so no worker COM call can run after CoUninitialize."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §4/§7; ARCHITECTURE.md §2.3, §5)",
+    "location": "Add to CLAUDE.md §7 and ARCHITECTURE.md §2.3 Shutdown / §5.",
+    "problem": "The CoInitialize/CoUninitialize balance is subtly broken and undocumented. AudioManager::Initialize calls CoInitializeEx once and TOLERATES RPC_E_CHANGED_MODE (returning success without having actually initialized COM in this call, AudioManager.cpp:24-27), but Shutdown unconditionally calls CoUninitialize (AudioManager.cpp:35). ARCHITECTURE §2.3 notes Shutdown is 'unbalanced vs a single Initialize that hit RPC_E_CHANGED_MODE' but buries it; CLAUDE.md omits it entirely. Worse: the worker thread does its own CoInitializeEx(MTA)/CoUninitialize pair (InputHook.cpp:168,295) — correct and balanced — but a dev consolidating COM init could break the STA/MTA split. This is exactly the 'don't re-introduce cross-apartment COM' risk the review targets.",
+    "correction": "Document the explicit COM init/uninit ledger: main thread STA via AudioManager (1x init tolerating RPC_E_CHANGED_MODE, 1x uninit — potentially unbalanced), worker thread MTA via WorkerLoop (balanced init/uninit). Warn against centralizing COM init because it would collapse the deliberate STA/MTA apartment split."
+  },
+  {
+    "severity": "medium",
+    "doc": "ARCHITECTURE.md §3 (debounce algorithm)",
+    "location": "ARCHITECTURE.md §3 — correct/expand the batch-replay description.",
+    "problem": "The debounce 'fire the whole accumulated batch' step is described but its UB/perf footgun is omitted. When accumulatedTicks reaches threshold, the code loops count=|accumulatedTicks| times calling SafeChangeVolume each iteration (InputHook.cpp:250-256), and EACH call invokes OnVolumeChanged -> ShowOSD. So a 2-tick batch fires TWO full WASAPI session-enumeration passes and two OSD stamps back-to-back. Each ChangeVolume rebuilds a fresh IMMDeviceEnumerator and walks all sessions (AudioManager.cpp:92-96) — so 'count' here multiplies a relatively expensive enumeration. The docs frame this as 'applies the whole accumulated batch at once' which understates that it is N separate full enumerations, not one batched volume delta.",
+    "correction": "Clarify that the batch replay performs N independent SafeChangeVolume calls (each a full fresh-enumerator session walk + OSD stamp), not a single combined delta — relevant for performance and for anyone tempted to optimize ChangeVolume to take a tick count."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §7; ARCHITECTURE.md §2.2)",
+    "location": "Add to CLAUDE.md §7 footguns and ARCHITECTURE.md §2.2 ReinstallHook / WorkerLoop.",
+    "problem": "The 5s watchdog ReinstallHook can leak/duplicate behavior and interacts with capture/worker state, undocumented. ReinstallHook (InputHook.cpp:74-83) installs a NEW WH_KEYBOARD_LL hook every 5s if SetWindowsHookEx succeeds, swapping m_hook and unhooking the old — but it does NOT touch the worker, and critically it runs even when the existing hook is perfectly alive (it does not check whether m_hook is still valid first; it always tries to install a fresh one). On the normal path the old hook IS unhooked, so no leak, but if the new install succeeds while the old is mid-callback on another’s state, m_hook is reassigned while LowLevelKeyboardProc reads InputHook::Get().m_hook (InputHook.cpp:105,111) — an unsynchronized HHOOK swap. Docs present the watchdog as purely protective without noting it reinstalls unconditionally every 5s and races m_hook reads in the proc.",
+    "correction": "Document that ReinstallHook unconditionally installs a fresh hook every 5s (not only when dead) and reassigns m_hook with no synchronization against LowLevelKeyboardProc's reads of m_hook; note this is benign today but is a landmine for anyone changing hook lifecycle."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §7; ARCHITECTURE.md §4)",
+    "location": "Add to ARCHITECTURE.md §4 rendering + CLAUDE.md §7.",
+    "problem": "The OSD/track popup will not render unless some UI is already active or just was, due to the wasUIActive gate — a non-obvious behavioral coupling. RunLoop only runs an ImGui frame when isUIActive || wasUIActive (OverlayWindow.cpp:233). HasActiveUI (UIManager.cpp:70) is the sole trigger; it is polled every ~10ms. Because ShowOSD/ShowTrackInfo are called from the worker thread and only stamp timestamps, the render thread must independently observe the timestamp via HasActiveUI to wake rendering — there is no explicit signal/redraw request from worker to render thread. The docs describe the polling but never state the consequence: a worker stamp is only picked up on the next ≤10ms poll, and if the render loop were ever blocked (e.g. TrackPopupMenu modal spin, OverlayWindow.cpp:322) the OSD is delayed/dropped. This matters for anyone changing the render-wake mechanism.",
+    "correction": "Document that worker->render handoff for OSD/track is purely poll-based (no wake signal): the render loop discovers new OSD state only via HasActiveUI on its ≤10ms MsgWaitForMultipleObjects cycle, and while TrackPopupMenu's modal loop spins the OSD cannot render."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §6/§7; ARCHITECTURE.md §2.2, §5)",
+    "location": "Add to CLAUDE.md §7 and ARCHITECTURE.md §2.2 (key classification).",
+    "problem": "The full set of swallowed vs passed-through keys is not enumerated, and one swallow is unconditional and dangerous to forget. LowLevelKeyboardProc swallows (returns 1) for: VK_VOLUME_MUTE ALWAYS (InputHook.cpp:93-98, no modifier/info gate — repurposed to play/pause unconditionally), the configured menuKey when modifiers match, the configured infoKey when set+modifiers match, and VK_VOLUME_UP/DOWN when the modifier gate passes. Notably, the OTHER media keys (VK_MEDIA_PLAY_PAUSE/NEXT/PREV/STOP) are only special-cased INSIDE capture mode (passed through, InputHook.cpp:102-106) and are NOT swallowed/handled in normal operation. The mute-invariant docs stress that a dead hook un-mutes-the-world, but they never give the complete swallow table, so a dev adding a new hotkey could accidentally stop swallowing Mute or change its unconditional nature.",
+    "correction": "Add a concise swallow/passthrough table: Mute=always swallowed->play/pause (no gate); VolUp/Down=swallowed only if modifier gate passes (else passed to OS, which then changes system volume!); menuKey/infoKey=swallowed only on modifier match; other media keys=never handled outside capture mode. Emphasize VolUp/Down fall through to the OS when the modifier gate fails."
+  },
+  {
+    "severity": "medium",
+    "doc": "both (CLAUDE.md §2/§3; ARCHITECTURE.md §2.1, §7)",
+    "location": "Add to CLAUDE.md §2 (Build & Run) and ARCHITECTURE.md §2.1/§7.",
+    "problem": "The font-change 'Restart App' button is a SECOND independent self-relaunch path that the docs under-describe and that has the same ANSI footgun as RestartSelf. RenderMenu's 'Restart App to Apply Font Changes' button (UIManager.cpp:425-431) does GetModuleFileNameA + ShellExecuteA + PostQuitMessage — duplicating RestartSelf's logic (main.cpp:12-17) but in a totally different file, and ALSO ANSI in a UNICODE build. CLAUDE.md §5 mentions the button exists for fonts but never flags it as a relaunch path; the ANSI-path footgun (§7) is documented only for RestartSelf/config, missing this third occurrence. A dev fixing RestartSelf to Unicode would miss this copy and leave a half-fixed relaunch.",
+    "correction": "Note there are THREE self-relaunch sites sharing the ANSI GetModuleFileNameA/ShellExecuteA pattern (GlobalCrashHandler->RestartSelf, the wWinMain __except->RestartSelf, and UIManager 'Restart App to Apply Font Changes' button) — all must be Unicode-ified together."
+  },
+  {
+    "severity": "low",
+    "doc": "both (CLAUDE.md §7; ARCHITECTURE.md §8/§7)",
+    "location": "Correct the stray-files list in CLAUDE.md §7 and ARCHITECTURE.md §8.7.",
+    "problem": "The stray-file inventory is slightly inaccurate and incomplete, and omits .gitignore context. Actual stray/untracked-ish files: debug_hook.log exists at repo root AND build/Release/debug_hook.log (docs say '×2' — correct), smtc_test.cpp/.exe/.obj and test.cpp (present), imgui.ini (present), fonts/*.zip (present, 9 zips: SF, JetBrainsMono, fira-code, golos-text, inter, manrope, montserrat, roboto, segoe-ui-this). BUT the docs MISS src/icon.ico.bak (a stray backup) and the build/Release copies (icon.ico, debug_hook.log). Also .gitignore already excludes *.log/*.ini/*.exe/*.obj/build/, so most strays are git-ignored and only matter on disk, which the docs don't say.",
+    "correction": "Add src/icon.ico.bak to the stray list; clarify that *.log/*.ini/*.exe/*.obj and build/ are already in .gitignore (so they pollute the working tree, not the repo), and that nothing in src/ writes debug_hook.log (the writer was removed)."
+  },
+  {
+    "severity": "low",
+    "doc": "both (CLAUDE.md §2; ARCHITECTURE.md §7)",
+    "location": "CLAUDE.md §2 build commands and ARCHITECTURE.md §7.",
+    "problem": "Neither doc states that the binary already exists pre-built and that the documented build command flow differs from README's. build/Release/SmartVolumeMixer.exe (1.34 MB, dated Jun 23) is checked out on disk. README uses 'mkdir build && cd build && cmake .. ' whereas CLAUDE.md uses 'cmake -B build -S .' — both valid but a dev may be confused which build dir is authoritative, especially since the existing build/ dir has stale artifacts (icon.ico, debug_hook.log) and is git-ignored.",
+    "correction": "Mention a pre-built exe may already be present in build/Release (git-ignored), and that 'cmake -B build -S .' (CLAUDE) and the README's in-tree 'cd build; cmake ..' produce the same target — pick one convention."
+  },
+  {
+    "severity": "low",
+    "doc": "ARCHITECTURE.md §6 (config schema) / CLAUDE.md §7",
+    "location": "ARCHITECTURE.md §6 Load notes.",
+    "problem": "An asymmetry in Load() that can surprise: on the FIRST-RUN path (file absent), Load seeds ONLY keys/volume/debounce/mediaApps and does NOT assign osd/font/color fields (Config.cpp:23-44), relying on in-class defaults, then Save() writes ALL fields. ARCHITECTURE §6 notes this in passing ('OSD/font/color fields are NOT re-assigned'), but does not note the consequence for the PARSE path: mediaApps default on parse is an EMPTY vector (Config.cpp:63, j.value(\"mediaApps\", {})) — so a config.json that exists but lacks a mediaApps key yields ZERO tracked apps (no volume control, no OSD), which looks identical to the documented 'media-apps-only -> no OSD' expected behavior but is actually a silently emptied whitelist.",
+    "correction": "Warn that on the parse path a missing/!array mediaApps key resolves to an EMPTY list (not the 21-entry default) — producing no-OSD behavior indistinguishable from 'nothing playing'. The 21-entry default is only seeded when the file is entirely absent."
+  },
+  {
+    "severity": "low",
+    "doc": "both (CLAUDE.md §3/§5; ARCHITECTURE.md §2.4)",
+    "location": "ARCHITECTURE.md §2.4 / CLAUDE.md transparency note.",
+    "problem": "The transparency color-key invariant is stated, but the actual clear color contradicts the stated mechanism in a way that should be reconciled. Docs say SetLayeredWindowAttributes uses RGB(0,0,0) LWA_COLORKEY so pure black is keyed out (OverlayWindow.cpp:106) and 'the swapchain is cleared to transparent black' — but the clear color is {0,0,0,0} with alpha 0 (OverlayWindow.cpp:243), and the swapchain is R8G8B8A8 non-premultiplied with NO alpha-blended composition (plain LWA_COLORKEY, not LWA_ALPHA/UpdateLayeredWindow). So transparency comes SOLELY from the black color key, not from the alpha channel — the alpha=0 in the clear is effectively irrelevant to compositing. A dev who switches to a non-black clear or to ImGui dark-grey backgrounds near-black risks either opaque black borders or keyed-out UI.",
+    "correction": "Clarify that transparency is achieved ONLY by the black LWA_COLORKEY, not by the alpha channel (no premultiplied alpha / UpdateLayeredWindow), so the clear alpha is moot and any near-black UI pixel (RGB 0,0,0) will be punched transparent."
+  },
+  {
+    "severity": "low",
+    "doc": "both (CLAUDE.md §7; ARCHITECTURE.md §2.5)",
+    "location": "ARCHITECTURE.md §2.5 Applications tab / CLAUDE.md §7.",
+    "problem": "The Applications tab 'Add Selected' uses GetActiveSessions process names which can be '(PID N)' placeholders, undocumented. GetProcessName falls back to '(PID 1234)' for protected/elevated processes (AudioManager.cpp:71); GetActiveSessions returns those raw (AudioManager.cpp:172). 'Add Selected' then pushes that exact string into mediaApps (UIManager.cpp:345-347), which can never match ChangeVolume's basename comparison — so a user can 'add' an app that will never be controlled. Docs note the '(PID N)' fallback for matching but not that the Settings UI can persist such a useless entry into config.",
+    "correction": "Note that GetActiveSessions can return '(PID N)' names for protected processes and 'Add Selected' will happily persist them to mediaApps, creating permanently-non-matching whitelist entries."
+  }
+]

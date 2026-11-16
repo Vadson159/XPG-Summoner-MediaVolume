@@ -1,2 +1,2 @@
 #include "resource.h"
-IDI_APP_ICON ICON "icon.ico"
+IDI_APP_ICON ICON "ico2.ico"

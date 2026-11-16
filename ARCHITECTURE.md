@@ -1,0 +1,299 @@
+# ARCHITECTURE.md — XPG Summoner Media Volume (Smart Volume Mixer)
+
+Deep technical reference and source of truth. All claims are anchored to `src/` at `file:line`. For a fast orientation see **CLAUDE.md**.
+
+---
+
+## 1. Component overview & end-to-end data flow
+
+The app is a system-tray DirectX 11 / Dear ImGui overlay that intercepts the XPG Summoner keyboard's volume roller and media keys via a global low-level keyboard hook, debounces the noisy tick stream on a worker thread, and applies the result to a whitelist of media applications through WASAPI per-app session volume. There are two whitelists: `mediaApps` (dedicated audio apps, driven by a bare tick) and `secondaryApps` (browsers, reachable only while the `secondaryKey` hold key is down). Now-playing metadata and play/pause come from WinRT SMTC.
+
+On top of the mixer it carries two "mode" hotkeys that are not about volume at all: a **sample-rate toggle** (default `Alt+Q`) that lowers the output DAC's default format for games and puts it back on a persisted timer, and a **PC↔console swap** (default `Alt+S`) that flips a dual-input monitor over DDC/CI, moves the desktop to the other screen and re-points the default audio output.
+
+Ten subsystems:
+
+| Subsystem | Files | Role |
+|---|---|---|
+| Entry / Lifecycle / Crash | `main.cpp` | Startup ordering, dual-layer crash→relaunch net, quick-action state recovery. |
+| InputHook | `InputHook.cpp/.h` | LL keyboard hook on its own hook thread (with its watchdog), event queue, worker thread, debounce/stream state machine, SEH wrappers, quick-action timer pump. |
+| AudioManager | `AudioManager.cpp/.h` | Per-app WASAPI volume + WinRT SMTC. |
+| AudioDevices | `AudioDevices.cpp/.h` + `PolicyConfig.h` | Endpoint default-format sample rate + default output device (`IPolicyConfig`). |
+| DisplayControl | `DisplayControl.cpp/.h` | Monitor input switching (standard DDC/CI VCP `0x60`) + primary-display selection (`SetDisplayConfig`) + window relocation. |
+| AmdDdcSideChannel | `AmdDdcSideChannel.cpp/.h` + `AmdAdl.h` | Fallback monitor-input switch via an undocumented LG service channel, reached through AMD's ADL. AMD-only; no-ops elsewhere. |
+| QuickActions | `QuickActions.cpp/.h` | Orchestrates the sample-rate toggle (with auto-revert/reminder timers) and the console swap. |
+| OverlayWindow | `OverlayWindow.cpp/.h` | Layered click-through window, DX11+ImGui render loop, tray icon/menu/tooltip, fonts, device-lost, display-change refit. |
+| UIManager | `UIManager.cpp/.h` | OSD, track popup, quick-action notice, settings menu; callback wiring. |
+| Config | `Config.cpp/.h` | `g_Config` persistence to `config.json` (incl. persisted quick-action state). |
+
+**End-to-end data flow (a volume nudge):**
+
+1. The volume roller emits `WM_KEYDOWN` for `VK_VOLUME_UP`/`DOWN`. The OS delivers it to `InputHook::LowLevelKeyboardProc` (`src/InputHook.cpp`), running on the dedicated hook thread (`InputHook::HookThreadMain`).
+2. The proc checks the modifier gate (`modifierKey==0` = always; else `GetAsyncKeyState(modifierKey)`), builds a `HookEvent{type=0, volUp, volLargeStep=isShift}`, pushes it under `eventMutex` + `eventCv.notify_one`, and **returns 1 to swallow the key** so Windows never changes system volume itself.
+3. `InputHook::WorkerLoop` (`src/InputHook.cpp:167`), on the MTA worker thread, wakes from `eventCv`, drains `pendingEvents` into a local vector **under the lock**, then **releases the lock** and processes the batch (so slow audio calls never hold the queue lock).
+4. For `type==0`, the **debounce/stream state machine** (§3) decides whether/how many times to fire. When it fires, it calls `SafeChangeVolume(up, largeStep, outVol, &appName)` (SEH-guarded).
+5. `AudioManager::ChangeVolume` (`src/AudioManager.cpp`) takes a session enumerator from the `thread_local` chain cache, walks the default render endpoint's sessions, exact-matches process basenames against the event's group (`g_Config.mediaApps`, or `g_Config.secondaryApps` when the hold key was down), and `Get/SetMasterVolume` (clamped `[0,1]`) on each match via `ISimpleAudioVolume`. Returns true if ≥1 app matched; `outLastVol/outAppName` reflect the **last** matched session.
+6. On success the worker invokes `OnVolumeChanged(vol, appName)` — **on the worker thread**. That callback is `UIManager::ShowOSD`, which locks `m_uiMutex`, caches the values, and stamps `m_osdShowTime = GetTickCount64()`.
+7. The render loop `OverlayWindow::RunLoop` (`src/OverlayWindow.cpp`), on the UI thread, is woken by the `RequestRedraw()` the setter posted; it (re)builds the D3D device if idle cleanup released it, shows the (otherwise hidden) overlay and draws three settle frames → `UIManager::Render` → `RenderOSD` → present. The OSD then just stays up with no further frames until it expires 2500ms later (or the next tick changes it); one clearing frame, and the window hides again.
+
+Media keys: physical **Mute → `HookEvent{type=1}` → `SafeTogglePlayPause`** → `AudioManager::TogglePlayPause` (SMTC). **F8 (menu) → `type=2` → `OnMenuToggled`** → `UIManager::ToggleMenu`. **F9 (info) → `type=3` → `SafeGetTrackInfo`** → `AudioManager::GetCurrentTrackInfo` (SMTC) → `OnTrackInfoRequested` → `UIManager::ShowTrackInfo`. Modifier + Mute → `type=4` (per-app mute). The browser-group hold key (default `Pause`) does not create its own event type: it sets `HookEvent::secondaryGroup` on the volume/play-pause event it accompanies, which swaps the whitelist the worker matches against.
+
+Quick actions take the same road: **`Alt+Q` → `type=5` → `SafeSampleRateAction`** and **`Alt+S` → `type=6` → `SafeDisplayAction`** → `QuickActions` → `AudioDevices`/`DisplayControl` → `OnNotice` → `UIManager::ShowNotice`. The settings menu and tray menu push the *same* event types (plus `type=7`, rescan monitors) instead of calling those APIs on the UI thread, and `type=5` also carries an `actionArg` (0 toggle / 1 restore / 2 lower; for `type=6`: 0 toggle / 1 PC / 2 console).
+
+---
+
+## 2. Per-subsystem deep dive
+
+### 2.1 Entry / Lifecycle & Crash handling (`src/main.cpp`)
+
+- **`wWinMain`** (`src/main.cpp:60`): `APIENTRY` GUI entry. Installs `SetUnhandledExceptionFilter(GlobalCrashHandler)` (`:62`), then wraps the entire `AppMain()` call in `__try { return AppMain(); } __except(EXCEPTION_EXECUTE_HANDLER) { RestartSelf(); return -1; }` (`:64-70`). None of its four params are used.
+- **`AppMain`** (`src/main.cpp:28`): the real lifecycle driver. Strict order: `g_Config.Load()` → `AudioManager::Get().Initialize()` (COM/WASAPI) → `UIManager::Get().Initialize()` → `InputHook::Get().Install()` → `OverlayWindow::Get().Create()` → `OverlayWindow::Get().RunLoop()` (blocks). On return: `OverlayWindow::Destroy()` → `InputHook::Uninstall()` → `AudioManager::Shutdown()` → `return 0`. Each fallible init shows a `MessageBoxW` and returns -1 after unwinding **only** the subsystems already started (`InputHook` failure tears down `AudioManager` only; `OverlayWindow` failure tears down `InputHook` then `AudioManager`).
+- **`GlobalCrashHandler`** (`src/main.cpp:23`): the process-wide filter. Ignores its `EXCEPTION_POINTERS*`, calls `RestartSelf()`, returns `EXCEPTION_EXECUTE_HANDLER` to terminate the faulting (now-relaunched) instance. **Exists specifically to catch worker-thread faults the main-thread `__try` cannot see.**
+- **`RestartSelf`** (`src/main.cpp:12`): `GetModuleFileNameA` + `ShellExecuteA("open", path, …, SW_SHOW)`. ANSI APIs in a UNICODE build.
+
+**Why this design exists:** a dead hook reverts swallowed `VK_VOLUME_MUTE` to the OS default and mutes the whole system; relaunching re-establishes the hook (`src/main.cpp:8-11`).
+
+**Asymmetries / hazards to know:** `UIManager::Initialize()` has no return check and is never torn down on any path. No `CoInitialize`/`CoUninitialize` in `main.cpp` (COM is owned by `AudioManager`). No single-instance guard and no restart-loop guard — a worker fault can trigger `GlobalCrashHandler`→`RestartSelf` and, if it also reaches the main thread, the `__except`→`RestartSelf` again. A clean init-failure `-1` is indistinguishable from a crash-restart `-1`.
+
+### 2.2 InputHook & debounce state machine (`src/InputHook.cpp/.h`)
+
+- **`Install`**: starts `m_hookThread` → `HookThreadMain` and waits (via a `std::promise`) for its `SetWindowsHookEx(WH_KEYBOARD_LL, …)` result; only then clears `m_stopWorker` and spawns `m_workerThread` → `WorkerLoop`. Idempotent. `HookThreadMain` raises itself to `THREAD_PRIORITY_HIGHEST`, creates its message queue before reporting back, installs the hook and pumps `GetMessage` until `Uninstall` posts `WM_QUIT`; then unhooks. A low-level hook runs on the thread that installed it and only while that thread pumps, and every key press on the system waits for it — so this thread does nothing else. (It used to be the render thread: each frame, font rebuild or device creation stalled the whole system's keyboard, and anything long enough risked `LowLevelHooksTimeout`.)
+- **`Uninstall`** (`:62`): `UnhookWindowsHookEx`, clear `m_hook`, set `m_stopWorker=true`, `notify_all`, join worker. Hook removed first, then worker stopped.
+- **`ReinstallHook`** (`:74`): watchdog. Installs a **new** hook first, swaps `m_hook`, then unhooks the old one only if the new install succeeded. Does not touch the worker. Driven every 5s by a thread timer on the hook thread itself (an LL hook can only be installed from the thread that will pump it).
+- **`LowLevelKeyboardProc`** (`:85`): acts only on `WM_KEYDOWN`/`WM_SYSKEYDOWN`. Classifies the VK, enqueues a `HookEvent`, returns 1 to swallow handled keys; otherwise `CallNextHookEx`. Reads `g_Config` and `GetAsyncKeyState` for modifier gating. In **key-capture mode** it resolves the key to `OnKeyCaptured` directly (hook thread) and swallows it; real media keys are passed through and explicitly not captured; bare modifiers are passed through for menu/info capture. The Mute→play/pause remap (`type=1`) is unconditional (no modifier gate). There is **no `WM_KEYUP` handling** — holding a volume key produces repeated `WM_KEYDOWN`s, and streaming mode ends only by the 500ms inactivity timeout, never on key release.
+- **`WorkerLoop`** (`:167`): `CoInitializeEx(nullptr, COINIT_MULTITHREADED)` at start, `CoUninitialize` at end. Waits on `eventCv` with a computed deadline, drains `pendingEvents` under the lock, then processes after releasing it. Runs the state machine and dispatches via the SEH wrappers + callbacks.
+- **SEH wrappers** (`:15`,`:23`,`:37`) + **`GetTrackInfoInner`** (`:33`): `__try/__except(EXCEPTION_EXECUTE_HANDLER)` around `AudioManager` calls; return `false` on hardware fault instead of crashing. `SafeGetTrackInfo` delegates the `std::string` assignment to `GetTrackInfoInner` because a C++ object with a destructor cannot share a stack frame with `__try` under `/EHsc` (MSVC C2712).
+- **`HookEvent`** (`InputHook.h:12`): POD `{int type (0=volume,1=play/pause,2=toggle menu,3=track info,4=per-app mute,5=sample rate,6=display swap,7=rescan monitors), bool volUp, bool volLargeStep, int bindingIndex, int actionArg, bool secondaryGroup}`.
+- **Sync members:** `eventMutex`/`eventCv`/`pendingEvents` (the only synchronized hand-off; `pendingEvents` is a `std::vector` used as a FIFO batch), `m_stopWorker` (`std::atomic<bool>`). `isCapturingKey`/`captureType` are `std::atomic`, armed by the render thread through `BeginKeyCapture(type)` (type first, then the flag with release ordering) and consumed by the hook thread.
+- **Callback thread affinity:** `OnVolumeChanged`/`OnMenuToggled`/`OnTrackInfoRequested` fire on the worker (MTA) thread; **`OnKeyCaptured` fires on the hook thread inside the proc**; its lambda takes `m_uiMutex`, so it may wait out one render frame.
+
+### 2.3 AudioManager — WASAPI + SMTC (`src/AudioManager.cpp/.h`)
+
+- **`Initialize`** (`:23`): MAIN thread; `CoInitializeEx(COINIT_APARTMENTTHREADED)` → STA (tolerates `RPC_E_CHANGED_MODE`), creates `m_pEnumerator`. `m_pEnumerator` is effectively a **capability check only** — the session paths do not use it.
+- **`Shutdown`** (`:33`): resets `m_pEnumerator`, `CoUninitialize`. Called from multiple `main.cpp` exit paths (`:40,47,55`); unbalanced vs. a single Initialize that hit `RPC_E_CHANGED_MODE`.
+- **`GetSessionEnumerator`**: the apartment-safety core. Builds `IMMDeviceEnumerator` → default `eRender`/`eMultimedia` endpoint → `Activate IAudioSessionManager2` → `GetSessionEnumerator` **in the caller's own apartment**, and caches the first three in a **`thread_local`** struct for 1.5 s. `thread_local` is what makes this safe rather than merely fast: a thread only ever dereferences pointers it created itself, so the STA/MTA mix that used to fault is structurally impossible. The session enumerator itself — a snapshot of the session list — is still taken fresh per call, so a newly-playing app appears immediately. The cache is dropped on any failure (one rebuild-and-retry per call), on TTL expiry, and on `InvalidateDeviceCache()` (called by `AudioDevices::SetDefaultRenderDevice`). `ReleaseThreadCache()` must run before the owning thread's `CoUninitialize`.
+- **`ProcessNameLower`**: pid → lower-case process basename, memoised alongside the chain. Resolving one is `OpenProcess` + `QueryFullProcessImageNameW`; without the memo it was paid for every live session on every roller tick. Matching against the group's list uses `_stricmp` rather than building lower-case copies of both sides.
+- **`GetProcessName`** (`:70`): `OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION)` + `QueryFullProcessImageNameW` → basename → UTF-8. Falls back to `"(PID N)"` if the handle can't be opened (protected/elevated processes) — such apps then never match `ChangeVolume`'s exact name comparison.
+- **`ChangeVolume`** (`:91`): WORKER/MTA. Enumerate sessions → QI `IAudioSessionControl2` → `GetProcessId` → `GetProcessName` (lowercased) **exact-match** through `ProcessInGroup` against `g_Config.mediaApps` (or `g_Config.secondaryApps` when `secondaryGroup`) → QI `ISimpleAudioVolume` → `Get/SetMasterVolume` clamped `[0,1]` using `volStep`/`volStepLarge`. Loops **all** matches; `outLastVol/outAppName` reflect the last. Returns true if ≥1 matched. Many HRESULTs unchecked.
+- **`GetActiveSessions`** (`:145`): UI/STA (Settings "Refresh", `src/UIManager.cpp:326`). Enumerates every session (no filter) into `AudioSessionInfo{processName, pid, volume, muted}`. Reads `GetMute` for display, but **no code ever calls `SetMute`** — there is no mute toggle.
+- **`IsSessionFromConfiguredApp`** (`:182`): matches an SMTC AUMID case-insensitively: exact OR extension-stripped substring (e.g. AUMID containing `"spotify"`). **Looser** than `ChangeVolume`'s exact equality — an app can match for media keys but not for volume.
+- **`TogglePlayPause`** (`:208`): WORKER/MTA. WinRT `GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get()` → `GetSessions()`; picks the first session **in the requested group** (`SessionInGroup`), preferring `PlaybackStatus==Playing`, then `TryTogglePlayPauseAsync().get()`. Preferring a playing session is exactly why a browser in the same whitelist used to steal the Mute key from Spotify. All `.get()` wrapped in `try/catch(...)`.
+- **`GetCurrentTrackInfo`** (`:258`): WORKER/MTA. Iterates SMTC sessions, filters to configured + Playing, `TryGetMediaPropertiesAsync().get()` → `"Artist - Title"` (or just title) UTF-8. Returns empty on any failure. Fixed `char[1024]` stack buffers truncate long AUMID/title/artist values.
+
+**Not implemented (by design / absent):** `IAudioEndpointVolume` / system master volume (claimed in README but no code references it); mute/unmute action; persistent shared-enumerator reuse.
+
+### 2.4 OverlayWindow — DX11 / ImGui (`src/OverlayWindow.cpp/.h`)
+
+- **`Create`** (`:88`): registers `WNDCLASSEXW "SmartMixerClass"` (`CS_CLASSDC`, app icons); creates a fullscreen `WS_POPUP` window with `WS_EX_TOPMOST | TRANSPARENT | LAYERED | TOOLWINDOW` sized to `SM_CXSCREEN`/`SM_CYSCREEN`; `SetLayeredWindowAttributes(..., LWA_COLORKEY)` with **black as the transparent key**; creates the D3D device (no swapchain yet); inits ImGui win32+dx11 backends; `RebuildFonts` (two faces, then the atlas's CPU copies are dropped); adds the tray icon; starts the 5s `IDT_TRAY_REFRESH` timer; queues the first `IdleCleanup` 30 s out.
+- **`Destroy`** (`:154`): kill timer → remove tray (`NIM_DELETE`) → shutdown both ImGui backends → destroy context → cleanup D3D → destroy window → unregister class.
+- **`UpdateClickability`** (`:172`): toggles `WS_EX_TRANSPARENT` via `SetWindowLongPtrW(GWL_EXSTYLE)`; early-return guard on `m_isClickable`. `clickable=true` clears `WS_EX_TRANSPARENT` (window takes clicks); `false` re-adds it (click-through).
+- **`RunLoop`**: draws only when what is on screen changes. `MsgWaitForMultipleObjects(…, timeout, QS_ALLINPUT)` where the timeout is the next 16 ms frame slot while frames are owed, otherwise the earliest of: the next popup expiry (`UIManager::MsUntilNextExpiry`), the menu's 1 s refresh, the deferred-save deadline (`AppConfig::MsUntilPendingSave`) and the pending `IdleCleanup` — `INFINITE` when none applies. Then drain messages (any message other than the tray timer / our own wake counts as input); `g_Config.FlushPendingSave()`; set clickability; handle font/preview hot reload; compare `UIManager::VisibleMask()` and the `RequestRedraw()` counter with what was last drawn — a change owes `kSettleFrames` (3) frames, or 1 clearing frame when the mask emptied; with the menu open, input also owes 3, a focused text field 1 per frame. `RenderFrame` draws one owed frame: (re)creates the device if there is none (`RecreateDevice`), creates/re-fits the swapchain (`EnsureSwapChain`), shows the window, ImGui frame, `Present(0,0)`; a lost device is rebuilt right there and the frame retried. After the clearing frame the window hides and `IdleCleanup` is scheduled 30 s out.
+- **`RequestRedraw`**: bumps an atomic request counter (release) — that is what makes the loop draw — and posts `WM_OVERLAY_WAKE` so another thread can break the loop out of its wait. Callable before the window exists: the counter is still picked up on the loop's first pass. No lost-wakeup race: `PostMessage` sets the queue status flag that `MsgWaitForMultipleObjects` tests on entry.
+- **`SetOverlayVisible`**: `ShowWindow(SW_SHOWNOACTIVATE)` / `SW_HIDE`. Idle is the normal state, and a visible fullscreen layered TOPMOST window costs DWM a composite pass every frame whether or not it contains anything.
+- **`CreateDeviceD3D`**: `D3D11CreateDevice` only (HARDWARE, FL 11_0→10_0, `SINGLETHREADED`, no debug). **`CreateSwapChain`** (on the first frame that shows something, via `EnsureSwapChain`): `IDXGIFactory::CreateSwapChain` with BufferCount=1 (windowed blt model copies into the window anyway), `R8G8B8A8_UNORM`, `ALLOW_MODE_SWITCH`, `SWAP_EFFECT_DISCARD`, sized to the client rect. **`IdleCleanup`** (30 s after the overlay hid): `ImGui_ImplDX11_Shutdown` + `CleanupDeviceD3D` (swapchain, context, device — `ClearState`/`Flush` first), `HeapCompact`, `SetProcessWorkingSetSize(-1,-1)`. Measured: idle private memory ~51 MB → ~4 MB, GPU memory ~36 MB → 0, threads 15 → 9, handles ~1030 → ~220; rebuilding costs ~45 ms on the next show.
+- **`WndProc`** (`:310`): forwards to `ImGui_ImplWin32_WndProcHandler` first; handles `WM_TRAYICON` (right-click popup Settings/Exit; double-click opens menu), `WM_TIMER`/`IDT_TRAY_REFRESH` → `UpdateTrayTip()`, `WM_DISPLAYCHANGE` → `OnDisplayChanged`, `WM_DESTROY` → `PostQuitMessage`.
+- **Font helpers:** `FindFontPath` (`:19`) lowercases the name, returns `""` for blacklisted symbol fonts (wingdings/webdings/symbol/extra), requires `.ttf`/`.otf`, resolves bare filenames against `C:\Windows\Fonts` then `%LOCALAPPDATA%\Microsoft\Windows\Fonts`. `SafeAddFont` (`:57`) adds with Cyrillic ranges, falls back to `segoeui.ttf`, then `AddFontDefault()` — always non-null.
+
+**Gotchas:** nothing may call `ImGui_ImplDX11_CreateDeviceObjects` directly — after upload the atlas keeps no input data (`ClearInputData`), so only `RebuildFonts`, which re-adds the faces first, may build it. Code on the render thread must not assume a device or swapchain exists. Many API returns unchecked. `TrackPopupMenu` spins a nested modal loop on the render thread (pauses rendering). Primary-monitor-only; no `WM_SIZE`/`ResizeBuffers`; no DPI. `g_Config` font fields read on the render thread without synchronization.
+
+### 2.5 UIManager — OSD / menu (`src/UIManager.cpp/.h`)
+
+- **`Initialize`** (`:39`): clears `systemFonts`, scans `HKLM` then `HKCU` (`ScanFontsInternal`, `:14`; HKCU overwrites HKLM on name collision), builds+sorts `fontNames`, then registers the four InputHook callbacks: `OnVolumeChanged→ShowOSD`, `OnMenuToggled→ToggleMenu`, `OnTrackInfoRequested→ShowTrackInfo`, and `OnKeyCaptured→` a lambda (`:54`) that writes the captured VK into `g_Config` (type 0→modifierKey, 1→menuKey, 2→infoKey), clears the matching `m_isCapturing*`, and `g_Config.Save()`. Called once from `AppMain` on the main thread.
+- **`VisibleMask`** / **`MsUntilNextExpiry`** (`HasActiveUI` = mask != 0): one bit per element on screen (menu, OSD `<2500ms`, track popup `<3000ms`, mute OSD `<2500ms`, notice `<5000ms`) and the time until the next one expires. **Read the `m_*ShowTime` stamps without the mutex** (race; only gates rendering — the `RequestRedraw()` counter is what triggers a redraw). Evaluated once per `RunLoop` pass.
+- **Setters** `ShowOSD` (`:74`), `ShowTrackInfo` (`:81`, early-returns on empty name), `ToggleMenu` (`:88`): all lock `m_uiMutex`, cache data, stamp `GetTickCount64()`. **Invoked from the InputHook worker thread.**
+- **`Render`** (`:110`): holds `m_uiMutex` for the entire frame. Draws menu (if open), OSD (if `<2500ms`), and the inline "Now Playing" window (if `<3000ms`, bottom-right via `osdOffsetX/Y`, green "Now Playing:" label in `fontNormal` + track name in `fontLarge`). Called on the render thread (`src/OverlayWindow.cpp:239`).
+- **`RenderOSD`** (`:146`): bottom-right anchored (offset from `DisplaySize`). Strips text after the **last** `.` of the app name (`"My.App.exe"`→`"My.App"`), prints `name: NN%` (`(int)(vol*100+0.5)`) in `fontLarge`, then a `ProgressBar(m_lastVolume, 200x8)` whose fill color = `g_Config.barColor` via `ImGuiCol_PlotHistogram`. Called from within `Render()` which already holds the lock — must NOT re-lock.
+- **`RenderMenu`** (`:180`): the "Smart Mixer Settings" window, TabBar Controls/Applications/Customization. Non-font edits mutate `g_Config` and `Save()` immediately (live). Font-FAMILY selection sets `m_previewFontPath` (actually the font **name**, not a path — OverlayWindow resolves it) + `m_shouldReloadPreview`; the actual OSD/menu fonts only rebuild on the preview-reload path or via the "Restart App to Apply Font Changes" button (`:425`, `ShellExecuteA` + `PostQuitMessage`).
+- **`GetKeyName`** (`:93`): VK→string; 0→"None"; `MapVirtualKey` + extended-key bit + `GetKeyNameTextA`; falls back to `"VK <n>"`.
+- **Preview handshake** (`UIManager.h:58`): `ShouldReloadPreview`/`GetPreviewPath`/`ResetReloadPreview` — single writer + single reader, both the render thread, so the plain `bool` needs no atomicity.
+
+**Gotchas:** `OnKeyCaptured` runs inside the LL hook callback (`src/InputHook.cpp:115`), so it uses `SaveDeferred()` (a flag) rather than `Save()` — do not put disk I/O back there, it risks Windows removing the hook past `LowLevelHooksTimeout`. The Applications tab uses function-local `static` session cache refreshed only by the Refresh button (can go stale). `m_isCapturing*` flags clear only on successful capture — a cancelled capture leaves the button stuck in "Press key…". `fontSmall`/`fontMono` were removed — they were built into the atlas on every launch and never drawn with, so the "Small Size" slider writes config and changes nothing; `fontPreview` is only for the Customization preview line. No per-app volume sliders — the tab only adds/removes tracked process names.
+
+### 2.6 Config (`src/Config.cpp/.h`)
+
+- **`AppConfig`** (`Config.h:6`): POD struct, in-class default initializers, all public, no synchronization. Declares `Load()`/`Save()`.
+- **`g_Config`** (`Config.cpp:11`): the single process-wide instance (extern in `Config.h:40`). Read/written from multiple threads with **no locking**.
+- **`GetConfigPath`** (`Config.cpp:13`): `GetModuleFileNameA(NULL,…)` + `std::filesystem` replace filename → `config.json` next to the exe. ANSI, `MAX_PATH`, no return check.
+- **`Load`** (`Config.cpp:20`): if `config.json` absent → seed the hardcoded `mediaApps` list + key/volume/debounce defaults, then `Save()` and return (note: OSD/font/color fields are NOT re-assigned here — they keep in-class defaults). If present → parse with `j.value(key, default)` fallbacks; `barColor` overwritten only if it is a 4-element array. **All errors swallowed by `catch(...)`** → a malformed file yields a partially-loaded config with no feedback.
+- **`Save`** (`Config.cpp:80`): serialize every field; `j.dump(4)`; opens `std::ofstream` **without checking `is_open()`** → a non-writable dir silently loses the save. Called on nearly every UI edit.
+
+### 2.7 QuickActions / AudioDevices / DisplayControl — the two mode hotkeys
+
+**`QuickActions` (`src/QuickActions.cpp/.h`)** — Meyers singleton, orchestration only. Every mutating entry point (`SampleRateAction`, `DisplayAction`, `RefreshMonitors`, `ProcessTimers`, `OnShutdown`) runs on the **MTA worker** via the SEH wrappers in `InputHook.cpp`; the const accessors (`IsSampleRateLowered`, `CurrentSampleRate`, `RemainingSeconds`, `DeviceLabel`, `IsConsoleMode`, `Monitors`, `MonitorsScanned`) are `m_mutex`-guarded for the UI thread and the tray. Reports through `OnNotice` → `UIManager::ShowNotice` (registered in `UIManager::Initialize` next to the InputHook callbacks). `Notify()` is never called while `m_mutex` is held, which is what keeps the lock order acyclic (`m_uiMutex` → `m_mutex`).
+
+- **Timers.** No dedicated thread: `HasTimer()`/`NextDeadline()` feed the worker's existing `wait_until` deadline, and `ProcessTimers()` is called at the end of every worker iteration. Two independent deadlines — `m_revertAt` (one-shot) and `m_reminderAt` (re-arming). They are `steady_clock` for waiting, mirrored to a wall-clock unix stamp in config for crash/restart recovery. `LoadPersistedState()` (main thread, right after `Config.Load`) re-arms them; an already-expired deadline becomes "now", so the very first worker wait returns immediately and restores.
+- **Failure policy.** A failed restore does **not** clear `srActive` — it re-arms a 5-minute retry and says so on screen, so a transient device error cannot silently leave the DAC at the game rate.
+- **Already-lowered edge case.** If the device is found already at `srLowHz` when not lowered by us, the toggle restores `srHighHz` instead of no-oping.
+
+**`AudioDevices` (`src/AudioDevices.cpp/.h`)** — stateless namespace, local COM objects per call (apartment-safe by construction, same reasoning as §5).
+
+- `ListRenderDevices()`: `EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE)`; per device reads the friendly name and the default-format blob. Name resolution tries `PKEY_Device_FriendlyName` `{a45c254e…},14`, then `{b3f8fa53…},6`, then `{a45c254e…},2` — the first is **synthesised by MMDevice and absent from the registry**, so a fallback matters if it ever returns empty.
+- `SetSampleRate()`: reads the current format blob, rewrites `nSamplesPerSec` + `nBlockAlign` + `nAvgBytesPerSec` only, then tries **`IPolicyConfig::SetDeviceFormat`** (the Sound control panel's own call — applies to the live endpoint) and falls back to writing `PKEY_AudioEngine_DeviceFormat` (+ `PKEY_AudioEngine_OEMFormat`) through `OpenPropertyStore(STGM_READWRITE)` + `Commit()`. The fallback's `PROPVARIANT` borrows the caller's buffer and is therefore **never** `PropVariantClear`'d (that would `CoTaskMemFree` memory we own) — it is zeroed by hand instead.
+- `SetDefaultRenderDevice()`: `IPolicyConfig::SetDefaultEndpoint` for `eConsole`+`eMultimedia`+`eCommunications`; succeeds if any role took.
+- All `PROPERTYKEY`s are local constants (`src/AudioDevices.cpp` top) rather than `functiondiscoverykeys_devpkey.h`, which only *declares* them (storage lives in `uuid.lib`) — this keeps the TU self-contained with no extra link input.
+
+**`DisplayControl` (`src/DisplayControl.cpp/.h`)** — `dxva2.lib` + `user32`. `ListMonitors(queryInputs)` walks `EnumDisplayMonitors` → `GetMonitorInfoW` (GDI name + primary flag) → `EnumDisplayDevicesW` (PnP `DeviceID`, description) → `EnumDisplaySettingsExW` (mode), and only when `queryInputs` also `GetPhysicalMonitorsFromHMONITOR` + `GetVCPFeatureAndVCPFeatureReply(0x60)`. **`queryInputs=true` is the slow path** (DDC round-trips) and is only ever reached from the worker (event type 7). `SetMonitorInput` re-resolves the `HMONITOR` from the matched monitor's position via `MonitorFromPoint` rather than caching a handle across a topology change, then sleeps ~400 ms and reads VCP `0x60` back to confirm the monitor really switched (see §8.9 — a monitor can ack the write and ignore it).
+
+`SetPrimaryMonitor` deliberately does **not** use the legacy `ChangeDisplaySettingsEx` `CDS_SET_PRIMARY`+`CDS_NORESET` staged batch that most examples show — that recipe is measurably broken on at least one real driver (§8.9). It instead reads the active topology with `GetDisplayConfigBufferSizes`+`QueryDisplayConfig(QDC_ONLY_ACTIVE_PATHS)`, maps the requested GDI name to a path via `DisplayConfigGetDeviceInfo(DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME)`, shifts **every** `DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE` mode by the target's offset so the target reaches `(0,0)` (the desktop origin *is* the primary), and submits the whole array in one `SetDisplayConfig(SDC_APPLY|SDC_USE_SUPPLIED_DISPLAY_CONFIG|SDC_SAVE_TO_DATABASE|SDC_ALLOW_CHANGES)`. A target already at `(0,0)` returns early; the result is read back via `EnumDisplaySettingsExW` rather than trusted.
+
+**`AmdDdcSideChannel` (`src/AmdDdcSideChannel.cpp/.h` + `src/AmdAdl.h`)** — fallback for LG panels (this machine's LG UltraGear 27GS85Q-B among them) that ACK the standard VCP `0x60` input-select write and then ignore it (§8.9). Some LG firmwares expose an undocumented service side-channel instead: the identical "Set VCP Feature" DDC/CI packet, except the source-address byte is `0x50` (not `0x51`) and the feature code is `0xF4` (not `0x60`) — reverse-engineered by the ddcutil/`amdddc-windows` community, values are per-model. The standard `dxva2.dll` API has no way to send a non-`0x51` source address, so this needs a GPU vendor's raw I2C access; on this AMD machine that is **ADL**. `AmdAdl.h` is a hand-picked subset of AMD's public ADL SDK (`AdapterInfo`, `ADLDisplayInfo`/`ADLDisplayID`, the handful of constants and function-pointer typedefs actually used) — the same "just enough of the SDK" approach as `PolicyConfig.h`, not a vendored copy of the full multi-thousand-line headers. `atiadlxx.dll`/`atiadlxy.dll` is loaded fresh via `LoadLibrary` on every call (no persistent state, matching `AudioDevices.cpp`'s convention) so a non-AMD machine just fails that load and the feature quietly no-ops. `FindDisplay` matches `ADLDisplayInfo::strDisplayName` (an EDID-derived friendly name, e.g. `"LG ULTRAGEAR"`) — **not** the PnP-id substring `DisplayControl::Matches` uses — against `swapMonitorMatchAmd`, a config field kept deliberately separate from `swapMonitorMatch`. `QuickActions.cpp` calls this only when `DisplayControl::SetMonitorInput`'s own read-back verification reports failure. This channel cannot self-verify (matches the community tooling's own `--noverify` requirement), so `SetInput` reports only whether the ADL call itself succeeded.
+
+**`PolicyConfig.h`** — hand-written declaration of the undocumented `IPolicyConfig` (`{f8679f50-850a-41cf-9c72-430f290290c8}`, class `{870af99c-171d-4f9e-af0d-e63df40c2bc9}`). **The vtable order is the entire contract**: reordering or dropping a method silently redirects calls to the wrong slot. Methods this app does not call keep `void*` parameters because their real struct types are undocumented.
+
+---
+
+## 3. The debounce / streaming algorithm (precise)
+
+Implemented in `WorkerLoop` (`src/InputHook.cpp:167-300`). Local state: `accumulatedTicks`, `debounceActive`, `isStreaming`, `debounceStart`, `lastStreamTick`, and the **hardcoded** `streamTimeoutMs = 500`. Tunables come from `g_Config`: `volDebounceThreshold` (default **2**) and `volDebounceWindowMs` (default **200**).
+
+The worker wakes on a new event or on a computed deadline: if `debounceActive`, deadline = `debounceStart + volDebounceWindowMs`; if `isStreaming`, deadline = `lastStreamTick + streamTimeoutMs`. On wake it first expires timeouts (streaming after 500ms idle; debounce after `volDebounceWindowMs`), then processes the drained batch.
+
+For each `type==0` (volume) event:
+
+- **Large step** (`volLargeStep`, i.e. Shift held): always fire immediately with `largeStep=true`, set `isStreaming=true`, reset debounce, `lastStreamTick=now`.
+- **Normal step:**
+  - **If `isStreaming`:** fire immediately (one `SafeChangeVolume`), refresh `lastStreamTick`. This is the "user is scrubbing" fast path — every tick maps 1:1 to a volume change.
+  - **Else if `debounceActive`:** `accumulatedTicks += ±1`. When `|accumulatedTicks| >= max(1, volDebounceThreshold)`, fire `count = |accumulatedTicks|` changes in the accumulated direction, then **enter streaming** (`isStreaming=true`, debounce off, reset ticks). This means the first real action applies the whole accumulated batch at once, then subsequent ticks stream 1:1.
+  - **Else (idle → start debounce):** set `debounceActive=true`, `debounceStart=now`, `accumulatedTicks = ±1`. **Special case:** if `volDebounceThreshold <= 1`, fire immediately and jump straight to streaming (this is the "no debounce" mode).
+
+**Why isolated single ticks can be swallowed:** with the default `volDebounceThreshold = 2`, a single clean tick only *starts* a debounce window (`accumulatedTicks = 1`); it does not reach the threshold, so nothing fires. If no second tick arrives within `volDebounceWindowMs` (200ms), the window expires and `accumulatedTicks` resets to 0 — the lone tick produced **no volume change and no OSD**. This is intentional noise rejection for the chattering roller, but it means a deliberate single small adjustment requires the user to either nudge twice within 200ms or set the threshold to 1.
+
+**Streaming exits only by the 500ms inactivity timeout**, never on key release (there is no `WM_KEYUP` handling). Two slightly different window comparisons exist: the pre-process check uses `volDebounceWindowMs` raw, the post-process/next-iteration check uses `max(10, volDebounceWindowMs)` — so a configured value below 10 behaves inconsistently. `streamTimeoutMs` is not user-configurable.
+
+---
+
+## 4. Rendering pipeline & transparency
+
+- **Window:** fullscreen `WS_POPUP`, `WS_EX_TOPMOST | WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW`, sized to primary-monitor metrics (`src/OverlayWindow.cpp:88`). `SetLayeredWindowAttributes(hwnd, RGB(0,0,0), 0, LWA_COLORKEY)` makes **pure black fully transparent**. **Invariant:** the swapchain is cleared to transparent black and the ImGui UI must avoid pure-black RGB for visible elements, or they would be keyed out.
+- **Click-through:** `WS_EX_TRANSPARENT` is toggled by `UpdateClickability` (`:172`) driven by `UIManager::IsMenuOpen()` — the overlay is click-through except when the Settings menu is open (so the user can interact with it).
+- **Frame loop** (`RunLoop` → `RenderFrame`): frames are drawn only when what is shown changes (`VisibleMask()` or the `RequestRedraw()` counter), three per change so ImGui's auto-resize windows settle (one is laid out hidden on the frame it appears); a static popup costs those frames and nothing more, since a blt-model `Present` copies the whole full-screen buffer and makes DWM recompose. Each frame: `ImGui_ImplDX11_NewFrame`/`ImGui_ImplWin32_NewFrame`/`ImGui::NewFrame` → `UIManager::Render()` → `ImGui::Render` → clear RTV to transparent black → `ImGui_ImplDX11_RenderDrawData` → `SwapChain->Present(0,0)` (vsync off). One clearing frame is drawn when the mask empties so the last OSD is erased before the window hides.
+- **Swapchain:** BufferCount=1, `R8G8B8A8_UNORM`, `SWAP_EFFECT_DISCARD`, `ALLOW_MODE_SWITCH`, created lazily by `EnsureSwapChain` and released (with the whole device) by `IdleCleanup`. Shaders come precompiled from `src/ImGuiDx11Shaders.cpp` (our `D3DCompile`), so `d3dcompiler_47.dll` is never loaded.
+- **Device-lost:** `Present` returning `DXGI_ERROR_DEVICE_REMOVED`/`_RESET` → `RecreateDevice`: `ImGui_ImplDX11_Shutdown`, new device, `ImGui_ImplDX11_Init` on it, `RebuildFonts`. If no device can be created yet it is retried every 2 s; the loop never exits over it (it used to, taking the process and the hook with it). This is the same path an idle wake takes. No multi-monitor/DPI support.
+- **Font hot reload:** when `ShouldReloadPreview()` is true, `RunLoop` invalidates device objects, `Fonts->Clear()`, re-adds normal/large/small/mono + preview via `FindFontPath`/`SafeAddFont`, recreates device objects, then `ResetReloadPreview()`.
+
+---
+
+## 5. COM / WinRT apartment model — full detail, bug history, fix rationale
+
+**Two apartments by design:**
+
+- **STA (main/UI thread):** `AudioManager::Initialize` calls `CoInitializeEx(COINIT_APARTMENTTHREADED)` (`src/AudioManager.cpp:24`, tolerates `RPC_E_CHANGED_MODE`) and creates `m_pEnumerator`. The DX11/ImGui render loop also runs on this thread; the LL hook callback has a thread of its own (no COM).
+- **MTA (worker thread):** `WorkerLoop` calls `CoInitializeEx(nullptr, COINIT_MULTITHREADED)` (`src/InputHook.cpp:168`). **All** WASAPI session work and WinRT SMTC calls run here.
+
+`GetActiveSessions` is additionally called from the STA UI thread (Settings Refresh, `src/UIManager.cpp:326`). So WASAPI callers span **both** apartments.
+
+**The rule:** a COM interface pointer is apartment-bound. A pointer created in the STA must never be dereferenced from the MTA worker — that is undefined behavior that **intermittently faults** (access violation → crash → dead hook → whole-system mute) or **silently fails** (call returns failure → `ChangeVolume` false → no OSD).
+
+**Bug history (this is the central design fact):**
+
+- **Bug 2 (no OSD):** the original code shared `m_pEnumerator` (created STA) into `ChangeVolume` running on the MTA worker. Cross-apartment dereference → intermittent fault or silent failure → `ChangeVolume` returned false → OSD never showed.
+- **Bug 1 (system muted after crash):** the worker ran COM/WinRT with no exception guard. Under `/EHsc`, a hardware fault on a stale audio-session pointer is not caught by C++ `catch(...)`, and the `wWinMain` `__try/__except` only covers the main thread. A worker fault killed the process **bypassing auto-restart** → the swallowed Mute key reverted to OS default → whole system muted.
+
+**Fixes:**
+
+1. **Apartment-safe enumerator** — `GetSessionEnumerator` builds the whole chain in the caller's own apartment and caches it `thread_local`, so a pointer can never cross apartments; it still self-heals stale default-endpoint state (TTL, rebuild-on-failure, explicit `InvalidateDeviceCache`). `m_pEnumerator` is retained only as a startup capability probe in `Initialize`.
+2. **Worker-thread fault containment** — three standalone SEH wrappers `SafeChangeVolume`/`SafeTogglePlayPause`/`SafeGetTrackInfo` (`src/InputHook.cpp:15-44`) contain hardware faults; `SafeGetTrackInfo`→`GetTrackInfoInner` split avoids MSVC C2712 (C++ destructible local + `__try`).
+3. **Process-wide net** — `SetUnhandledExceptionFilter(GlobalCrashHandler)` (`src/main.cpp:62`) + `RestartSelf` relaunches the exe on a fault on **any** thread, so even an escaped worker fault re-establishes the hook.
+
+All WinRT `.get()` calls and property reads in `TogglePlayPause`/`GetCurrentTrackInfo` are additionally inside `try/catch(...)` so a `winrt::hresult_error` cannot escape (`src/AudioManager.cpp:209-254, 259-314`).
+
+**Verification:** all TUs compiled clean (no warnings, no C2712); Release linked and relaunched (the only link failure was the running instance locking the `.exe`). Bug 1 (rare crash) could not be reproduced synthetically — it is infrequent by nature.
+
+---
+
+## 6. Config schema (`config.json`)
+
+Location: **next to the executable** (`GetConfigPath` derives parent dir of `GetModuleFileNameA`, `src/Config.cpp:13`). On first run (file absent), defaults are seeded and written via `j.dump(4)`.
+
+| Field | Type | Default | Meaning |
+|---|---|---|---|
+| `modifierKey` | int (VK) | `0` | Modifier gate for volume keys; `0` = always act, else requires `GetAsyncKeyState(modifierKey)` (`Config.h:7`). |
+| `menuKey` | int (VK) | `VK_F8` | Opens/toggles the Settings menu (`Config.h:8`). |
+| `menuCtrl`/`menuShift`/`menuAlt` | bool | `false` | Modifier requirements for the menu key (`Config.h:9-11`). |
+| `infoKey` | int (VK) | `VK_F9` | Track-info popup key; **`0` disables it** (`Config.h:13`). |
+| `infoCtrl`/`infoShift`/`infoAlt` | bool | `false` | Modifier requirements for the info key (`Config.h:14-16`). |
+| `volStep` | float | `0.03` | Normal per-tick volume delta (`Config.h:18`). |
+| `volStepLarge` | float | `0.10` | Large (Shift) per-tick delta (`Config.h:19`). |
+| `volDebounceThreshold` | int | `2` | Min ticks within the window before firing; `1` = no debounce (clamped `>=1` by consumers) (`Config.h:21`). |
+| `volDebounceWindowMs` | int | `200` | Accumulation window in **milliseconds** (`Config.h:22`). |
+| `mediaApps` | string[] | 13-entry list | Process basenames the roller and Mute act on with no modifier held (`Config.cpp` `DefaultMediaApps`). |
+| `secondaryApps` | string[] | 11-entry list | Browser basenames, reachable only while `secondaryKey` is held (`Config.cpp` `DefaultSecondaryApps`). A config with no such key is migrated: the browsers are lifted out of `mediaApps` and the write-back is deferred. |
+| `secondaryKey` | int | `VK_PAUSE` (19) | Hold key that swaps the roller/Mute target to `secondaryApps`; `0` disables the group. |
+| `secondaryHoldMs` | int | `1500` | How long after a press that key still counts as held, because Pause/Break auto-releases; `0` demands a genuine hold. |
+| `osdOffsetX` | int | `50` | OSD/track popup X offset from bottom-right (`Config.h:27`). |
+| `osdOffsetY` | int | `100` | OSD/track popup Y offset (`Config.h:28`). |
+| `barColor` | float[4] | `{0.4, 0.6, 1.0, 1.0}` | Volume-bar fill RGBA; loaded only if a 4-element array (`Config.h:29`, `Config.cpp:72`). |
+| `fontSizeNormal` | int | `20` | Normal font px (`Config.h:30`). |
+| `fontSizeLarge` | int | `26` | Large font px (`Config.h:31`). |
+| `fontSizeSmall` | int | `16` | Small font px (built, not drawn in UIManager) (`Config.h:32`). |
+| `fontFamily` | string | `"Segoe UI"` | Font family name; resolved to a file by OverlayWindow's `FindFontPath` (`Config.h:33`). |
+| `appBindings` | object[] | `[]` | Per-app modifier bindings: `{modifierKey:int, targetApp:string}`; entries with a `0` key or empty app are dropped on load. |
+| `srKey` | int (VK) | `'Q'` (0x51) | Sample-rate toggle key; **`0` disables it**. |
+| `srCtrl`/`srShift`/`srAlt` | bool | `false`/`false`/**`true`** | Modifier requirements → default combo is **Alt+Q**. |
+| `srDeviceMatch` | string | `"K7"` | Case-insensitive substring of the output device friendly name; **empty = current default output**. |
+| `srHighHz` | int | `384000` | "Normal" rate restored by the timer/toggle. |
+| `srLowHz` | int | `192000` | "Game" rate applied by the toggle. |
+| `srAutoRevertMinutes` | int | `360` (6 h) | Auto-restore delay; **`0` = never restore on its own**. |
+| `srReminderMinutes` | int | `30` | Periodic on-screen reminder while lowered; `0` = off. |
+| `srRevertOnExit` | bool | `true` | Restore the rate when the app shuts down (runs on the worker before `CoUninitialize`). |
+| `srRefreshSettingsApp` | bool | `true` | Terminate `SystemSettings.exe` after a live-applied rate change, since its Sound page caches the old Format value and there is no way to invalidate just that. |
+| `srActive` | bool | `false` | **Runtime state:** the rate is currently lowered. |
+| `srSavedHz` | int | `0` | **Runtime state:** rate observed before lowering (the exact restore target). |
+| `srRevertAtUnix` | int64 | `0` | **Runtime state:** wall-clock (unix seconds) restore deadline; `0` = none. Survives restarts. |
+| `srActiveDeviceId` | string | `""` | **Runtime state:** MMDevice endpoint id that was modified. |
+| `swapKey` | int (VK) | `'S'` (0x53) | Console-swap key; **`0` disables it**. |
+| `swapCtrl`/`swapShift`/`swapAlt` | bool | `false`/`false`/**`true`** | Modifier requirements → default combo is **Alt+S**. |
+| `swapMonitorMatch` | string | `"GSM"` | Substring of the dual-input monitor's PnP id / description / GDI name (LG = `MONITOR\GSM…`). |
+| `swapInputPc` | int | `15` (0x0F) | VCP `0x60` value for the PC input (DisplayPort-1), sent over the **standard** DDC/CI channel. |
+| `swapInputConsole` | int | `18` (0x12) | VCP `0x60` value for the console input (HDMI-2), standard channel. |
+| `swapUseAmdSideChannel` | bool | `true` | Fall back to the AMD-ADL-only LG side channel (see §2.7, §8.9) when the standard write above fails its read-back check. AMD-only; no-ops elsewhere. |
+| `swapMonitorMatchAmd` | string | `"ULTRAGEAR"` | Substring of the monitor's **ADL** display name — a different namespace from `swapMonitorMatch` (PnP id), since ADL enumerates displays by their EDID-derived friendly name. |
+| `swapInputPcAmd` | int | `0xD0` | LG side-channel value for the PC input, sent as VCP `0xF4` with source-address byte `0x50` (instead of the standard channel's VCP `0x60`/`0x51`). |
+| `swapInputConsoleAmd` | int | `0x91` | LG side-channel value for the console input, same mechanism. |
+| `swapSetPrimary` | bool | `true` | Move the desktop (primary display) to the other monitor in console mode. |
+| `swapMoveWindows` | bool | `true` | Also drag existing top-level windows onto the new primary (Windows does not do this itself). Only acts when `swapSetPrimary` succeeded. |
+| `swapPrimaryConsoleMatch` | string | `""` | Which display becomes primary in console mode; **empty = first display that is not `swapMonitorMatch`**. |
+| `swapReturnDelayMs` | int | `2500` | Wait for the DisplayPort link to re-negotiate before moving primary back (clamped 0–15000; then up to 3×1 s retries). |
+| `swapAudioConsole` | string | `"K7"` | Default output device while in console mode; `""` = leave the output alone. |
+| `swapAudioPc` | string | `""` | Default output when back on PC; `""` = restore `swapSavedAudioId`. |
+| `swapConsoleMode` | bool | `false` | **Runtime state:** currently in console mode. |
+| `swapSavedAudioId` | string | `""` | **Runtime state:** endpoint id that was default before entering console mode. |
+
+Default `mediaApps` (seeded when no file): `spotify.exe, qobuz.exe, tidal.exe, applemusicwin.exe, music.ui.exe, foobar2000.exe, aimp.exe, wmplayer.exe, vlc.exe, mpc-hc64.exe, mpc-be64.exe, mpc-hc.exe, mpc-be.exe`. Default `secondaryApps`: `msedge.exe, chrome.exe, firefox.exe, brave.exe, opera.exe, opera_gx.exe, vivaldi.exe, yandex.exe, arc.exe, zen.exe, msedgewebview2.exe` (`src/Config.cpp` `DefaultMediaApps`/`DefaultSecondaryApps`).
+
+Notes: `Load` swallows all parse errors (`catch(...)`); `Save` ignores `ofstream` open failure; both paths are ANSI so a config dir with non-ANSI characters fails to open. No hot-reload/file-watching — only `Load` at startup reads the file. No in-Config validation/clamping (only consumers clamp debounce values).
+
+The `sr*`/`swap*` fields marked **runtime state** are written by the **worker thread** (`QuickActions`), unlike every other field, which the UI thread owns. `Save()` therefore takes a file mutex (`Config.cpp`, `g_configFileMutex`) so two threads cannot interleave writes; `Load()` intentionally does **not** take it, because its first-run branch calls `Save()` and the mutex is not recursive (it runs once on the main thread before any other thread exists, so it needs no lock).
+
+---
+
+## 7. Build internals
+
+- **CMake** `>= 3.20`, C++20, no extensions (`CMakeLists.txt:1,4-6`).
+- **FetchContent deps:** nlohmann_json **`v3.11.3`** (`:11-16`); Dear ImGui **`v1.90.4`** (`:19-23`) built as `add_library(imgui STATIC …)` from `imgui.cpp`/`imgui_draw.cpp`/`imgui_tables.cpp`/`imgui_widgets.cpp` + backends `imgui_impl_win32.cpp`/`imgui_impl_dx11.cpp` (`:26-39`); `imgui` PUBLIC-links `d3d11`/`dwmapi` (no `d3dcompiler` — see `src/ImGuiDx11Shaders.cpp`), PUBLIC-includes the imgui root + backends, and is built with `IMGUI_DISABLE_DEBUG_TOOLS` and (private) `IMGUI_IMPL_WIN32_DISABLE_GAMEPAD`, which keeps `xinput1_4.dll` out of the process.
+- **Main target:** `add_executable(SmartVolumeMixer WIN32 …)` from `main.cpp`, the eight `.cpp/.h` subsystem pairs, the header-only `PolicyConfig.h`/`StrUtil.h`, and `resources.rc`. Links `imgui`, `nlohmann_json::nlohmann_json`, `d3d11`, `dwmapi`, `ole32`, `oleaut32`, `psapi`, **`dxva2`** (DDC/CI monitor configuration), `user32`, **`windowsapp`** (C++/WinRT for SMTC — now in CMake as well as the `AudioManager.cpp` pragma). Compile defs `UNICODE`/`_UNICODE`.
+- **Exception model:** the code depends on MSVC's default **`/EHsc`** (NOT explicitly set in CMake) — this is exactly why hardware faults need SEH `__try/__except` rather than `catch(...)`, and why the C2712 split (`GetTrackInfoInner`) is required.
+- **Resource:** `icon.ico` via `IDI_APP_ICON` (101) in `resources.rc`/`resource.h`.
+- **Output:** `build/Release/SmartVolumeMixer.exe`. A running instance **locks the binary** — close it before re-linking.
+- `windowsapp.lib` (C++/WinRT) is required for SMTC; it is now linked from CMake in addition to the `#pragma comment(lib,…)` in `AudioManager.cpp`.
+
+---
+
+## 8. Known limitations & future-work hints
+
+1. **System master volume is not implemented** (README claims it; no `IAudioEndpointVolume`). **Product decision: keep it media-apps-only — do NOT add it.** "No OSD when no tracked app is playing" is expected.
+2. **`g_Config` has no synchronization** while read by the hook, worker, and audio threads and written by the UI thread; `mediaApps` (a reallocating `std::vector`) is a use-after-free/torn-read risk. A future hardening would put a mutex or copy-on-read snapshot around config access.
+3. **Debounce UX:** default threshold 2 swallows isolated single ticks; consider exposing `streamTimeoutMs`, unifying the two window comparisons (raw vs. `max(10, …)`), and/or adding key-up handling so streaming ends on release.
+4. **Cross-thread callback affinity:** worker-thread callbacks (`OnVolumeChanged` etc.) currently rely on `UIManager` setters only stamping data under the mutex; any future ImGui or HWND work in a callback must be marshaled to the UI thread. `OnKeyCaptured` no longer does disk I/O inside the LL hook — it sets the deferred-save flag and the render loop writes the file.
+5. **Display robustness:** device loss is now recovered properly (`_Shutdown`+`_Init` around the new device); DPI support is still missing. `WM_DISPLAYCHANGE` **is** now handled (`OverlayWindow::OnDisplayChanged` re-fits the overlay to the new primary monitor and calls `ResizeBuffers`; `RunLoop` skips frames while the render target is missing), because the console-swap hotkey changes the primary display — but the overlay is still primary-monitor-only.
+6. **Reliability hygiene:** add a single-instance mutex and a restart-loop guard (counter/cooldown shared between `GlobalCrashHandler` and the `__except`); make `RestartSelf`/config paths Unicode (`GetModuleFileNameW`/`ShellExecuteW`); check `ofstream::is_open()` in `Save`; check the currently-ignored HRESULTs in `AudioManager`.
+7. **Repo cleanup:** remove stray non-built files (`smtc_test.cpp`, `test.cpp`, `smtc_test.exe/.obj`, the two `debug_hook.log` keystroke traces, `imgui.ini`, the ~28 MB unextracted `fonts/*.zip`). Reconcile the README's false master-volume and "microsecond" debounce wording with the actual implementation.
+8. **Quick-action limitations:** `IPolicyConfig` is undocumented (no compile-time safety net if Windows changes it, and the default-device switch has no fallback path); `Alt+Q`/`Alt+S` are swallowed system-wide while bound; a standard-channel DDC/CI failure falls back to the AMD side channel (§8.9) but a side-channel failure is not retried further; `EnterPcMode` sleeps on the worker thread (up to `swapReturnDelayMs` + 3×1 s of retries) so volume ticks queue during a swap; detaching the swap monitor from the desktop is deliberately not implemented, and the K7's own input selector is a physical knob no API can turn.
+9. **Empirically established quick-action behaviour (measured, not assumed).** Every claim below was verified with standalone probes against the live system, because return codes and stored values both proved misleading:
+   - **Sample rate works.** `IPolicyConfig::SetDeviceFormat` really does reconfigure the running audio engine — confirmed with `IAudioClient::GetMixFormat` (the *live* mix rate, not the stored property) moving 384000↔192000, from **both** STA and MTA threads, standalone and through the app's own `Alt+Q` path, and holding indefinitely afterwards. **The apartment is irrelevant here.** The trap is verification: the stored `PKEY_AudioEngine_DeviceFormat`/registry blob changes even when nothing reaches the engine, and **the Windows Settings app serves a cached Format value from its resident `SystemSettings.exe` process** — screenshot-confirmed showing `384000 Hz` while the endpoint was really at `192000`, and showing `192000 Hz` after killing and reopening it. Judge this feature only by `GetMixFormat`. `SetSampleRate`'s `outAppliedLive` out-param distinguishes the live `SetDeviceFormat` path from the property-store-only fallback so callers can say `"(stored only - …)"` instead of claiming success.
+   - **The Settings-app cache is now closed automatically, since users can't otherwise tell it's lying.** `QuickActions::RefreshSettingsAppCache` (`src/QuickActions.cpp`) terminates `SystemSettings.exe` after every live-applied rate change (`srRefreshSettingsApp`, default on) — there is no API to invalidate only its cached Format value, so the whole host process is closed and Windows relaunches it fresh on next open. End-to-end verified: opened Settings while lowered (correctly showed the live rate, since freshly launched), triggered `Alt+Q` to restore, confirmed that exact process PID died within ~2s, reopened Settings with zero manual steps and it showed the correct restored rate.
+   - **Primary-display changes do not carry windows along.** Windows re-homes only newly created windows, so `MoveWindowsToMonitor` rewrites each window's `rcNormalPosition` scaled into the target work area. A **maximized** window ignores that alone (it stays maximized where it is and merely remembers the new restore rect) — it has to be dropped to `SW_SHOWNORMAL` first and re-maximized after, which is what the code does. Minimized windows need no special case: `showCmd` is preserved so they restore on the target.
+   - **A window's placement has to be captured *before* `SetPrimaryMonitor`, not during the move, or a round trip corrupts every restored window's position.** The desktop's coordinate origin shifts to wherever the new primary is; capturing "original" placement *inside* the same call that does the move means capturing it *after* the shift, so it is recorded in the wrong (mid-sequence) coordinate space relative to where the desktop returns to once the primary flips back. Measured symptom: every restored window landed a *small, inconsistent* distance from where it started — not the full monitor-width offset naively expected, because `SetWindowPlacement` clamps an out-of-range rect back onto some visible monitor — which is why this looked like generic flakiness rather than an obvious bug until positions were compared pixel-for-pixel across a real round trip. Fixed by splitting capture (`SnapshotWindows`, called once before `SetPrimaryMonitor`) from move (`MoveWindowsToMonitor(snapshot, target)`, called after, using the snapshot's pre-swap placement as what it hands to `RestoreWindows` while still reading each window's live position for the scaling math). Verified via `GetWindowRect` before/after a real `Alt+S` PC→console→PC round trip: every tracked window returned to its exact pre-swap pixel rect.
+   - **Some apps fight the restore.** The Claude desktop client and Discord (both Chromium/Electron) were observed repositioning themselves shortly *after* `RestoreWindows` placed them, apparently reacting to the swap's `WM_DISPLAYCHANGE` by re-homing onto whatever they consider current. Mitigated with a second identical `SetWindowPlacement` pass ~200ms later (worker thread only, so the delay is free).
+   - **Monitor input switching needed a second, undocumented channel — it is not impossible, just unreachable the standard way.** The LG UltraGear answers VCP `0x60` *reads* correctly but acknowledges and then discards *writes* on the standard DDC/CI channel (`SetVCPFeature` → `TRUE`, monitor never switches, read-back unchanged); `DoSetInput` read-back-verifies and fails honestly rather than trusting the return code. That failure now triggers `AmdDdcSideChannel::SetInput` (§2.7), which reaches an undocumented per-model LG service channel through AMD's ADL — verified working in both directions via the real hotkey (`0xD0`→DisplayPort, `0x91`→HDMI-2). The read-back check itself turned out not to be fully reliable once the side channel is in play: the standard-channel write to switch *back to* DisplayPort has been observed to occasionally pass the check for real (user-confirmed) — this panel's standard-channel behavior is asymmetric between the two directions and only worked around, not fully understood.
+   - **The primary-display swap needed a different API.** The legacy `ChangeDisplaySettingsEx` `CDS_SET_PRIMARY`+`CDS_NORESET` batch fails on this machine: the **second** staged call always returns `DISP_CHANGE_FAILED` (any order, with or without the primary flag) while the commit reports success and nothing moves — the staged batch passes through a state where either no display or two displays occupy `(0,0)`, and this driver validates eagerly rather than deferring to the commit. Full `dmFields` and split immediate transactions both made it worse or no better. Replaced with `SetDisplayConfig` over the `QueryDisplayConfig` path/mode array (one atomic submission, every source mode shifted so the target reaches `(0,0)`) — verified in both directions. `WM_DISPLAYCHANGE` → `OverlayWindow::OnDisplayChanged` correctly re-fits the OSD to the new primary afterwards.
+   - **A no-op is not a failure.** Both audio targets resolving to the already-default device (a DAC shared with the console over its own physical input) means the audio step has nothing to do; it now reports `"Output already <name>"`. `SetDefaultEndpoint` itself is verified working by switching to another endpoint and back.

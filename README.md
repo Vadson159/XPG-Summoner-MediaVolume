@@ -31,6 +31,9 @@ Built with C++20, DirectX 11, and Dear ImGui.
   - Font styling (Normal/Large/Small font sizes, system font family support).
   - Colors (custom color picker for the volume bar).
 - **Track Info Display**: Request active track information (default: `F9`) using Windows Media APIs.
+- **Windows HDR Toggle**: `Win` + `H` + `Mute` toggles HDR, with an on-screen result. Uses Windows display APIs directly (no Game Bar required).
+- **Monitor HDR Effect**: `Mute` + `H` switches the LG 27GS85Q-B's HDR Effect picture mode over DDC/CI and restores the previous preset on the next press. The previous preset survives app restarts.
+- **Custom HDR Shortcuts**: The settings **HDR** tab provides independent key capture and Mute/Win/Ctrl/Shift/Left Alt modifiers, disable and reset controls. Changes apply immediately and persist in `config.json`.
 - **Crash Auto-Restart**: Runs robustly in the background, auto-restarting itself if any unhandled crash occurs.
 
 ---
@@ -77,6 +80,11 @@ The compiled executable `SmartVolumeMixer.exe` will be located in the `build/Rel
 Settings are saved in `config.json` inside the application folder. The default shortcuts are:
 - **`F8`**: Open configuration menu.
 - **`F9`**: Display current track info.
+- **`Mute` + `H`**: Toggle HDR Effect on the LG 27GS85Q-B itself. Hold Mute first, then press H. Requires Windows HDR to be off because HDR Effect is an SDR picture mode.
+- **`Mute` alone**: Play/pause on release. Browser and per-app modifiers still select the playback target when Mute is pressed.
+- **`Win` + `H` + `Mute`**: Toggle Windows HDR on active HDR-capable displays. If any is on, turn HDR off; otherwise turn it on for all supported displays. Hold either Win key first, then press H and Mute in either order. One toggle per Mute hold; playback is unaffected. Ordinary `Win` + `H` is forwarded to Windows on release if Mute was not pressed.
+
+Open **Settings -> HDR** to rebind either action. Select the exact modifiers to require, click **Key**, and press a key (**Esc** cancels). Uncheck **Mute** for a conventional keyboard shortcut. **Disable** turns off a binding and **Reset default** restores the defaults above. Identical HDR bindings are flagged and inactive until corrected. Saved bindings are loaded on restart; older configurations automatically receive the defaults above.
 
 ---
 
