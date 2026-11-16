@@ -470,7 +470,18 @@ void OverlayWindow::RunLoop() {
         // playing), the idle cleanup must still come, or the device would stay
         // alive for good.
         if (m_prewarmRequested.exchange(false, std::memory_order_acq_rel) && !m_deviceObjectsReady) {
-            RecreateDevice();
+            if (RecreateDevice() && EnsureSwapChain()) {
+                // The first Present on a fresh swapchain costs 10-15 ms (the
+                // driver sets up its layered-window staging surface). Paying it
+                // here, on a cleared frame while the window is still hidden,
+                // takes it out of the first visible frame.
+                PERF_SCOPE("prewarm.FirstPresent");
+                const float clear[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+                m_pd3dDeviceContext->OMSetRenderTargets(1, m_mainRenderTargetView.GetAddressOf(), nullptr);
+                m_pd3dDeviceContext->ClearRenderTargetView(m_mainRenderTargetView.Get(), clear);
+                const HRESULT hr = m_pSwapChain->Present(0, 0);
+                if (hr == DXGI_ERROR_DEVICE_REMOVED || hr == DXGI_ERROR_DEVICE_RESET) m_deviceObjectsReady = false;
+            }
             if (!m_isVisible) m_idleCleanupAt = GetTickCount64() + kIdleCleanupDelayMs;
         }
 
