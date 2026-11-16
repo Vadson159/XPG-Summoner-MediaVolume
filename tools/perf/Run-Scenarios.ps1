@@ -42,7 +42,14 @@ $ResultsFile = Join-Path $ExeDir 'perf-results.jsonl'
 function Save-Result($obj) {
     $obj | Add-Member -NotePropertyName Label -NotePropertyValue $Label -Force
     $obj | Add-Member -NotePropertyName At -NotePropertyValue (Get-Date).ToString('s') -Force
-    ($obj | ConvertTo-Json -Compress -Depth 6) | Add-Content -Path $ResultsFile -Encoding utf8
+    $json = $obj | ConvertTo-Json -Compress -Depth 6
+    # Indexers / AV can hold the file for a moment; never lose a run to that.
+    for ($i = 0; $i -lt 20; ++$i) {
+        try { [IO.File]::AppendAllText($ResultsFile, $json + "`n"); break } catch { Start-Sleep -Milliseconds 250 }
+    }
+    # Printed here (Write-Host) rather than returned, so a later failure in the
+    # same invocation cannot swallow it.
+    Write-Host ($obj | Select-Object * -ExcludeProperty ModuleNames, Samples, RawOsd, RawTrack, ThreadMcycles | Format-List | Out-String -Width 200)
 }
 
 function Get-LogLines {
@@ -142,7 +149,6 @@ function Run-S1 {
         Samples = @($samples | Select-Object ToHookMs, ToLoopMs, PeakWSMB, PrivateMB, Modules, Threads, Handles)
     }
     Save-Result $res
-    $res | Select-Object * -ExcludeProperty ModuleNames, Samples | Format-List
 }
 
 function Run-S2S4 {
@@ -166,7 +172,9 @@ function Run-S2S4 {
     $lines = Get-NewLines $from
 
     # The first E2E line after each idle_cleanup is the cold sample.
-    $osd = @(); $track = @(); $osdFire = @(); $cold = $false
+    # Every run waits $IdleSeconds first, so the very first E2E line is cold too
+    # even though its idle_cleanup happened before $from.
+    $osd = @(); $track = @(); $osdFire = @(); $cold = $true
     $recreate = @(); $chainCold = @(); $changeVol = @(); $trackInfo = @(); $swap = @()
     foreach ($l in $lines) {
         if ($l -match ' S idle_cleanup$') { $cold = $true; continue }
@@ -189,11 +197,10 @@ function Run-S2S4 {
         ChainWarmMs = Format-Stat (Get-Timings $lines 'audio.GetSessionEnumerator.warm') 'N2'
         ChangeVolumeMs = Format-Stat (Get-Timings $lines 'audio.ChangeVolume') 'N2'
         TrackInfoMs = Format-Stat (Get-Timings $lines 'audio.GetCurrentTrackInfo') 'N1'
-        AtlasSize = (@($lines | Where-Object { $_ -match 'fonts.AtlasSize' }) | Select-Object -Last 1)
+        AtlasSize = [string](@($lines | Where-Object { $_ -match 'fonts.AtlasSize' }) | Select-Object -Last 1)
         RawOsd = $osd; RawTrack = $track
     }
     Save-Result $res
-    $res | Select-Object * -ExcludeProperty RawOsd, RawTrack | Format-List
 }
 
 function Run-S3 {
@@ -242,7 +249,6 @@ function Run-S3 {
         Samples = $samples
     }
     Save-Result $res
-    $res | Select-Object * -ExcludeProperty Samples | Format-List
 }
 
 function Run-S5 {
@@ -286,11 +292,17 @@ function Run-S5 {
         Samples = $samples
     }
     Save-Result $res
-    $res | Select-Object * -ExcludeProperty Samples | Format-List
 }
 
 function Run-S6 {
     $p = Ensure-Running
+    # Same starting point every time: the app has just been used (a volume
+    # nudge and a track-info request, which bring up the WASAPI and SMTC
+    # caches), then is left alone.
+    [void](Assert-OneInstance)
+    Tap $VK_VOLUME_DOWN 15; Tap $VK_VOLUME_DOWN; Start-Sleep -Milliseconds 800
+    Tap $VK_VOLUME_UP 15; Tap $VK_VOLUME_UP; Start-Sleep -Milliseconds 3000
+    Tap $InfoKey
     Write-Host "S6: settling 40 s, then $S6Minutes min idle..."
     Start-Sleep -Seconds 40
     $before = Get-SvmSnapshot $p.Id
@@ -313,7 +325,6 @@ function Run-S6 {
         ThreadMcycles = $threadDeltas
     }
     Save-Result $res
-    $res | Format-List
 }
 
 $done = @{}
