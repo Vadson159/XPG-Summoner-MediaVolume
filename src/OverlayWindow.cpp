@@ -8,6 +8,10 @@
 #include "InputHook.h"
 #include "Config.h"
 #include "QuickActions.h"
+#include "Perf.h"
+#ifdef SVM_PERF
+#include <imgui_internal.h>
+#endif
 
 #pragma comment(lib, "d3d11.lib")
 #include <shlobj.h>
@@ -136,7 +140,12 @@ bool OverlayWindow::Create() {
 
     SetLayeredWindowAttributes(m_hwnd, RGB(0, 0, 0), 0, LWA_COLORKEY);
     
-    if (!CreateDeviceD3D()) {
+    bool deviceOk;
+    {
+        PERF_SCOPE("create.D3D11CreateDevice");
+        deviceOk = CreateDeviceD3D();
+    }
+    if (!deviceOk) {
         CleanupDeviceD3D();
         UnregisterClassW(m_wc.lpszClassName, m_wc.hInstance);
         return false;
@@ -145,6 +154,7 @@ bool OverlayWindow::Create() {
     // Deliberately NOT shown here: the overlay is only made visible when there
     // is something to draw (SetOverlayVisible). A side effect is that it no
     // longer steals focus at startup the way SW_SHOWDEFAULT did.
+    PERF_ONLY(const LONGLONG perfImguiStart = Perf::Now();)
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
@@ -157,10 +167,14 @@ bool OverlayWindow::Create() {
     ImGui_ImplWin32_Init(m_hwnd);
     ImGui_ImplDX11_Init(m_pd3dDevice.Get(), m_pd3dDeviceContext.Get());
     m_dx11BackendReady = true;
+    PERF_ONLY(Perf::Record("create.ImGuiInit", Perf::ToMs(Perf::Now() - perfImguiStart));)
 
     // A failure here is not fatal: the first frame that needs the overlay
     // retries through RecreateDevice.
-    RebuildFonts(std::string());
+    {
+        PERF_SCOPE("create.RebuildFonts");
+        RebuildFonts(std::string());
+    }
 
     NOTIFYICONDATAW nid = {};
     nid.cbSize = sizeof(nid);
@@ -197,6 +211,7 @@ bool OverlayWindow::RebuildFonts(const std::string& previewName) {
     // Resolving a family name means a sweep of every installed font in the
     // registry, and this runs on every wake from idle - so the answer is kept.
     if (g_Config.fontFamily != m_resolvedFontFamily) {
+        PERF_SCOPE("fonts.FindFontPath");
         m_resolvedFontPath = FindFontPath(g_Config.fontFamily);
         m_resolvedFontFamily = g_Config.fontFamily;
     }
@@ -220,7 +235,21 @@ bool OverlayWindow::RebuildFonts(const std::string& previewName) {
     // picker needs it again, and that rebuilds it on demand.
     if (!ui.IsMenuOpen()) ui.ReleaseFontScan();
 
+#ifdef SVM_PERF
+    {
+        // Build the atlas here, separately, so its cost is not hidden inside
+        // CreateDeviceObjects (which would otherwise build it on first use).
+        PERF_SCOPE("fonts.AtlasBuild");
+        io.Fonts->Build();
+    }
+    PERF_LOG("S fonts.AtlasSize %dx%d", io.Fonts->TexWidth, io.Fonts->TexHeight);
+    {
+        PERF_SCOPE("fonts.CreateDeviceObjects");
+        m_deviceObjectsReady = ImGui_ImplDX11_CreateDeviceObjects();
+    }
+#else
     m_deviceObjectsReady = ImGui_ImplDX11_CreateDeviceObjects();
+#endif
     if (m_deviceObjectsReady) {
         // The atlas now lives on the GPU. Left alone, ImGui keeps an 8-bit and
         // an expanded 32-bit copy of its pixels plus the entire TTF file behind
@@ -235,6 +264,8 @@ bool OverlayWindow::RebuildFonts(const std::string& previewName) {
 }
 
 bool OverlayWindow::RecreateDevice() {
+    PERF_SCOPE("recreate.total");
+    PERF_ONLY(Perf::deviceRebuilt.store(1);)
     // Two callers: a frame that finds no device (IdleCleanup released it), and
     // a Present that reported it lost. Everything ImGui's DX11 backend holds
     // belongs to the old device, including the device itself (it keeps a
@@ -248,10 +279,17 @@ bool OverlayWindow::RecreateDevice() {
     m_deviceObjectsReady = false;
 
     CleanupDeviceD3D();
-    if (!CreateDeviceD3D()) return false;
+    {
+        PERF_SCOPE("recreate.D3D11CreateDevice");
+        if (!CreateDeviceD3D()) return false;
+    }
 
-    ImGui_ImplDX11_Init(m_pd3dDevice.Get(), m_pd3dDeviceContext.Get());
+    {
+        PERF_SCOPE("recreate.ImGuiDx11Init");
+        ImGui_ImplDX11_Init(m_pd3dDevice.Get(), m_pd3dDeviceContext.Get());
+    }
     m_dx11BackendReady = true;
+    PERF_SCOPE("recreate.RebuildFonts");
     return RebuildFonts(m_previewFontName);
 }
 
@@ -391,6 +429,7 @@ void OverlayWindow::RunLoop() {
             if (m_idleCleanupAt) timeout = (std::min)(timeout, until(m_idleCleanupAt));
 
             MsgWaitForMultipleObjects(0, nullptr, FALSE, timeout, QS_ALLINPUT);
+            PERF_COUNT(loopWakes);
         }
 
         // Anything but the tray timer and our own wake-up counts as input. It only
@@ -477,32 +516,74 @@ void OverlayWindow::RunLoop() {
 
 bool OverlayWindow::RenderFrame(bool hasContent) {
     if (!m_deviceObjectsReady && !RecreateDevice()) return false;
+    PERF_ONLY(const LONGLONG perfFrameStart = Perf::Now();)
 
     // While hidden there may be no swapchain at all (IdleCleanup), and a
     // display change (resolution, or the primary swap the console hotkey
     // performs) can leave the one there is at the wrong size.
-    if (!EnsureSwapChain()) return false;
+    {
+        PERF_ONLY(const bool hadSwapChain = (m_pSwapChain != nullptr);)
+        PERF_ONLY(const LONGLONG perfSc = Perf::Now();)
+        if (!EnsureSwapChain()) return false;
+        PERF_ONLY(if (!hadSwapChain) Perf::Record("frame.CreateSwapChain", Perf::ToMs(Perf::Now() - perfSc));)
+    }
 
     if (hasContent) {
         SetOverlayVisible(true);
         m_idleCleanupAt = 0;
     }
 
+    PERF_ONLY(const LONGLONG perfT0 = Perf::Now();)
     ImGui_ImplDX11_NewFrame();
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();
+    PERF_ONLY(const LONGLONG perfT1 = Perf::Now();)
 
     if (hasContent) {
         UIManager::Get().Render();
     }
 
     ImGui::Render();
+    PERF_ONLY(const LONGLONG perfT2 = Perf::Now();)
     const float clear_color_with_alpha[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
     m_pd3dDeviceContext->OMSetRenderTargets(1, m_mainRenderTargetView.GetAddressOf(), nullptr);
     m_pd3dDeviceContext->ClearRenderTargetView(m_mainRenderTargetView.Get(), clear_color_with_alpha);
     ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+    PERF_ONLY(const LONGLONG perfT3 = Perf::Now();)
 
     HRESULT hr = m_pSwapChain->Present(0, 0);
+#ifdef SVM_PERF
+    {
+        const LONGLONG perfT4 = Perf::Now();
+        Perf::frames.fetch_add(1);
+        Perf::Write("F newframe=%.3f ui=%.3f draw=%.3f present=%.3f total=%.3f content=%d",
+                    Perf::ToMs(perfT1 - perfT0), Perf::ToMs(perfT2 - perfT1), Perf::ToMs(perfT3 - perfT2),
+                    Perf::ToMs(perfT4 - perfT3), Perf::ToMs(perfT4 - perfFrameStart), hasContent ? 1 : 0);
+        // End-to-end: the first presented frame on which the popup is really
+        // drawn (ImGui lays an auto-resizing window out hidden on its first frame).
+        auto shown = [](const char* name) {
+            ImGuiWindow* w = ImGui::FindWindowByName(name);
+            return w && w->Active && !w->Hidden;
+        };
+        const LONGLONG series = Perf::osdSeriesStart.load();
+        if (series && shown("OSD")) {
+            const LONGLONG fire = Perf::osdFire.load(), showAt = Perf::osdShown.load();
+            Perf::Write("E2E osd fromFirstTick=%.3f fromFire=%.3f fromShowOSD=%.3f rebuilt=%d",
+                        Perf::ToMs(perfT4 - series), fire ? Perf::ToMs(perfT4 - fire) : -1.0,
+                        showAt ? Perf::ToMs(perfT4 - showAt) : -1.0, Perf::deviceRebuilt.load());
+            Perf::osdSeriesStart.store(0); Perf::osdFire.store(0); Perf::osdShown.store(0);
+            Perf::deviceRebuilt.store(0);
+        }
+        const LONGLONG track = Perf::trackStart.load();
+        if (track && shown("TrackInfo")) {
+            const LONGLONG showAt = Perf::trackShown.load();
+            Perf::Write("E2E track fromKey=%.3f fromShow=%.3f rebuilt=%d", Perf::ToMs(perfT4 - track),
+                        showAt ? Perf::ToMs(perfT4 - showAt) : -1.0, Perf::deviceRebuilt.load());
+            Perf::trackStart.store(0); Perf::trackShown.store(0);
+            Perf::deviceRebuilt.store(0);
+        }
+    }
+#endif
     if (hr == DXGI_ERROR_DEVICE_REMOVED || hr == DXGI_ERROR_DEVICE_RESET) {
         // Device lost (driver reset or update, TDR). Rebuilding it right here
         // means the retry only has to wait one frame; if the driver is not back
@@ -518,6 +599,7 @@ bool OverlayWindow::RenderFrame(bool hasContent) {
 void OverlayWindow::IdleCleanup() {
     m_idleCleanupAt = 0;
     if (m_isVisible) return;
+    PERF_LOG("S idle_cleanup");
 
     // Nothing draws while the overlay is hidden, so the whole D3D device goes,
     // and with it the swapchain and everything ImGui's DX11 backend holds. The
@@ -735,6 +817,7 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
         case WM_TIMER:
             if (wParam == IDT_TRAY_REFRESH) {
                 OverlayWindow::Get().UpdateTrayTip();
+                PERF_FLUSH();
             }
             return 0;
         case WM_DISPLAYCHANGE:

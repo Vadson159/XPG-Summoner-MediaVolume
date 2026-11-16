@@ -1,6 +1,7 @@
 #include "AudioManager.h"
 #include "Config.h"
 #include "StrUtil.h"
+#include "Perf.h"
 #include <iostream>
 #include <algorithm>
 #include <atomic>
@@ -169,6 +170,7 @@ bool AudioManager::GetSessionEnumerator(ComPtr<IAudioSessionEnumerator>& outSess
             t_chain.Reset();
         }
 
+        PERF_ONLY(const bool perfCold = !t_chain.manager; const LONGLONG perfT0 = Perf::Now();)
         if (!t_chain.manager) {
             ComPtr<IMMDeviceEnumerator> pEnumerator;
             if (FAILED(CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_ALL,
@@ -192,8 +194,11 @@ bool AudioManager::GetSessionEnumerator(ComPtr<IAudioSessionEnumerator>& outSess
         }
 
         outSessEnum.Reset();
-        if (SUCCEEDED(t_chain.manager->GetSessionEnumerator(&outSessEnum)) && outSessEnum)
+        if (SUCCEEDED(t_chain.manager->GetSessionEnumerator(&outSessEnum)) && outSessEnum) {
+            PERF_ONLY(Perf::Record(perfCold ? "audio.GetSessionEnumerator.cold" : "audio.GetSessionEnumerator.warm",
+                                   Perf::ToMs(Perf::Now() - perfT0));)
             return true;
+        }
 
         t_chain.Reset();
     }
@@ -243,6 +248,7 @@ static float SteppedVolume(float current, bool up, bool largeStep, int steps) {
 
 bool AudioManager::ChangeVolume(bool up, bool largeStep, float& outLastVol, std::string& outAppName,
                                 bool secondaryGroup, int steps) {
+    PERF_SCOPE("audio.ChangeVolume");
     ComPtr<IAudioSessionEnumerator> pSessEnum;
     if (!GetSessionEnumerator(pSessEnum)) return false;
 
@@ -443,6 +449,7 @@ bool AudioManager::SessionInGroup(const std::string& sourceAppId, bool secondary
 }
 
 bool AudioManager::TogglePlayPause(bool secondaryGroup) {
+    PERF_SCOPE("audio.TogglePlayPause");
     try {
         // Find the best matching session: prefer a currently playing one
         GlobalSystemMediaTransportControlsSession targetSession = nullptr;
@@ -520,6 +527,7 @@ bool AudioManager::TogglePlayPauseForApp(const std::string& appName) {
 }
 
 std::string AudioManager::GetCurrentTrackInfo() {
+    PERF_SCOPE("audio.GetCurrentTrackInfo");
     try {
         // Each session's AUMID and playing state are read once up front (both
         // are calls into another process) instead of once per pass below.

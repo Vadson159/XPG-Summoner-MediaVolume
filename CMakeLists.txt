@@ -77,6 +77,7 @@ add_executable(SmartVolumeMixer WIN32
     src/UIManager.cpp src/UIManager.h
     src/PolicyConfig.h
     src/StrUtil.h
+    src/Perf.h
     src/resources.rc
 )
 
@@ -94,6 +95,13 @@ target_link_libraries(SmartVolumeMixer PRIVATE
 )
 
 target_compile_definitions(SmartVolumeMixer PRIVATE UNICODE _UNICODE)
+
+# Measurement build for the optimization work (src/Perf.h, tools/perf/).
+# Writes timings to perf.log next to the exe. Never ship with this on.
+option(SVM_PERF "Build with the perf.log timing harness" OFF)
+if(SVM_PERF)
+    target_compile_definitions(SmartVolumeMixer PRIVATE SVM_PERF)
+endif()
 
 include(CTest)
 if(BUILD_TESTING)

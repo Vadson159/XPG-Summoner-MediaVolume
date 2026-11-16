@@ -2,6 +2,7 @@
 #include "Config.h"
 #include "AudioManager.h"
 #include "QuickActions.h"
+#include "Perf.h"
 
 // --- Worker-thread crash isolation -----------------------------------------
 // The worker thread drives COM/WinRT audio APIs. A stale audio-session pointer
@@ -284,7 +285,10 @@ void InputHook::HookThreadMain(std::promise<bool> installed) {
 
     const UINT_PTR watchdog = SetTimer(nullptr, 0, kHookWatchdogMs, nullptr);
     while (GetMessageW(&msg, nullptr, 0, 0) > 0) {
-        if (msg.message == WM_TIMER && msg.wParam == watchdog) ReinstallHook();
+        if (msg.message == WM_TIMER && msg.wParam == watchdog) {
+            PERF_COUNT(hookTimerWakes);
+            ReinstallHook();
+        }
     }
     KillTimer(nullptr, watchdog);
 
@@ -304,6 +308,7 @@ void InputHook::ReinstallHook() {
 }
 
 LRESULT CALLBACK InputHook::LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
+    PERF_HOOK_SCOPE();
     if (nCode == HC_ACTION) {
         KBDLLHOOKSTRUCT* pKbd = (KBDLLHOOKSTRUCT*)lParam;
         if ((pKbd->flags & LLKHF_INJECTED) && pKbd->dwExtraInfo == kHotkeyReplayTag) {
@@ -525,6 +530,14 @@ void InputHook::WorkerLoop() {
             if (m_stopWorker) break;
             events.swap(pendingEvents);
         }
+        PERF_COUNT(workerWakes);
+#ifdef SVM_PERF
+        for (const HookEvent& pev : events) {
+            LONGLONG zero = 0;
+            if (pev.type == 0) Perf::osdSeriesStart.compare_exchange_strong(zero, Perf::Now());
+            else if (pev.type == 3) Perf::trackStart.compare_exchange_strong(zero, Perf::Now());
+        }
+#endif
 
         auto now = std::chrono::steady_clock::now();
 
@@ -535,6 +548,7 @@ void InputHook::WorkerLoop() {
         if (debounceActive && std::chrono::duration_cast<std::chrono::milliseconds>(now - debounceStart).count() >= g_Config.volDebounceWindowMs) {
             debounceActive = false;
             accumulatedTicks = 0;
+            PERF_ONLY(Perf::osdSeriesStart.store(0);) // the series never fired
         }
 
         for (size_t i = 0; i < events.size(); ++i) {
@@ -581,16 +595,22 @@ void InputHook::WorkerLoop() {
 
                 auto apply = [&](bool up, bool largeStep, int steps) {
                     float newVol = 0.0f;
+                    PERF_ONLY(LONGLONG zero = 0; Perf::osdFire.compare_exchange_strong(zero, Perf::Now());)
+                    bool changed = false;
                     if (isPerApp) {
                         if (SafeChangeVolumeForApp(perAppTarget.c_str(), up, largeStep, newVol, steps)) {
+                            changed = true;
                             if (OnVolumeChanged) OnVolumeChanged(newVol, perAppTarget);
                         }
                     } else {
                         std::string appName;
                         if (SafeChangeVolume(up, largeStep, newVol, &appName, ev.secondaryGroup, steps)) {
+                            changed = true;
                             if (OnVolumeChanged) OnVolumeChanged(newVol, appName);
                         }
                     }
+                    PERF_ONLY(if (!changed) { Perf::osdSeriesStart.store(0); Perf::osdFire.store(0); })
+                    (void)changed;
                 };
 
                 if (ev.volLargeStep) {

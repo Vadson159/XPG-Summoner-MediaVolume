@@ -7,6 +7,7 @@
 #include "OverlayWindow.h"
 #include "QuickActions.h"
 #include "StrUtil.h"
+#include "Perf.h"
 #include <imgui.h>
 #include <vector>
 #include <algorithm>
@@ -195,6 +196,7 @@ DWORD UIManager::MsUntilNextExpiry() const {
 // the tray menu on the UI thread); RequestRedraw() only posts a message, and is
 // called outside the lock so the render thread is never kept waiting on us.
 void UIManager::ShowOSD(float volume, const std::string& appName) {
+    PERF_ONLY(LONGLONG zero = 0; Perf::osdShown.compare_exchange_strong(zero, Perf::Now());)
     {
         std::lock_guard<std::mutex> lock(m_uiMutex);
         m_lastVolume = volume;
@@ -205,7 +207,8 @@ void UIManager::ShowOSD(float volume, const std::string& appName) {
 }
 
 void UIManager::ShowTrackInfo(const std::string& trackName) {
-    if (trackName.empty()) return;
+    if (trackName.empty()) { PERF_ONLY(Perf::trackStart.store(0);) return; }
+    PERF_ONLY(LONGLONG zero = 0; Perf::trackShown.compare_exchange_strong(zero, Perf::Now());)
     {
         std::lock_guard<std::mutex> lock(m_uiMutex);
         m_lastTrackName = trackName;
