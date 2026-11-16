@@ -122,6 +122,16 @@ static const ULONGLONG kIdleCleanupDelayMs = 30000;
 // set (no device exists yet), so it does not need to wait as long.
 static const ULONGLONG kStartupCleanupDelayMs = 5000;
 
+// The tray timer only has a job while the sample rate is lowered: the tooltip
+// then carries a countdown (minute resolution, seconds in the last minute).
+// The rest of the time it is just the render loop's backstop wake, and once a
+// minute is plenty for that. Both are coalescable: a little slack lets Windows
+// fold the wake into one it was doing anyway.
+static const UINT kTrayFastMs = 5000;
+static const UINT kTraySlowMs = 60000;
+static const ULONG kTrayFastToleranceMs = 500;
+static const ULONG kTraySlowToleranceMs = 5000;
+
 // How soon to try again when a frame could not be drawn for want of a device.
 static const ULONGLONG kDeviceRetryMs = 2000;
 
@@ -207,10 +217,10 @@ bool OverlayWindow::Create() {
     wcscpy_s(nid.szTip, m_trayTip.c_str());
     Shell_NotifyIconW(NIM_ADD, &nid);
 
-    // Refreshes the tray tooltip's countdown every 5 seconds, and doubles as the
-    // render loop's backstop wake. (The keyboard-hook watchdog it used to drive
-    // now runs on InputHook's own thread.)
-    SetTimer(m_hwnd, IDT_TRAY_REFRESH, 5000, nullptr);
+    // Refreshes the tray tooltip's countdown, and doubles as the render loop's
+    // backstop wake. (The keyboard-hook watchdog it used to drive now runs on
+    // InputHook's own thread.) Period per state: SyncTrayTimer.
+    SyncTrayTimer();
 
     // Startup leaves a lot behind that is never touched again (the parsed
     // config, the registry font scan), and the overlay usually stays hidden for
@@ -366,6 +376,19 @@ void OverlayWindow::UpdateTrayTip() {
     Shell_NotifyIconW(NIM_MODIFY, &nid);
 }
 
+void OverlayWindow::SyncTrayTimer() {
+    if (!m_hwnd) return;
+    const UINT want = QuickActions::Get().IsSampleRateLowered() ? kTrayFastMs : kTraySlowMs;
+    if (want == m_trayTimerMs) return;
+    const bool first = (m_trayTimerMs == 0);
+    m_trayTimerMs = want;
+    SetCoalescableTimer(m_hwnd, IDT_TRAY_REFRESH, want, nullptr,
+                        want == kTrayFastMs ? kTrayFastToleranceMs : kTraySlowToleranceMs);
+    // The state just flipped (the worker lowered or restored the rate): show
+    // it now rather than at the next tick, up to a minute away.
+    if (!first) UpdateTrayTip();
+}
+
 void OverlayWindow::OnDisplayChanged() {
     if (!m_hwnd) return;
 
@@ -442,8 +465,9 @@ void OverlayWindow::RunLoop() {
         // settle frames per change instead of 60 a second for as long as
         // anything is up. Every DXGI blt-model Present copies a full-screen
         // back buffer and makes DWM recompose the whole desktop, so this is
-        // most of what showing the OSD costs. The 5 s tray-refresh timer
-        // doubles as a backstop should a wake ever be missed.
+        // most of what showing the OSD costs. The tray-refresh timer (5 s
+        // during a sample-rate countdown, 60 s otherwise) doubles as a
+        // backstop should a wake ever be missed.
         {
             const ULONGLONG now = GetTickCount64();
             auto until = [now](ULONGLONG at) { return at <= now ? 0 : (DWORD)(at - now); };
@@ -458,6 +482,10 @@ void OverlayWindow::RunLoop() {
             timeout = (std::min)(timeout, g_Config.MsUntilPendingSave());
             if (m_idleCleanupAt) timeout = (std::min)(timeout, until(m_idleCleanupAt));
 
+            // perf builds: hand buffered records to disk once nothing is on
+            // screen any more (never while a popup is up, so the I/O cannot
+            // disturb a scroll being measured; nothing to write while idle).
+            PERF_ONLY(if (!drawnMask && m_framesOwed == 0) Perf::Flush();)
             MsgWaitForMultipleObjects(0, nullptr, FALSE, timeout, QS_ALLINPUT);
             PERF_COUNT(loopWakes);
         }
@@ -478,6 +506,10 @@ void OverlayWindow::RunLoop() {
         // Settings edits mark the config dirty instead of rewriting config.json
         // on every frame of a slider drag; this is where the write happens.
         g_Config.FlushPendingSave();
+
+        // A sample-rate change on the worker always comes with a notice popup,
+        // which wakes this loop: the tray timer follows it here.
+        SyncTrayTimer();
 
         // The worker expects a popup soon (RequestPrewarm). Building the device
         // now overlaps its ~40 ms with the worker's audio work. If no popup
@@ -868,6 +900,7 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
         case WM_TIMER:
             if (wParam == IDT_TRAY_REFRESH) {
                 OverlayWindow::Get().UpdateTrayTip();
+                OverlayWindow::Get().SyncTrayTimer();
                 PERF_FLUSH();
             }
             return 0;

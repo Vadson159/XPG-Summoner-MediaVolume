@@ -9,7 +9,8 @@ param(
     [Parameter(Mandatory)] [string]$ExeB,
     [string]$Scenario = 'S2',
     [int]$Pairs = 3,
-    [string]$Label = 'ab'
+    [string]$Label = 'ab',
+    [int]$S6Minutes = 10
 )
 $ErrorActionPreference = 'Stop'
 . "$PSScriptRoot\PerfCommon.ps1"
@@ -26,6 +27,6 @@ for ($i = 1; $i -le $Pairs; ++$i) {
         $exe = if ($side -eq 'A') { $ExeA } else { $ExeB }
         Stop-All
         Write-Host "== pair $i, side $side"
-        & "$PSScriptRoot\Run-Scenarios.ps1" -Exe $exe -Scenarios $Scenario -Runs 1 -Label "$Label-$side"
+        & "$PSScriptRoot\Run-Scenarios.ps1" -Exe $exe -Scenarios $Scenario -Runs 1 -Label "$Label-$side" -S6Minutes $S6Minutes
     }
 }

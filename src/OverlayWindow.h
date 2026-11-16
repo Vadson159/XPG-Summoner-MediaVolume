@@ -41,6 +41,9 @@ private:
     ~OverlayWindow() = default;
 
     void UpdateTrayTip();
+    // Picks the tray timer's period for the current state (see kTrayFastMs /
+    // kTraySlowMs) and refreshes the tooltip when that state flipped.
+    void SyncTrayTimer();
 
     // Takes the overlay in and out of DWM's composition path. A visible
     // fullscreen layered TOPMOST window is composited over the whole desktop
@@ -99,6 +102,7 @@ private:
     ULONGLONG m_lastFrameAt = 0;
     ULONGLONG m_idleCleanupAt = 0;     // GetTickCount64 deadline, 0 = none pending
     std::wstring m_trayTip;
+    UINT m_trayTimerMs = 0;            // current IDT_TRAY_REFRESH period, 0 = not set
 
     // D3D11
     Microsoft::WRL::ComPtr<ID3D11Device> m_pd3dDevice;

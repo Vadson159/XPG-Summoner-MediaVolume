@@ -283,7 +283,9 @@ void InputHook::HookThreadMain(std::promise<bool> installed) {
     installed.set_value(ok);
     if (!ok) return;
 
-    const UINT_PTR watchdog = SetTimer(nullptr, 0, kHookWatchdogMs, nullptr);
+    // Same 5 s period as ever (invariant #1: never weaken the watchdog); the
+    // small tolerance only lets Windows align this wake with others.
+    const UINT_PTR watchdog = SetCoalescableTimer(nullptr, 0, kHookWatchdogMs, nullptr, 250);
     while (GetMessageW(&msg, nullptr, 0, 0) > 0) {
         if (msg.message == WM_TIMER && msg.wParam == watchdog) {
             PERF_COUNT(hookTimerWakes);
