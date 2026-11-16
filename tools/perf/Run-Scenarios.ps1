@@ -308,15 +308,26 @@ function Run-S6 {
     $before = Get-SvmSnapshot $p.Id
     Start-Sleep -Seconds ($S6Minutes * 60)
     $after = Get-SvmSnapshot $p.Id
-    $threadDeltas = foreach ($t in $after.ThreadCycles) {
+    $threadDeltas = @(foreach ($t in $after.ThreadCycles) {
         $b = $before.ThreadCycles | Where-Object { $_.Id -eq $t.Id }
-        [pscustomobject]@{ Id = $t.Id; Priority = $t.Priority; Mcycles = [math]::Round(($t.Cycles - $(if ($b) { $b.Cycles } else { 0 })) / 1e6, 2) }
-    }
+        [pscustomobject]@{ Id = $t.Id; Priority = $t.Priority
+            Mcycles = [math]::Round(($t.Cycles - $(if ($b) { $b.Cycles } else { 0 })) / 1e6, 2)
+            Switches = $t.Switches - $(if ($b) { $b.Switches } else { 0 }) }
+    })
+    # The hook thread (the only THREAD_PRIORITY_HIGHEST one) runs for every key
+    # pressed anywhere on the system, so its share depends on whether the user
+    # was typing - it is reported separately and left out of the idle figures.
+    $nonHook = @($threadDeltas | Where-Object { $_.Priority -ne 'Highest' })
+    $hook = @($threadDeltas | Where-Object { $_.Priority -eq 'Highest' })
     $res = [pscustomobject]@{
         Scenario = 'S6'
         Minutes = $S6Minutes
         ProcMcycles = [math]::Round(($after.Cycles - $before.Cycles) / 1e6, 2)
         CtxSwitches = $after.CtxSwitches - $before.CtxSwitches
+        NonHookMcycles = [math]::Round(($nonHook | Measure-Object Mcycles -Sum).Sum, 2)
+        NonHookSwitches = ($nonHook | Measure-Object Switches -Sum).Sum
+        HookMcycles = [math]::Round(($hook | Measure-Object Mcycles -Sum).Sum, 2)
+        HookSwitches = ($hook | Measure-Object Switches -Sum).Sum
         Threads = $after.Threads
         PrivateMB = $after.PrivateMB
         WorkingSetMB = $after.WorkingSetMB

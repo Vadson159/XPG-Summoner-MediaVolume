@@ -106,6 +106,39 @@ public static class Native {
         return -1;
     }
 
+    // Same walk as ContextSwitches, per thread: "tid=switches;..." pairs.
+    public static string ThreadContextSwitches(int pid) {
+        int len = 1 << 20;
+        for (int attempt = 0; attempt < 6; ++attempt, len *= 2) {
+            IntPtr buf = Marshal.AllocHGlobal(len);
+            try {
+                int ret;
+                int st = NtQuerySystemInformation(5, buf, len, out ret);
+                if (st == unchecked((int)0xC0000004)) continue;
+                if (st != 0) return "";
+                long off = 0;
+                while (true) {
+                    IntPtr p = new IntPtr(buf.ToInt64() + off);
+                    int next = Marshal.ReadInt32(p, 0);
+                    int nThreads = Marshal.ReadInt32(p, 4);
+                    long id = Marshal.ReadIntPtr(p, 0x50).ToInt64();
+                    if (id == pid) {
+                        var sb = new System.Text.StringBuilder();
+                        for (int t = 0; t < nThreads; ++t) {
+                            long tid = Marshal.ReadIntPtr(p, 0x100 + t * 0x50 + 0x30).ToInt64();
+                            uint cs = (uint)Marshal.ReadInt32(p, 0x100 + t * 0x50 + 0x40);
+                            sb.Append(tid).Append('=').Append(cs).Append(';');
+                        }
+                        return sb.ToString();
+                    }
+                    if (next == 0) return "";
+                    off += next;
+                }
+            } finally { Marshal.FreeHGlobal(buf); }
+        }
+        return "";
+    }
+
     [DllImport("user32.dll", CharSet = CharSet.Unicode)] static extern IntPtr FindWindowExW(IntPtr parent, IntPtr after, string cls, string title);
     [DllImport("user32.dll")] static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint pid);
     [DllImport("user32.dll")] static extern bool PostThreadMessageW(uint tid, uint msg, IntPtr w, IntPtr l);
@@ -146,8 +179,12 @@ function Assert-OneInstance {
 function Get-SvmSnapshot([int]$ProcessId) {
     $p = Get-Process -Id $ProcessId -ErrorAction Stop
     $m = [SvmPerf.Native]::Memory($ProcessId)
+    $cs = @{}
+    foreach ($pair in ([SvmPerf.Native]::ThreadContextSwitches($ProcessId) -split ';')) {
+        if ($pair -match '^(\d+)=(\d+)$') { $cs[[int]$Matches[1]] = [long]$Matches[2] }
+    }
     $threads = @($p.Threads | ForEach-Object {
-        [pscustomobject]@{ Id = $_.Id; Cycles = [SvmPerf.Native]::ThreadCycles($_.Id); Priority = $_.PriorityLevel.ToString() }
+        [pscustomobject]@{ Id = $_.Id; Cycles = [SvmPerf.Native]::ThreadCycles($_.Id); Priority = $_.PriorityLevel.ToString(); Switches = $cs[$_.Id] }
     })
     $gpuDed = 0; $gpuShared = 0
     try {
