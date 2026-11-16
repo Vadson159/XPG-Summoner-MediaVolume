@@ -27,6 +27,15 @@ public:
     // request is counted, and the loop's first pass picks it up.
     void RequestRedraw();
 
+    // Says "a popup is probably about to be shown" - called by the worker when
+    // it starts on an event that can end in one. If the D3D device was released
+    // while idle, the render thread rebuilds it right away, in parallel with the
+    // worker's audio work (and, at the default debounce threshold of 2, while
+    // the worker still waits for the second roller tick), instead of only once
+    // ShowOSD has already been called. Cheap to call often: it does nothing
+    // while a device exists or a prewarm is already pending.
+    void RequestPrewarm();
+
 private:
     OverlayWindow() = default;
     ~OverlayWindow() = default;
@@ -73,7 +82,10 @@ private:
     bool m_isClickable = false;
     bool m_isVisible = false;
     bool m_dx11BackendReady = false;   // ImGui_ImplDX11_Init holds a live device
-    bool m_deviceObjectsReady = false; // ...and its shaders/font texture exist
+    // ...and its shaders/font texture exist. Written only by the render
+    // thread; atomic so RequestPrewarm (worker) can read it without a message.
+    std::atomic<bool> m_deviceObjectsReady{false};
+    std::atomic<bool> m_prewarmRequested{false};
     UINT m_bufferW = 0, m_bufferH = 0; // current back-buffer size, 0 = no swapchain
     std::string m_previewFontName;     // preview face currently in the atlas
     std::string m_resolvedFontFamily;  // g_Config.fontFamily that m_resolvedFontPath answers

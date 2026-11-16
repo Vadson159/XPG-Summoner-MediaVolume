@@ -43,6 +43,8 @@ public:
     std::function<void()> OnMenuToggled;
     std::function<void(const std::string& trackName)> OnTrackInfoRequested;
     std::function<void(bool muted, const std::string& appName, float vol)> OnAppMuteToggled;
+    // Worker thread, before it handles an event that may end in a popup.
+    std::function<void()> OnPopupLikely;
     
     // Event queue to prevent hook timeout
     std::mutex eventMutex;

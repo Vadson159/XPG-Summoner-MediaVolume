@@ -551,6 +551,19 @@ void InputHook::WorkerLoop() {
             PERF_ONLY(Perf::osdSeriesStart.store(0);) // the series never fired
         }
 
+        // Volume, track info and the quick actions (notice popup) can all end
+        // in something on screen; play/pause (1, 4) and the menu toggle (2,
+        // drawn on the very next frame regardless) do not need the head start.
+        if (OnPopupLikely) {
+            for (const HookEvent& pev : events) {
+                if (pev.type == 0 || pev.type == 3 || pev.type == 5 || pev.type == 6 ||
+                    pev.type == 8 || pev.type == 9) {
+                    OnPopupLikely();
+                    break;
+                }
+            }
+        }
+
         for (size_t i = 0; i < events.size(); ++i) {
             const HookEvent& ev = events[i];
             if (ev.type == 1) {

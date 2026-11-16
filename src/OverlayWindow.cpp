@@ -388,6 +388,15 @@ void OverlayWindow::RequestRedraw() {
     if (hwnd) PostMessageW(hwnd, WM_OVERLAY_WAKE, 0, 0);
 }
 
+void OverlayWindow::RequestPrewarm() {
+    if (m_deviceObjectsReady.load(std::memory_order_relaxed)) return;
+    // One wake per idle period, however many ticks arrive before the render
+    // thread gets to it.
+    if (m_prewarmRequested.exchange(true, std::memory_order_acq_rel)) return;
+    HWND hwnd = m_hwnd;
+    if (hwnd) PostMessageW(hwnd, WM_OVERLAY_WAKE, 0, 0);
+}
+
 void OverlayWindow::UpdateClickability(bool clickable) {
     if (m_isClickable == clickable) return;
     m_isClickable = clickable;
@@ -454,6 +463,16 @@ void OverlayWindow::RunLoop() {
         // Settings edits mark the config dirty instead of rewriting config.json
         // on every frame of a slider drag; this is where the write happens.
         g_Config.FlushPendingSave();
+
+        // The worker expects a popup soon (RequestPrewarm). Building the device
+        // now overlaps its ~40 ms with the worker's audio work. If no popup
+        // follows (an isolated tick the debounce swallows, no tracked app
+        // playing), the idle cleanup must still come, or the device would stay
+        // alive for good.
+        if (m_prewarmRequested.exchange(false, std::memory_order_acq_rel) && !m_deviceObjectsReady) {
+            RecreateDevice();
+            if (!m_isVisible) m_idleCleanupAt = GetTickCount64() + kIdleCleanupDelayMs;
+        }
 
         UpdateClickability(ui.IsMenuOpen());
 

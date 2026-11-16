@@ -111,6 +111,7 @@ void UIManager::Initialize() {
     InputHook::Get().OnVolumeChanged = [this](float vol, const std::string& appName) { ShowOSD(vol, appName); };
     InputHook::Get().OnMenuToggled = [this]() { ToggleMenu(); };
     InputHook::Get().OnTrackInfoRequested = [this](const std::string& track) { ShowTrackInfo(track); };
+    InputHook::Get().OnPopupLikely = []() { OverlayWindow::Get().RequestPrewarm(); };
     InputHook::Get().OnKeyCaptured = [this](int vk, int type) { 
         std::lock_guard<std::mutex> lock(m_uiMutex);
         if (type == 0) {
