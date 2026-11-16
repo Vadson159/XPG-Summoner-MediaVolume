@@ -169,6 +169,18 @@ bool OverlayWindow::Create() {
     // The default (60 s) keeps the settings menu's - by far the largest - alive
     // for a minute after it closes.
     io.ConfigMemoryCompactTimer = 10.0f;
+    // ImGui's default is a relative "imgui.ini", i.e. whatever the current
+    // directory happens to be (autostart, a shortcut, a crash relaunch...), so
+    // copies used to pile up in random folders. It only remembers where the
+    // settings menu was; keep it next to the exe like config.json. ImGui keeps
+    // the pointer, hence the static.
+    static std::string s_iniPath = [] {
+        char path[MAX_PATH];
+        DWORD len = GetModuleFileNameA(nullptr, path, MAX_PATH);
+        while (len > 0 && path[len - 1] != '\\') --len;
+        return std::string(path, len) + "imgui.ini";
+    }();
+    io.IniFilename = s_iniPath.c_str();
     ImGui::StyleColorsDark();
 
     ImGui_ImplWin32_Init(m_hwnd);
