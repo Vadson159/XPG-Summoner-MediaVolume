@@ -54,7 +54,8 @@ target_include_directories(imgui PUBLIC
 # PUBLIC because an ImGui config define has to be identical in every
 # translation unit that sees imgui.h, library and app alike. The metrics /
 # debug-log / item-picker windows are dead weight in a shipping overlay.
-target_compile_definitions(imgui PUBLIC IMGUI_DISABLE_DEBUG_TOOLS)
+target_compile_definitions(imgui PUBLIC IMGUI_DISABLE_DEBUG_TOOLS
+    IMGUI_DISABLE_OBSOLETE_FUNCTIONS IMGUI_DISABLE_OBSOLETE_KEYIO IMGUI_DISABLE_DEMO_WINDOWS)
 # Only imgui_impl_win32.cpp reads this. Without it the backend LoadLibrary()s
 # xinput1_4.dll (which drags SETUPAPI in with it) and polls a gamepad nothing
 # here ever reads.
