@@ -90,10 +90,16 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 #define WM_OVERLAY_WAKE (WM_APP + 1)
 
 // Frame pacing while frames are being drawn. The OSD is two lines of text and a
-// bar; 60 Hz is already more than it needs, and this is the thread that owns the
-// low-level keyboard hook, so keeping its duty cycle low is worth more than a
-// higher frame rate. Present() stays non-blocking (no vsync wait) for the same
-// reason.
+// bar; 60 Hz is already more than it needs, and every blt-model Present copies a
+// full-screen buffer, so a low frame rate keeps what showing the OSD costs a
+// game down. Present() stays non-blocking (no vsync wait). (The keyboard hook
+// used to live on this thread too; it has its own thread now.)
+//
+// Drawing the first two frames of a new popup back to back was tried and
+// measured (OPTIMIZATION_PLAN.md 1.1): no gain. ImGui only lays an
+// auto-resizing window out hidden when that window is first created; the OSD
+// windows live on in the context across idle periods, so a returning popup is
+// already visible on its first frame.
 static const ULONGLONG kFrameIntervalMs = 16;
 
 // Frames drawn after anything on screen changes; after that the loop goes quiet
