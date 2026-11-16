@@ -96,6 +96,15 @@ target_link_libraries(SmartVolumeMixer PRIVATE
 
 target_compile_definitions(SmartVolumeMixer PRIVATE UNICODE _UNICODE)
 
+# Delay-loaded: d3d11.dll is only needed once something is drawn (the device
+# is created by the first frame, see OverlayWindow::Create), so a session that
+# never shows the OSD never maps it - nor dxgi/dxcore and the driver stack
+# behind it. Never FreeLibrary'd once loaded.
+if(MSVC)
+    target_link_options(SmartVolumeMixer PRIVATE "/DELAYLOAD:d3d11.dll")
+    target_link_libraries(SmartVolumeMixer PRIVATE delayimp)
+endif()
+
 # Measurement build for the optimization work (src/Perf.h, tools/perf/).
 # Writes timings to perf.log next to the exe. Never ship with this on.
 option(SVM_PERF "Build with the perf.log timing harness" OFF)
