@@ -102,6 +102,11 @@ target_compile_definitions(SmartVolumeMixer PRIVATE UNICODE _UNICODE)
 # behind it. Never FreeLibrary'd once loaded.
 if(MSVC)
     target_link_options(SmartVolumeMixer PRIVATE "/DELAYLOAD:d3d11.dll")
+    # Only the quick actions need these: dxva2 (DDC/CI monitor input),
+    # SETUPAPI (the AMD side channel's driver-package lookup) and dwmapi
+    # (skipping cloaked windows when moving them to the other monitor).
+    target_link_options(SmartVolumeMixer PRIVATE
+        "/DELAYLOAD:dxva2.dll" "/DELAYLOAD:setupapi.dll" "/DELAYLOAD:dwmapi.dll")
     target_link_libraries(SmartVolumeMixer PRIVATE delayimp)
 endif()
 
