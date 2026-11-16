@@ -118,6 +118,10 @@ static const ULONGLONG kMenuRefreshMs = 1000;
 // back and forth every few seconds.
 static const ULONGLONG kIdleCleanupDelayMs = 30000;
 
+// The first cleanup after startup only compacts the heap and trims the working
+// set (no device exists yet), so it does not need to wait as long.
+static const ULONGLONG kStartupCleanupDelayMs = 5000;
+
 // How soon to try again when a frame could not be drawn for want of a device.
 static const ULONGLONG kDeviceRetryMs = 2000;
 
@@ -145,17 +149,14 @@ bool OverlayWindow::Create() {
         nullptr, nullptr, m_wc.hInstance, nullptr);
 
     SetLayeredWindowAttributes(m_hwnd, RGB(0, 0, 0), 0, LWA_COLORKEY);
-    
-    bool deviceOk;
-    {
-        PERF_SCOPE("create.D3D11CreateDevice");
-        deviceOk = CreateDeviceD3D();
-    }
-    if (!deviceOk) {
-        CleanupDeviceD3D();
-        UnregisterClassW(m_wc.lpszClassName, m_wc.hInstance);
-        return false;
-    }
+
+    // No D3D device here. Nothing is drawn until the first popup, and the idle
+    // cleanup used to release a device created at startup 30 s later anyway,
+    // after it had pushed the startup peak working set past 40 MB. The first
+    // frame that needs one builds it (RenderFrame -> RecreateDevice), usually
+    // ahead of time via RequestPrewarm. A machine whose GPU cannot give us a
+    // device right now also no longer fails startup - and with it the keyboard
+    // hook (invariant #1); the overlay just retries when it has something to show.
 
     // Deliberately NOT shown here: the overlay is only made visible when there
     // is something to draw (SetOverlayVisible). A side effect is that it no
@@ -171,15 +172,16 @@ bool OverlayWindow::Create() {
     ImGui::StyleColorsDark();
 
     ImGui_ImplWin32_Init(m_hwnd);
-    ImGui_ImplDX11_Init(m_pd3dDevice.Get(), m_pd3dDeviceContext.Get());
-    m_dx11BackendReady = true;
     PERF_ONLY(Perf::Record("create.ImGuiInit", Perf::ToMs(Perf::Now() - perfImguiStart));)
 
-    // A failure here is not fatal: the first frame that needs the overlay
-    // retries through RecreateDevice.
+    // Resolving the font family is a sweep of every installed font in the
+    // registry. Done now, at startup, so the first OSD does not pay for it;
+    // RebuildFonts reuses the answer for as long as fontFamily is unchanged.
     {
-        PERF_SCOPE("create.RebuildFonts");
-        RebuildFonts(std::string());
+        PERF_SCOPE("create.FindFontPath");
+        m_resolvedFontPath = FindFontPath(g_Config.fontFamily);
+        m_resolvedFontFamily = g_Config.fontFamily;
+        if (!UIManager::Get().IsMenuOpen()) UIManager::Get().ReleaseFontScan();
     }
 
     NOTIFYICONDATAW nid = {};
@@ -199,10 +201,11 @@ bool OverlayWindow::Create() {
     SetTimer(m_hwnd, IDT_TRAY_REFRESH, 5000, nullptr);
 
     // Startup leaves a lot behind that is never touched again (the parsed
-    // config, the font files, the registry font scan), and the overlay usually
-    // stays hidden for a long time from here, so the first cleanup is queued
-    // straight away rather than after a first hide.
-    m_idleCleanupAt = GetTickCount64() + kIdleCleanupDelayMs;
+    // config, the registry font scan), and the overlay usually stays hidden for
+    // a long time from here, so the first cleanup (heap compaction and a
+    // working-set trim; there is no device to release yet) is queued straight
+    // away rather than after a first hide.
+    m_idleCleanupAt = GetTickCount64() + kStartupCleanupDelayMs;
 
     return true;
 }
