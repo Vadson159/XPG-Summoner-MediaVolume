@@ -95,11 +95,13 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 // game down. Present() stays non-blocking (no vsync wait). (The keyboard hook
 // used to live on this thread too; it has its own thread now.)
 //
-// Drawing the first two frames of a new popup back to back was tried and
-// measured (OPTIMIZATION_PLAN.md 1.1): no gain. ImGui only lays an
-// auto-resizing window out hidden when that window is first created; the OSD
-// windows live on in the context across idle periods, so a returning popup is
-// already visible on its first frame.
+// One exception (m_unpacedFrames): ImGui lays an auto-resizing window out
+// hidden on the frame it is first created, so the first time each popup
+// appears in a process (after every start and crash relaunch) nothing is
+// visible until frame two. That frame goes out at once instead of a frame
+// interval later - which, at GetTickCount64's ~15.6 ms resolution, was 16-47
+// ms. A returning popup is visible on its first frame (its window lives on in
+// the context across idle periods), so there the second frame costs nothing.
 static const ULONGLONG kFrameIntervalMs = 16;
 
 // Frames drawn after anything on screen changes; after that the loop goes quiet
@@ -551,6 +553,10 @@ void OverlayWindow::RunLoop() {
             // which rebuilds it on demand.
             if ((drawnMask & UIManager::kUiMenu) && !(mask & UIManager::kUiMenu)) ui.ReleaseFontScan();
 
+            // A popup that was not up before may be invisible on its first
+            // frame (see kFrameIntervalMs): no pause before the second.
+            if (mask & ~drawnMask) m_unpacedFrames = 1;
+
             drawnMask = mask;
             drawnRequests = requests;
             // Emptied: one frame clears the last popup before the window hides.
@@ -574,7 +580,12 @@ void OverlayWindow::RunLoop() {
             } else if (RenderFrame(hasContent)) {
                 --m_framesOwed;
                 m_lastFrameAt = now;
-                m_nextFrameAt = now + kFrameIntervalMs;
+                if (m_unpacedFrames > 0) {
+                    --m_unpacedFrames;
+                    m_nextFrameAt = now;
+                } else {
+                    m_nextFrameAt = now + kFrameIntervalMs;
+                }
             } else {
                 // No usable device. Keep owing the frames: next frame if the
                 // device was just rebuilt, otherwise once the driver had time to

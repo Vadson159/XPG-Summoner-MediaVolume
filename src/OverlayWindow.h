@@ -98,6 +98,7 @@ private:
     // m_redrawRequests is the one field other threads write.
     std::atomic<unsigned> m_redrawRequests{0};
     int m_framesOwed = 0;              // frames still to draw before going quiet
+    int m_unpacedFrames = 0;           // next N frames follow without kFrameIntervalMs
     ULONGLONG m_nextFrameAt = 0;       // GetTickCount64 pacing for those frames
     ULONGLONG m_lastFrameAt = 0;
     ULONGLONG m_idleCleanupAt = 0;     // GetTickCount64 deadline, 0 = none pending
