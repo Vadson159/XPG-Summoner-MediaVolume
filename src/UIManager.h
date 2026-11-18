@@ -12,8 +12,6 @@ public:
 
     ImFont* fontNormal = nullptr;
     ImFont* fontLarge = nullptr;
-    ImFont* fontSmall = nullptr;
-    ImFont* fontMono = nullptr;
     ImFont* fontPreview = nullptr; // For real-time preview
 
     std::map<std::string, std::string> systemFonts;
@@ -21,14 +19,37 @@ public:
 
     void Initialize();
     void Render();
+
+    // Enumerating every installed font costs a registry sweep and a few hundred
+    // string allocations that only the font picker in the settings menu ever
+    // looks at, so it is done on first use rather than held for the life of the
+    // process. Startup needs it exactly once (to resolve the configured font),
+    // after which ReleaseFontScan() hands the memory back; opening the
+    // Customization tab rebuilds it.
+    void EnsureFontsScanned();
+    void ReleaseFontScan();
     
     void ShowOSD(float volume, const std::string& appName);
     void ShowTrackInfo(const std::string& trackName);
+    void ShowMuteOSD(bool muted, const std::string& appName, float vol);
+    // Multi-line status popup used by the quick actions (sample rate / console
+    // swap). Called from the worker thread.
+    void ShowNotice(const std::string& text, bool isError);
     void ToggleMenu();
 
     bool IsMenuOpen() const { return m_menuOpen; }
-    void SetMenuOpen(bool open) { std::lock_guard<std::mutex> lock(m_uiMutex); m_menuOpen = open; }
+    void SetMenuOpen(bool open);
     bool HasActiveUI() const;
+
+    // What is on screen right now, one bit per element. The render loop only
+    // draws when this - or the content behind it, see OverlayWindow::
+    // RequestRedraw - changes, so a popup that just sits there for its 2.5 s
+    // costs a few frames instead of one every 16 ms. Read without m_uiMutex,
+    // like HasActiveUI.
+    enum : unsigned { kUiMenu = 1, kUiOsd = 2, kUiTrack = 4, kUiMute = 8, kUiNotice = 16 };
+    unsigned VisibleMask() const;
+    // Milliseconds until the next timed popup disappears; INFINITE if none is up.
+    DWORD MsUntilNextExpiry() const;
 
 private:
     UIManager() = default;
@@ -42,17 +63,41 @@ private:
     std::string m_lastTrackName;
     ULONGLONG m_trackShowTime = 0;
 
+    // Mute OSD state
+    bool m_lastMuteState = false;
+    std::string m_lastMuteAppName;
+    float m_lastMuteVol = 0.0f;
+    ULONGLONG m_muteOsdShowTime = 0;
+
+    // Quick-action notice state
+    std::string m_noticeText;
+    bool m_noticeIsError = false;
+    ULONGLONG m_noticeShowTime = 0;
+
     bool m_isCapturingModifier = false;
     bool m_isCapturingMenuKey = false;
     bool m_isCapturingInfoKey = false;
+    bool m_isCapturingSampleRateKey = false;
+    bool m_isCapturingSwapKey = false;
+    bool m_isCapturingSecondaryKey = false;
+
+    // Per-app binding capture state
+    bool m_isCapturingBindingKey = false;
+    std::string m_pendingBindingApp;
 
     std::mutex m_uiMutex;
 
     std::string m_previewFontPath;
     bool m_shouldReloadPreview = false;
+    bool m_fontsScanned = false;
 
     void RenderOSD();
+    void RenderMuteOSD();
+    void RenderNotice();
     void RenderMenu();
+    void RenderHdrTab();
+    void RenderSampleRateTab();
+    void RenderSwapTab();
     std::string GetKeyName(int vkCode);
 public:
     bool ShouldReloadPreview() { return m_shouldReloadPreview; }
