@@ -34,6 +34,7 @@ Built with C++20, DirectX 11, and Dear ImGui.
 - **Windows HDR Toggle**: `Win` + `H` + `Mute` toggles HDR, with an on-screen result. Uses Windows display APIs directly (no Game Bar required).
 - **Monitor HDR Effect**: `Mute` + `H` switches the LG 27GS85Q-B's HDR Effect picture mode over DDC/CI and restores the previous preset on the next press. The previous preset survives app restarts.
 - **Custom HDR Shortcuts**: The settings **HDR** tab provides independent key capture and Mute/Win/Ctrl/Shift/Left Alt modifiers, disable and reset controls. Changes apply immediately and persist in `config.json`.
+- **Start with Windows**: Built-in autostart toggle in the tray menu and **Settings -> Controls** using `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` (no admin privileges required, and immune to broken shell-namespace shortcuts). Also recovers its tray icon automatically on late taskbar startup or Explorer restarts.
 - **Crash Auto-Restart**: Runs robustly in the background, auto-restarting itself if any unhandled crash occurs.
 
 ---

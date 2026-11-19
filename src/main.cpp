@@ -12,9 +12,11 @@
 // dead — a dead hook means VK_VOLUME_MUTE reverts to the OS default and mutes
 // the entire system instead of toggling our media apps.
 static void RestartSelf() {
-    char szPath[MAX_PATH];
-    if (GetModuleFileNameA(NULL, szPath, MAX_PATH) > 0) {
-        ShellExecuteA(NULL, "open", szPath, NULL, NULL, SW_SHOW);
+    wchar_t szPath[1024];
+    const DWORD cap = (DWORD)(sizeof(szPath) / sizeof(szPath[0]));
+    const DWORD len = GetModuleFileNameW(NULL, szPath, cap);
+    if (len > 0 && len < cap) {
+        ShellExecuteW(NULL, L"open", szPath, NULL, NULL, SW_SHOW);
     }
 }
 

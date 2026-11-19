@@ -219,10 +219,13 @@ void UIManager::ShowTrackInfo(const std::string& trackName) {
 }
 
 void UIManager::ToggleMenu() {
+    bool opened = false;
     {
         std::lock_guard<std::mutex> lock(m_uiMutex);
         m_menuOpen = !m_menuOpen;
+        opened = m_menuOpen;
     }
+    if (opened) m_autostartDirty.store(true, std::memory_order_relaxed);
     OverlayWindow::Get().RequestRedraw();
 }
 
@@ -231,7 +234,13 @@ void UIManager::SetMenuOpen(bool open) {
         std::lock_guard<std::mutex> lock(m_uiMutex);
         m_menuOpen = open;
     }
+    if (open) m_autostartDirty.store(true, std::memory_order_relaxed);
     OverlayWindow::Get().RequestRedraw();
+}
+
+void UIManager::InvalidateAutostartCache() {
+    m_autostartDirty.store(true, std::memory_order_relaxed);
+    if (m_menuOpen) OverlayWindow::Get().RequestRedraw();
 }
 
 void UIManager::ShowMuteOSD(bool muted, const std::string& appName, float vol) {
@@ -976,6 +985,34 @@ void UIManager::RenderMenu() {
                 if (changed) {
                     g_Config.SaveDeferred();
                 }
+
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                if (m_autostartDirty.exchange(false, std::memory_order_relaxed)) {
+                    m_autostartState = Autostart::QueryState(&m_autostartOtherPath);
+                }
+
+                ImGui::Text("Windows Startup:");
+                bool startWithWindows = (m_autostartState == Autostart::State::EnabledCurrent);
+                if (ImGui::Checkbox("Start with Windows", &startWithWindows)) {
+                    if (Autostart::SetEnabled(startWithWindows)) {
+                        m_autostartState = Autostart::QueryState(&m_autostartOtherPath);
+                    }
+                }
+                if (m_autostartState == Autostart::State::EnabledOtherPath) {
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.75f, 0.2f, 1.0f));
+                    ImGui::TextWrapped("Autostart currently points to another copy: %s", m_autostartOtherPath.c_str());
+                    ImGui::PopStyleColor();
+                    if (ImGui::SmallButton("Switch autostart to this build")) {
+                        if (Autostart::SetEnabled(true)) {
+                            m_autostartState = Autostart::QueryState(&m_autostartOtherPath);
+                        }
+                    }
+                } else {
+                    ImGui::TextDisabled("Runs automatically at Windows sign-in via HKCU\\...\\Run (no admin required).");
+                }
                 
                 ImGui::EndTabItem();
             }
@@ -1273,9 +1310,12 @@ void UIManager::RenderMenu() {
 
                 if (ImGui::Button("Restart App to Apply Font Changes", ImVec2(-1, 40))) {
                     g_Config.Save(); // immediate: the process is about to go away
-                    char szPath[MAX_PATH];
-                    GetModuleFileNameA(NULL, szPath, MAX_PATH);
-                    ShellExecuteA(NULL, "open", szPath, NULL, NULL, SW_SHOW);
+                    wchar_t szPath[1024];
+                    const DWORD cap = (DWORD)(sizeof(szPath) / sizeof(szPath[0]));
+                    const DWORD len = GetModuleFileNameW(NULL, szPath, cap);
+                    if (len > 0 && len < cap) {
+                        ShellExecuteW(NULL, L"open", szPath, NULL, NULL, SW_SHOW);
+                    }
                     PostQuitMessage(0);
                 }
 

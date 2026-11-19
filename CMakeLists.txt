@@ -75,6 +75,7 @@ add_executable(SmartVolumeMixer WIN32
     src/QuickActions.cpp src/QuickActions.h
     src/InputHook.cpp src/InputHook.h src/MuteHdrHotkey.h src/HdrHotkey.h
     src/Config.cpp src/Config.h
+    src/Autostart.cpp src/Autostart.h
     src/UIManager.cpp src/UIManager.h
     src/PolicyConfig.h
     src/StrUtil.h
@@ -123,4 +124,10 @@ if(BUILD_TESTING)
     add_executable(MuteHdrHotkeyTests tests/MuteHdrHotkeyTests.cpp)
     target_include_directories(MuteHdrHotkeyTests PRIVATE src)
     add_test(NAME MuteHdrHotkeyTests COMMAND MuteHdrHotkeyTests)
+
+    add_executable(AutostartTests tests/AutostartTests.cpp src/Autostart.cpp)
+    target_include_directories(AutostartTests PRIVATE src)
+    target_compile_definitions(AutostartTests PRIVATE UNICODE _UNICODE)
+    target_link_libraries(AutostartTests PRIVATE advapi32)
+    add_test(NAME AutostartTests COMMAND AutostartTests)
 endif()

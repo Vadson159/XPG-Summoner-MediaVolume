@@ -7,6 +7,7 @@
 #include "resource.h"
 #include "InputHook.h"
 #include "Config.h"
+#include "Autostart.h"
 #include "QuickActions.h"
 #include "Perf.h"
 #ifdef SVM_PERF
@@ -208,16 +209,14 @@ bool OverlayWindow::Create() {
         if (!UIManager::Get().IsMenuOpen()) UIManager::Get().ReleaseFontScan();
     }
 
-    NOTIFYICONDATAW nid = {};
-    nid.cbSize = sizeof(nid);
-    nid.hWnd = m_hwnd;
-    nid.uID = 1;
-    nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-    nid.uCallbackMessage = WM_TRAYICON;
-    nid.hIcon = (HICON)LoadImage(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDI_APP_ICON), IMAGE_ICON, GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), LR_DEFAULTCOLOR);
+    // Re-add the tray icon if Explorer starts late at Windows logon or restarts
+    // later (e.g. during a GPU driver update).
+    m_msgTaskbarCreated = RegisterWindowMessageW(L"TaskbarCreated");
+    m_trayIcon = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_APP_ICON), IMAGE_ICON,
+                                  GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON),
+                                  LR_DEFAULTCOLOR);
     m_trayTip = L"Smart Volume Mixer";
-    wcscpy_s(nid.szTip, m_trayTip.c_str());
-    Shell_NotifyIconW(NIM_ADD, &nid);
+    AddTrayIcon();
 
     // Refreshes the tray tooltip's countdown, and doubles as the render loop's
     // backstop wake. (The keyboard-hook watchdog it used to drive now runs on
@@ -329,11 +328,18 @@ bool OverlayWindow::RecreateDevice() {
 void OverlayWindow::Destroy() {
     KillTimer(m_hwnd, IDT_TRAY_REFRESH);
 
-    NOTIFYICONDATAW nid = {};
-    nid.cbSize = sizeof(nid);
-    nid.hWnd = m_hwnd;
-    nid.uID = 1;
-    Shell_NotifyIconW(NIM_DELETE, &nid);
+    if (m_trayIconAdded) {
+        NOTIFYICONDATAW nid = {};
+        nid.cbSize = sizeof(nid);
+        nid.hWnd = m_hwnd;
+        nid.uID = 1;
+        Shell_NotifyIconW(NIM_DELETE, &nid);
+        m_trayIconAdded = false;
+    }
+    if (m_trayIcon) {
+        DestroyIcon(m_trayIcon);
+        m_trayIcon = nullptr;
+    }
 
     if (m_dx11BackendReady) {
         ImGui_ImplDX11_Shutdown();
@@ -345,6 +351,27 @@ void OverlayWindow::Destroy() {
     CleanupDeviceD3D();
     DestroyWindow(m_hwnd);
     UnregisterClassW(m_wc.lpszClassName, m_wc.hInstance);
+}
+
+bool OverlayWindow::AddTrayIcon() {
+    if (!m_hwnd) return false;
+    NOTIFYICONDATAW nid = {};
+    nid.cbSize = sizeof(nid);
+    nid.hWnd = m_hwnd;
+    nid.uID = 1;
+    nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+    nid.uCallbackMessage = WM_TRAYICON;
+    nid.hIcon = m_trayIcon;
+    wcsncpy_s(nid.szTip, m_trayTip.c_str(), _TRUNCATE);
+    // NIM_ADD returns FALSE both when the taskbar is not ready yet and when
+    // the icon already exists (e.g. a redundant TaskbarCreated broadcast);
+    // NIM_MODIFY distinguishes the two so we do not get stuck retrying.
+    if (Shell_NotifyIconW(NIM_ADD, &nid) != FALSE) {
+        m_trayIconAdded = true;
+    } else {
+        m_trayIconAdded = (Shell_NotifyIconW(NIM_MODIFY, &nid) != FALSE);
+    }
+    return m_trayIconAdded;
 }
 
 // A lowered sample rate is easy to forget about, so the tray tooltip carries the
@@ -369,6 +396,11 @@ void OverlayWindow::UpdateTrayTip() {
     if (tip == m_trayTip) return;
     m_trayTip = tip;
 
+    if (!m_trayIconAdded) {
+        AddTrayIcon();
+        return;
+    }
+
     NOTIFYICONDATAW nid = {};
     nid.cbSize = sizeof(nid);
     nid.hWnd = m_hwnd;
@@ -380,7 +412,9 @@ void OverlayWindow::UpdateTrayTip() {
 
 void OverlayWindow::SyncTrayTimer() {
     if (!m_hwnd) return;
-    const UINT want = QuickActions::Get().IsSampleRateLowered() ? kTrayFastMs : kTraySlowMs;
+    const UINT want = (!m_trayIconAdded || QuickActions::Get().IsSampleRateLowered())
+                          ? kTrayFastMs
+                          : kTraySlowMs;
     if (want == m_trayTimerMs) return;
     const bool first = (m_trayTimerMs == 0);
     m_trayTimerMs = want;
@@ -858,6 +892,13 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
     if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
         return true;
 
+    auto& self = OverlayWindow::Get();
+    if (self.m_msgTaskbarCreated != 0 && msg == self.m_msgTaskbarCreated) {
+        self.AddTrayIcon();
+        self.SyncTrayTimer();
+        return 0;
+    }
+
     if (msg == WM_TRAYICON) {
         if (lParam == WM_RBUTTONUP) {
             POINT pt;
@@ -876,8 +917,17 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
                 rateItem.assign(label.begin(), label.end());
             }
 
+            const Autostart::State autostartState = Autostart::QueryState();
+            const wchar_t* autostartLabel =
+                autostartState == Autostart::State::EnabledOtherPath
+                    ? L"Start with Windows (switch to this build)"
+                    : L"Start with Windows";
+            const UINT autostartFlags =
+                MF_STRING | (autostartState == Autostart::State::EnabledCurrent ? MF_CHECKED : MF_UNCHECKED);
+
             HMENU hMenu = CreatePopupMenu();
             AppendMenuW(hMenu, MF_STRING, 1, L"Settings");
+            AppendMenuW(hMenu, autostartFlags, 5, autostartLabel);
             AppendMenuW(hMenu, MF_SEPARATOR, 0, nullptr);
             AppendMenuW(hMenu, MF_STRING, 3, rateItem.c_str());
             AppendMenuW(hMenu, MF_STRING, 4, quick.IsConsoleMode() ? L"Display: back to PC" : L"Display: switch to console");
@@ -890,6 +940,9 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
                 UIManager::Get().SetMenuOpen(true);
             } else if (cmd == 2) {
                 PostQuitMessage(0);
+            } else if (cmd == 5) {
+                Autostart::SetEnabled(autostartState != Autostart::State::EnabledCurrent);
+                UIManager::Get().InvalidateAutostartCache();
             } else if (cmd == 3 || cmd == 4) {
                 // Hand the actual work to the MTA worker — the tray menu runs on
                 // the UI thread, which draws the OSD (invariant 8).
@@ -910,13 +963,14 @@ LRESULT WINAPI OverlayWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM
             return 0;
         case WM_TIMER:
             if (wParam == IDT_TRAY_REFRESH) {
-                OverlayWindow::Get().UpdateTrayTip();
-                OverlayWindow::Get().SyncTrayTimer();
+                if (!self.m_trayIconAdded) self.AddTrayIcon();
+                self.UpdateTrayTip();
+                self.SyncTrayTimer();
                 PERF_FLUSH();
             }
             return 0;
         case WM_DISPLAYCHANGE:
-            OverlayWindow::Get().OnDisplayChanged();
+            self.OnDisplayChanged();
             return 0;
         case WM_DESTROY:
             PostQuitMessage(0);

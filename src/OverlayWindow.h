@@ -40,6 +40,7 @@ private:
     OverlayWindow() = default;
     ~OverlayWindow() = default;
 
+    bool AddTrayIcon();
     void UpdateTrayTip();
     // Picks the tray timer's period for the current state (see kTrayFastMs /
     // kTraySlowMs) and refreshes the tooltip when that state flipped.
@@ -103,6 +104,9 @@ private:
     ULONGLONG m_lastFrameAt = 0;
     ULONGLONG m_idleCleanupAt = 0;     // GetTickCount64 deadline, 0 = none pending
     std::wstring m_trayTip;
+    HICON m_trayIcon = nullptr;
+    UINT m_msgTaskbarCreated = 0;      // RegisterWindowMessageW(L"TaskbarCreated")
+    bool m_trayIconAdded = false;
     UINT m_trayTimerMs = 0;            // current IDT_TRAY_REFRESH period, 0 = not set
 
     // D3D11

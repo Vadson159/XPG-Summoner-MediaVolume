@@ -1,10 +1,12 @@
 #pragma once
+#include <atomic>
 #include <string>
 #include <mutex>
 #include <windows.h>
 #include <imgui.h>
 #include <map>
 #include <vector>
+#include "Autostart.h"
 
 class UIManager {
 public:
@@ -39,6 +41,9 @@ public:
 
     bool IsMenuOpen() const { return m_menuOpen; }
     void SetMenuOpen(bool open);
+    // Marks the cached Windows autostart registry state stale so the next
+    // Settings menu draw re-reads HKCU\...\Run. Safe to call from any thread.
+    void InvalidateAutostartCache();
     bool HasActiveUI() const;
 
     // What is on screen right now, one bit per element. The render loop only
@@ -90,6 +95,12 @@ private:
     std::string m_previewFontPath;
     bool m_shouldReloadPreview = false;
     bool m_fontsScanned = false;
+
+    // Cached Windows autostart state (read lazily on the UI thread when the
+    // Controls tab renders, invalidated on menu open or tray-menu toggle).
+    std::atomic<bool> m_autostartDirty{true};
+    Autostart::State m_autostartState = Autostart::State::Disabled;
+    std::string m_autostartOtherPath;
 
     void RenderOSD();
     void RenderMuteOSD();
